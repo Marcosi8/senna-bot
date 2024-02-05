@@ -3,12 +3,12 @@ import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 
 global.owner = [
-  ['59172945992', 'FG98', true],
-  ['5491168352204']
+  ['558881647724', 'marcoskz_', true],
+  ['558881647724']
 ] //Numeros de owner 
 
 global.mods = [''] 
-global.prems = ['50489079501', '573143917092']
+global.prems = ['558881647724', '558881647724']
 global.APIs = { // API Prefix
   // name: 'https://website' 
   nrtm: 'https://fg-nrtm.ddns.net',
@@ -16,33 +16,33 @@ global.APIs = { // API Prefix
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
-  'https://api.fgmods.xyz': 'DRLg5kY7' //--- 100 de límite diario --- Regístrese en https://api.fgmods.xyz/
+  'https://api.fgmods.xyz': 'aa9HWoim' //--- 100 de límite diario --- Regístrese en https://api.fgmods.xyz/
 }
 
 // Sticker WM
-global.packname = 'Senna┃ᴮᴼᵀ' 
-global.author = '@fg98' 
+global.packname = 'Senna' 
+global.author = '@m' 
 
 //--info FG
 global.botName = 'Senna'
-global.fgig = 'https://www.instagram.com/fg98_ff' 
-global.fgsc = 'https://github.com/FG98F/dylux-fg' 
-global.fgyt = 'https://youtube.com/fg98f'
-global.fgpyp = 'https://paypal.me/fg98f'
+global.fgig = 'https://www.instagram.com/marcoskz_' 
+global.fgsc = 'https://github.com/Marcosi8' 
+global.fgyt = 'https://youtube.com'
+global.fgpyp = 'https://www.paypal.com/donate/?business=WUDZNJ573PAF6&no_recurring=0&item_name=Help+this+project+stay+active%21+%3A%29&currency_code=BRL'
 global.fglog = 'https://i.ibb.co/1zdz2j3/logo.jpgs' 
 
 //--- Grupos WA
-global.fgcanal = 'https://whatsapp.com/channel/0029VaCeuZd6mYPQiWqxXj1F'
-global.bgp = 'https://chat.whatsapp.com/BESBo5xjvIZE4YVvth6Yzr'
-global.bgp2 = 'https://chat.whatsapp.com/I7bvd8XCAOUHjgkHteqFC7'
-global.bgp3 = 'https://chat.whatsapp.com/F0JTTyZ3hsoL7OlU8TEpuH' //--GP NSFW
+global.fgcanal = 'https://chat.whatsapp.com/G7MP2jGbrq4Anl4ag81DtD'
+global.bgp = 'https://chat.whatsapp.com/G7MP2jGbrq4Anl4ag81DtD'
+global.bgp2 = 'https://chat.whatsapp.com/G7MP2jGbrq4Anl4ag81DtD'
+global.bgp3 = 'https://chat.whatsapp.com/G7MP2jGbrq4Anl4ag81DtD' //--GP NSFW
 
-global.wait = '⌛ _Cargando..._\n*▬▬▬▭*'
+global.wait = '⏲️ _Carregando..._\n*▬▬▬▭*'
 global.rwait = '⌛'
-global.dmoji = '🤭'
+global.dmoji = '🤠'
 global.done = '✅'
-global.error = '❌' 
-global.xmoji = '🔥' 
+global.error = '🚫' 
+global.xmoji = '🚀' 
 
 global.multiplier = 69 
 global.maxwarn = '2' // máxima advertencias
