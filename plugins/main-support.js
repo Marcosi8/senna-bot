@@ -25,7 +25,7 @@ https://chat.whatsapp.com/G7MP2jGbrq4Anl4ag81DtD
  https://wa.me/558881647724
 
 ▢ *Telegram*
-• https://t.me/fgawgp
+• https://t.me/Marcoszk
  ▢ *PayPal*
 • https://www.paypal.com/donate/?business=WUDZNJ573PAF6&no_recurring=0&item_name=Help+this+project+stay+active%21+%3A%29&currency_code=BRL
 ▢ *YouTube*
