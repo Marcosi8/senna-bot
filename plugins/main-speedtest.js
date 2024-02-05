@@ -11,7 +11,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
         o = e
     } finally {
         let { stdout, stderr } = o
-        if (stdout.trim()) conn.loadingMsg(m.chat, 'Cargando', `*≡ SPEEDTEST.NET*\n\n${stdout}`, ['↷', '↻', '⟳', '↷', '↻', '⟳'], m) //m.reply(`*≡ SPEEDTEST.NET*\n\n${stdout}`) 
+        if (stdout.trim()) conn.loadingMsg(m.chat, 'Carregando', `*≡ SPEEDTEST.NET*\n\n${stdout}`, ['↷', '↻', '⟳', '↷', '↻', '⟳'], m) //m.reply(`*≡ SPEEDTEST.NET*\n\n${stdout}`) 
         if (stderr.trim()) m.reply(stderr)
         m.react(done) 
     }
