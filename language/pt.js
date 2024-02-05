@@ -140,7 +140,7 @@ const translations = {
   disable: 'Desativado',
   toBot: 'Para este bot',
   toGp: 'Para este grupo',
-  gaytex: 'Quem quer estuprar esse gay?',
+  gaytex: 'Quem quer adotar essa gay?',
   result: 'Resultado',
   shipCd: 'Você poderá escolher outro parceiro em',
   shipp: 'Casal do dia',
