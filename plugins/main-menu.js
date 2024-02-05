@@ -5,38 +5,37 @@ import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 //import { plugins } from '../lib/plugins.js'
 let tags = {
-  'main': 'ACERCA DE',
+  'main': 'SOBRR',
   'bebot': 'SUB BOTS',
-  'game': 'JUEGOS',
+  'game': 'JOGOS',
   'econ': 'NIVEL & ECONOMIA',
   'rg': 'REGISTRO',
   'sticker': 'STICKER',
-  'img': 'IMAGEN',
+  'img': 'IMAGEM',
   'maker': 'MAKER',
   'prem': 'PREMIUM',
   'group': 'GRUPO',
-  'nable': 'EN/DISABLE OPCIONES', 
+  'nable': 'ATIVA/DESATIVA OPÇÕES', 
   'nime': 'ANIME',
-  'rnime': 'ANIME REACCION',
-  'dl': 'DESCARGAS',
-  'tools': 'TOOLS',
+  'rnime': 'ANIME REACT',
+  'dl': 'BAIXAR',
+  'tools': 'TOOLS/UTILITARIOS',
   'fun': 'FUN',
   'cmd': 'DATABASE',
   'nsfw': 'NSFW +18',
   'ansfw': 'NSFW ANIME', 
   'owner': 'OWNER', 
-  'advanced': 'AVANZADO',
+  'advanced': 'AVANÇADO',
 }
 const defaultMenu = {
   before: `
-◈ ━━━━━ *Senna  ┃ ᴮᴼᵀ* ━━━━━ ◈
+◈ ━━━━━ *Senna  ┃ ᴮᴼᵀ* ━━━━━
  
-👋🏻 Hola! *%name*
-👥 Usuarios : %totalreg
-🟢 Tiempo activo : %muptime
+👋🏻 Oi! *%name*
+👥 Usuários : %totalreg
+♻️ Tempo de atividade : %muptime
 %sbot
-▢ Descarga *FGWhatsApp*
-• https://fgmods.xyz
+▢
 ────────────
 %readmore
   ≡ *LISTA DE MENUS*
@@ -111,7 +110,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     let header = conn.menu.header || defaultMenu.header
     let body = conn.menu.body || defaultMenu.body
     let footer = conn.menu.footer || defaultMenu.footer
-    let after = conn.menu.after || (conn.user.jid == conn.user.jid ? '' : `⭐ Powered by FG98 https://wa.me/${conn.user.jid.split`@`[0]}`) + defaultMenu.after
+    let after = conn.menu.after || (conn.user.jid == conn.user.jid ? '' : `⭐ Powered by https://wa.me/${conn.user.jid.split`@`[0]}`) + defaultMenu.after
     let _text = [
       before,
       ...Object.keys(tags).map(tag => {
@@ -157,10 +156,10 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     ], m, rpl)*/
     conn.sendFile(m.chat, pp, 'menu.jpg', text.trim(), m, null, rcanal)
   
-    m.react('📚') 
+    m.react('🕺') 
     
   } catch (e) {
-    conn.reply(m.chat, '❎ Lo sentimos, el menú tiene un error', m)
+    conn.reply(m.chat, '❌️ Erro ao exibir o menu', m)
     throw e
   }
 }
