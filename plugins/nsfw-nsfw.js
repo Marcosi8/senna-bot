@@ -11,7 +11,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 let type = (command).toLowerCase()
 switch (type) {
 	
-case 'ass':
+case 'bunda':
 case 'culos':
     let as = await conn.getFile(global.API('fgmods', '/api/nsfw/ass', { }, 'apikey'))
     conn.sendFile(m.chat, as.data, 'img.jpg', `✅ ${mssg.random} *${command}*`, m)
