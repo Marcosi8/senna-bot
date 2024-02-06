@@ -10,7 +10,7 @@ return conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id
 return conn.sendMessage(m.chat, { delete: m.quoted.vM.key })
 }
 }
-handler.help = ['del']
+handler.help = ['apagar']
 handler.tags = ['group']
 handler.command = /^del(ete)?$/i
 handler.group = false
