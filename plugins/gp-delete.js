@@ -1,7 +1,7 @@
 
 let handler = async (m, { conn, usedPrefix, command }) => {
 	
-if (!m.quoted) throw `✳️ ${mssg.reply}`
+if (!m.quoted) throw `✳🧯 ${mssg.reply}`
 try {
 let delet = m.message.extendedTextMessage.contextInfo.participant
 let bang = m.message.extendedTextMessage.contextInfo.stanzaId
@@ -10,7 +10,7 @@ return conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id
 return conn.sendMessage(m.chat, { delete: m.quoted.vM.key })
 }
 }
-handler.help = ['delete']
+handler.help = ['del']
 handler.tags = ['group']
 handler.command = /^del(ete)?$/i
 handler.group = false
