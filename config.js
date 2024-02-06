@@ -20,8 +20,8 @@ global.APIKeys = { // APIKey Here
 }
 
 // Sticker WM
-global.packname = 'Vlad' 
-global.author = '@m' 
+global.packname = 'soyuz' 
+global.author = '@mr' 
 
 //--info FG
 global.botName = 'Vladivostok'
