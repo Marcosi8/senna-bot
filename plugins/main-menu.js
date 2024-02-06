@@ -29,7 +29,7 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-◈ ━━━━━ *Senna  ┃ ᴮᴼᵀ* ━━━━━
+◈ ━━━ *Vladivostok  ┃ ᴮᴼᵀ*
  
 👋🏻 Oi! *%name*
 👥 Usuários : %totalreg
