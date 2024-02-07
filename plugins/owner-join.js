@@ -28,13 +28,13 @@ let handler = async (m, { conn, text, usedPrefix, command, args, participants, i
  
  if (e.length) await conn.reply(res, `🤠 Olá camaradas
 
-@${owbot} é meu administrador.  fale com ele em caso de duvidas
+@${owbot} é meu administrador.  fale com ele em caso de duvidas.
 fui enviado por *${m.name}*`, m, {
     mentions: d
      }).then(async () => {
      await delay(7000)
      }).then( async () => {
-     await conn.reply(res, `vamos todos relaxar 🤭`, 0)
+     await conn.reply(res, `agora vamos todos relaxar, use /menu para ver os comandos.🌹`, 0)
      await conn.reply(global.owner[1]+'@s.whatsapp.net', `≡ *CONVITE AO GRUPO*\n\n@${m.sender.split('@')[0]} Foi convidado por *${conn.user.name}* ao grupo\n\n*${await conn.getName(res)}*\n\n*ID* : ${res}\n\n📌 Link : ${args[0]}\n\nE o bot sairá automáticamente depois de \n\n${msToDate(global.db.data.chats[res].expired - now)}`, null, {mentions: [m.sender]})
      })
      if (!e.length) await conn.reply(global.owner[1]+'@s.whatsapp.net', `≡ *CONVITE AO GRUPO*\n\n@${m.sender.split('@')[0]} Foi convidado por *${conn.user.name}* ao grupo\n\n*${await conn.getName(res)}*\n\n*ID* : ${res}\n\n📌 Link : ${args[0]}\n\nE o bot sairá automáticamente depois de\n\n ${msToDate(global.db.data.chats[res].expired - now)}`, null, {mentions: [m.sender]})
