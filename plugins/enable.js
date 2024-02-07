@@ -65,7 +65,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       global.opts['self'] = !isEnable
       break
     case 'antilink':
-    case 'antilinkwa':
+    case 'nolink':
     case 'antilinkwha':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
@@ -122,7 +122,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     case 'onlypv':
     case 'onlydm':
     case 'onlymd':
-    case 'solopv':
+    case 'sopv':
       isAll = true
       if (!isOwner) {
         global.dfail('owner', m, conn)
@@ -135,8 +135,8 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     case 'gponly':
     case 'onlygp':
     case 'grouponly':
-    case 'sologp':
-    case 'sologrupo':
+    case 'sogp':
+    case 'sogrupo':
       isAll = true
       if (!isOwner) {
         global.dfail('owner', m, conn)
@@ -149,26 +149,26 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     default:
       //if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, listMessage, { quoted: m })
       if (!/[01]/.test(command)) return m.reply(`
-≡ Lista de Opciones
+≡ Lista de Opções On/Off
 
 ┌─⊷ *ADMIN*
 ▢ captcha
 ▢ welcome
 ▢ antilink
 ▢ detect 
-▢ document
+▢ documento
 ▢ nsfw
 └───────────── 
 ┌─⊷ *USERS*
 ▢ autolevelup
-▢ chatbot 
+▢ autosimi 
 └─────────────
 ┌─⊷ *OWNER*
-▢ public
-▢ solopv
-▢ sologp
+▢ publico
+▢ sopv
+▢ sogp
 └─────────────
-*📌 Ejemplo :*
+*📌 Exemplo :*
 *${usedPrefix}on* welcome
 *${usedPrefix}off* welcome
 `)
