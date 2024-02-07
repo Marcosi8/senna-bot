@@ -525,7 +525,7 @@ export async function participantsUpdate({ id, participants, action }) {
                                 groupicon: ppgp,
                                 membercount: groupMetadata.participants.length,
                                 profile: pp,
-                                background: 'https://i.ibb.co/H22wh2K/Menu.png'
+                                background: 'https://i.ibb.co/8NxrFg8/IMG-20240207-WA0401.jpg'
                             }, 'apikey')
 
                             this.sendFile(id, action === 'add' ? wel : lea, 'pp.jpg', text, null, false, { mentions: [user] })
