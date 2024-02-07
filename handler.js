@@ -109,7 +109,7 @@ export async function handler(chatUpdate) {
                     autolevelup: false,
                     chatbot: false,
                     genero: 'Indeciso',
-                    language: 'es',
+                    language: 'pt',
                     prem: false,
                     premiumTime: 0,
                 }
@@ -134,7 +134,7 @@ export async function handler(chatUpdate) {
                 if (!('delete' in chat))
                     chat.delete = true
                 if (!('antiLink' in chat))
-                    chat.antiLink = false
+                    chat.antiLink = true
                 if (!('viewonce' in chat))
                     chat.viewonce = false
                 if (!('captcha' in chat))
@@ -155,7 +155,7 @@ export async function handler(chatUpdate) {
                     sPromote: '',
                     sDemote: '',
                     delete: true,
-                    antiLink: false,
+                    antiLink: true,
                     viewonce: false,
                     useDocument: true,
                     captcha: false,
@@ -516,7 +516,7 @@ export async function participantsUpdate({ id, participants, action }) {
                                 groupicon: ppgp,
                                 membercount: groupMetadata.participants.length,
                                 profile: pp,
-                                background: 'https://i.ibb.co/74Y8XpS/akali.jpg'
+                                background: 'https://i.ibb.co/3hmKcPH/IMG-20240207-WA0379.jpg'
                             }, 'apikey')
 
                             let lea = API('fgmods', '/api/goodbye2', {
