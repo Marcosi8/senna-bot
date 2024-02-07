@@ -3,7 +3,7 @@ import cheerio from 'cheerio';
 import fetch from 'node-fetch';
 let handler = async (m, { conn, text }) => {
 	
-if (!text) throw `✳️ ${mssg.notext}`;
+if (!text) throw `🤖 ${mssg.notext}`;
 m.react('💬')
 
 	try {
@@ -11,11 +11,11 @@ m.react('💬')
         let res = await gpt.json()
         await m.reply(res.result)
 	} catch {
-		m.reply(`❎ Error: intenta más tarde`);
+		m.reply(`❎ Error: tente novamente`);
 	}
 
 }
-handler.help = ['ai <text>']; 
+handler.help = ['gpt <text>']; 
 handler.tags = ['tools'];
 handler.command = ['ia', 'ai', 'chatgpt', 'openai', 'gpt'];
 
