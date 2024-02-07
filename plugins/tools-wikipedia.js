@@ -3,10 +3,10 @@ import cheerio from 'cheerio'
 
 
 let handler = async (m, { text }) => {
-	if (!text) throw `✳️ ${mssg.search('Wikipedia')}` 
+	if (!text) throw `📌 ${mssg.search('Wikipedia')}` 
 	
     try {
-	const link =  await axios.get(`https://es.wikipedia.org/wiki/${text}`)
+	const link =  await axios.get(`https://pt.wikipedia.org/wiki/${text}`)
 	const $ = cheerio.load(link.data)
 	let wik = $('#firstHeading').text().trim()
 	let resulw = $('#mw-content-text > div.mw-parser-output').find('p').text().trim()
