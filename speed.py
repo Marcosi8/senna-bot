@@ -1934,14 +1934,14 @@ def shell():
         if args.server and len(args.server) == 1:
             printer('📰 Retrieving information for the selected server...', quiet)
         else:
-            printer('🔎 Selecionando o melhor servidor baseado em ping...', quiet)
+            printer('🔎 Selecionando o melhor servidor baseado em ping... Vamos testar a velocidade de sua internet!', quiet)
         speedtest.get_best_server()
     elif args.mini:
         speedtest.get_best_server(speedtest.set_mini_server(args.mini))
 
     results = speedtest.results
 
-    printer('\n...................................................................................\n🏬 *Hosted By :* %(sponsor)s\n🌎 *Localização :* %(name)s [%(d)0.2f km] '
+    printer('\n...................................................................................\n🏬 *Hosted :* %(sponsor)s\n🌎 *Localização :* %(name)s [%(d)0.2f km] '
             '\n🟢 *Ping :* %(latency)s ms' % results.server, quiet)
 
     if args.download:
@@ -1960,7 +1960,7 @@ def shell():
 
     if args.upload:
         speedtest.upload()
-        printer('*🚀 UP:* %0.2f M%s/s' %
+        printer('*🚀 UPload:* %0.2f M%s/s' %
                 ((results.upload / 1000.0 / 1000.0) / args.units[1],
                  args.units[0]),
                 quiet)
@@ -1986,7 +1986,7 @@ def shell():
         printer(results.json())
 
     if args.share and not machine_format:
-        printer('▶︎Compartir resultado: %s' % results.share())
+        printer('▶︎Compartilhar resultado: %s' % results.share())
 
 
 def main():
