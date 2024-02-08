@@ -18,7 +18,7 @@ let handler = async (m, { conn }) => {
     }
 }
 
-handler.help = ['readvo']
+handler.help = ['revelar']
 handler.tags = ['tools']
 handler.command = ['readviewonce', 'read', 'ver', 'v'] 
 
