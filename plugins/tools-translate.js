@@ -8,7 +8,7 @@ let handler = async (m, { args, usedPrefix, command }) => {
 📌 *${mssg.example} :*
 
 *${usedPrefix + command}* <idioma> [texto]
-*${usedPrefix + command}* es Hello World
+*${usedPrefix + command}* pt Hello World
 
 ≡ *${mssg.tradList}:* 
 
@@ -31,8 +31,8 @@ https://cloud.google.com/translate/docs/languages
     } 
 
 }
-handler.help = ['trad <leng> <text>']
+handler.help = ['trad <idiom> <text>']
 handler.tags = ['tools']
-handler.command = ['translate', 'tl', 'trad', 'tr', 'traducir']
+handler.command = ['translate', 'trad', 'traduzir', 'tr', 'traducir']
 
 export default handler
