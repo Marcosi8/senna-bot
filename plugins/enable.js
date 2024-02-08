@@ -152,6 +152,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 ≡ Lista de Opções On/Off
 
 ┌─⊷ *ADMIN*
+▢ antidelete
 ▢ captcha
 ▢ welcome
 ▢ antilink
