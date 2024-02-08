@@ -35,7 +35,7 @@ const defaultMenu = {
 🧑🏻‍🦯 | *TOTAL DE USUÁRIOS :* %totalreg
 ♻️ | *TEMPO ATIVO :* %muptime
 %sbot
-[❗️] *ENGLISH:* _Use the command (/language) to translate the menu to your dialect._
+[❗️] *ENGLISH:* _Use the command (/language) to translate your dialect._
 Example: /language en 
 🎉
 ────────────
