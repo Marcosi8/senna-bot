@@ -29,19 +29,19 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-◈ ━━━━━ *Soyuzᴮᴼᵀ* ━━━━━
+━━━━━ *Soyuzᴮᴼᵀ* ━━━━━
  
-👋🏻 ᴏɪ! *%name*
-👥 ᴛᴏᴛᴀʟ ᴅᴇ ᴜꜱᴜᴀʀɪᴏꜱ : %totalreg
-♻️ ᴛᴇᴍᴘᴏ ᴅᴇ ᴀᴛɪᴠɪᴅᴀᴅᴇ : %muptime
+👋🏻| ᴏɪ! *%name*
+🧑🏻‍🦯| ᴛᴏᴛᴀʟ ᴅᴇ ᴜꜱᴜᴀʀɪᴏꜱ : %totalreg
+♻️| ᴛᴇᴍᴘᴏ ᴀᴛɪᴠᴏ : %muptime
 %sbot
 ▢
 ────────────
+  ≡ *ʟɪꜱᴛᴀ ᴅᴇ ᴍᴇɴᴜꜱ ⤵*
 %readmore
-  ≡ *ʟɪꜱᴛᴀ ᴅᴇ ᴍᴇɴᴜꜱ*
 
-Ⓟ = É ᴘʀᴇᴄɪꜱᴏ ᴘʀᴇᴍɪᴜᴍ
-ⓓ = É ᴘʀᴇᴄɪꜱᴏ ᴅɪᴀᴍᴀɴᴛᴇꜱ
+👑 = É ᴘʀᴇᴄɪꜱᴏ ᴘʀᴇᴍɪᴜᴍ
+💎 = É ᴘʀᴇᴄɪꜱᴏ ᴅɪᴀᴍᴀɴᴛᴇꜱ
 `.trimStart(),
   header: '┌─⊷ *%category*',
   body: '⤿ %cmd %isdiamond %isPremium',
@@ -118,8 +118,8 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
-                .replace(/%isdiamond/g, menu.diamond ? '(ⓓ)' : '')
-                .replace(/%isPremium/g, menu.premium ? '(Ⓟ)' : '')
+                .replace(/%isdiamond/g, menu.diamond ? '(💎)' : '')
+                .replace(/%isPremium/g, menu.premium ? '(👑)' : '')
                 .trim()
             }).join('\n')
           }),
@@ -156,7 +156,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     ], m, rpl)*/
     conn.sendFile(m.chat, pp, 'menu.jpg', text.trim(), m, null, rcanal)
   
-    m.react('🕺') 
+    m.react('💍') 
     
   } catch (e) {
     conn.reply(m.chat, '❌️ Erro ao exibir o menu', m)
