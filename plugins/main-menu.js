@@ -29,14 +29,14 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-━━━━━ *Soyuzᴮᴼᵀ* ━━━━━
+  ━━━━━ *Soyuzᴮᴼᵀ* ━━━━━
  
 👋🏻 | *Oi! :* *%name*
 🧑🏻‍🦯 | *TOTAL DE USUÁRIOS :* %totalreg
 ♻️ | *TEMPO ATIVO :* %muptime
 %sbot
-[❗️] *ENGLISH:* _Use the command (/tr + language) to translate the menu to your dialect._
-Example: /tr en 
+[❗️] *ENGLISH:* _Use the command (/language) to translate the menu to your dialect._
+Example: /language en 
 🎉
 ────────────
   ≡ *ʟɪꜱᴛᴀ ᴅᴇ ᴍᴇɴᴜꜱ ⤵*
@@ -48,7 +48,7 @@ Example: /tr en
   header: '┌─⊷ *%category*',
   body: '⤿ %cmd %isdiamond %isPremium',
   footer: '└───────────\n',
-  after: `ᴘᴏᴡᴇʀᴇᴅ ʙʏ: ᴍᴀʀᴄᴏsᴋᴢ_
+  after: `  *ᴘᴏᴡᴇʀᴇᴅ ʙʏ: ᴍᴀʀᴄᴏsᴋᴢ_*
 `,
 }
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
