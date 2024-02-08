@@ -31,20 +31,20 @@ const defaultMenu = {
   before: `
 ◈ ━━━━━ *Soyuzᴮᴼᵀ* ━━━━━
  
-👋🏻 Oi! *%name*
-👥 Usuários : %totalreg
-♻️ Tempo de atividade : %muptime
+👋🏻 ᴏɪ! *%name*
+👥 ᴛᴏᴛᴀʟ ᴅᴇ ᴜꜱᴜᴀʀɪᴏꜱ : %totalreg
+♻️ ᴛᴇᴍᴘᴏ ᴅᴇ ᴀᴛɪᴠɪᴅᴀᴅᴇ : %muptime
 %sbot
 ▢
 ────────────
 %readmore
-  ≡ *LISTA DE MENUS*
+  ≡ *ʟɪꜱᴛᴀ ᴅᴇ ᴍᴇɴᴜꜱ*
 
-Ⓟ = Premium
-ⓓ = Diamantes
+Ⓟ = É ᴘʀᴇᴄɪꜱᴏ ᴘʀᴇᴍɪᴜᴍ
+ⓓ = É ᴘʀᴇᴄɪꜱᴏ ᴅɪᴀᴍᴀɴᴛᴇꜱ
 `.trimStart(),
   header: '┌─⊷ *%category*',
-  body: '▢ %cmd %isdiamond %isPremium',
+  body: '⤿ %cmd %isdiamond %isPremium',
   footer: '└───────────\n',
   after: `
 `,
@@ -165,7 +165,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 }
 //handler.help = ['help']
 //handler.tags = ['main']
-handler.command = ['menu', 'help', 'menú'] 
+handler.command = ['menu', 'help', 'comandos'] 
 handler.register = false
 
 export default handler
