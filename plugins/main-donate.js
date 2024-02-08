@@ -15,7 +15,7 @@ conn.sendFile(m.chat, img, 'img.jpg', don, m, null, rpyp)
 //conn.sendPayment(m.chat, '2000', 'USD', don, m.sender, m)
 }
 
-handler.help = ['doar']
+handler.help = ['donate']
 handler.tags = ['main']
 handler.command = ['doar', 'donate', 'donar'] 
 
