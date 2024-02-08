@@ -12,7 +12,7 @@ let m2 = `
 ▢ bom dia
 └──────────────
 `
-    let pp = './src/fg_logo.jpg' 
+    let pp = './src/WhatsApp Video 2024-02-08 at 16.59.44.mp4' 
     /*conn.sendButton(m.chat, m2, mssg.ig, pp, [
       ['⏍ Info', `${usedPrefix}botinfo`],
       ['⌬ Grupos', `${usedPrefix}gpdylux`]
