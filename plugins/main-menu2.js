@@ -7,6 +7,9 @@ let m2 = `
 ▢ Bot 
 ▢ Fino señores
 ▢ Sad
+▢ boa noite
+▢ boa tarde
+▢ bom dia
 └──────────────
 `
     let pp = './src/fg_logo.jpg' 
