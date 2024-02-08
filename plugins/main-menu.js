@@ -31,11 +31,13 @@ const defaultMenu = {
   before: `
 ━━━━━ *Soyuzᴮᴼᵀ* ━━━━━
  
-👋🏻| ᴏɪ! *%name*
-🧑🏻‍🦯| ᴛᴏᴛᴀʟ ᴅᴇ ᴜꜱᴜᴀʀɪᴏꜱ : %totalreg
-♻️| ᴛᴇᴍᴘᴏ ᴀᴛɪᴠᴏ : %muptime
+👋🏻 | *Oi! :* *%name*
+🧑🏻‍🦯 | *TOTAL DE USUÁRIOS :* %totalreg
+♻️ | *TEMPO ATIVO :* %muptime
 %sbot
-▢
+[❗️] *ENGLISH:* _Use the command (/tr + language) to translate the menu to your dialect._
+Example: /tr en 
+🎉
 ────────────
   ≡ *ʟɪꜱᴛᴀ ᴅᴇ ᴍᴇɴᴜꜱ ⤵*
 %readmore
@@ -46,7 +48,7 @@ const defaultMenu = {
   header: '┌─⊷ *%category*',
   body: '⤿ %cmd %isdiamond %isPremium',
   footer: '└───────────\n',
-  after: `  ᴘᴏᴡᴇʀᴇᴅ ʙʏ: ᴍᴀʀᴄᴏsᴋᴢ_
+  after: `ᴘᴏᴡᴇʀᴇᴅ ʙʏ: ᴍᴀʀᴄᴏsᴋᴢ_
 `,
 }
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
