@@ -2,8 +2,8 @@
 let { downloadContentFromMessage } = (await import('@whiskeysockets/baileys'));
 
 let handler = async (m, { conn }) => {
-    if (!m.quoted) throw '🚫 Responde a uma mensagem de visualização única para revelar!'
-    if (m.quoted.mtype !== 'viewOnceMessageV2') throw '🤔 Não é uma mensagem de visualização única'
+    if (!m.quoted) throw '🚫 Responda a uma mensagem de visualização única para revelar!'
+    if (m.quoted.mtype !== 'viewOnceMessageV2') throw '🤔 Isso não é uma mensagem de visualização única'
     let msg = m.quoted.message
     let type = Object.keys(msg)[0]
     let media = await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : 'video')
