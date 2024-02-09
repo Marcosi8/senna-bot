@@ -5,12 +5,12 @@ import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 let limit = 320
 let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
   
-    if (!text) throw `🤔 ${mssg.example} *${usedPrefix + command}* Lil Peep hate my life`
+    if (!text) throw `🤔 Você quer que música? ${mssg.example} *${usedPrefix + command}* Queen, Don't Stop Me Now`
   let chat = global.db.data.chats[m.chat]
   let res = await yts(text)
   //let vid = res.all.find(video => video.seconds < 3600)
   let vid = res.videos[0]
-  if (!vid) throw `❗️ Vídeo/Audio nao encontrado`
+  if (!vid) throw `❗️ Vídeo/Audio não encontrado`
   let isVideo = /vid$/.test(command)
   m.react('🎧') 
   
