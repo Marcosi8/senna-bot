@@ -2,6 +2,9 @@
 const translations = {
     
     afktemx: 'Dude, do you want to leave a whole testament or what?',
+    msgoi: 'Hi!',
+    usermenu: 'USERS',
+    tativo: 'ACTIVE TIME',  
     afkdone: 'AFK Set',
     afkdel: 'Welcome back',
     afktime: 'Away since',
