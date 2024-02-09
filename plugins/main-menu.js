@@ -29,11 +29,11 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-  ━━━━━ *Soyuzᴮᴼᵀ* ━━━━━
+  *Soyuzᴮᴼᵀ* 
  
-👋🏻 | *Oi! :* *%name*
-🧑🏻‍🦯 | *TOTAL DE USUÁRIOS :* %totalreg
-♻️ | *TEMPO ATIVO :* %muptime
+👋🏻 | *Oi!:* %name
+🚀 | *USUÁRIOS:* %totalreg
+♻️ | *TEMPO ATIVO:* %muptime
 %sbot
 [❗️] *ENGLISH:* _Use the command (/language) to translate your dialect._
 Example: /language en 
@@ -42,7 +42,7 @@ Example: /language en
   ≡ *ʟɪꜱᴛᴀ ᴅᴇ ᴍᴇɴᴜꜱ ⤵*
 %readmore
 
-👑 = É ᴘʀᴇᴄɪꜱᴏ ᴘʀᴇᴍɪᴜᴍ
+🪙 = É ᴘʀᴇᴄɪꜱᴏ ᴘʀᴇᴍɪᴜᴍ
 💎 = É ᴘʀᴇᴄɪꜱᴏ ᴅɪᴀᴍᴀɴᴛᴇꜱ
 `.trimStart(),
   header: '┌─⊷ *%category*',
@@ -121,7 +121,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
                 .replace(/%isdiamond/g, menu.diamond ? '(💎)' : '')
-                .replace(/%isPremium/g, menu.premium ? '(👑)' : '')
+                .replace(/%isPremium/g, menu.premium ? '(🪙)' : '')
                 .trim()
             }).join('\n')
           }),
