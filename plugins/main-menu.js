@@ -32,7 +32,7 @@ const defaultMenu = {
   *Soyuzᴮᴼᵀ* 
  
 ┏│》 ✨️| *Oi!* %name 
-┃│》🚀 | *Usuàrios:* %totalreg 
+┃│》🚀 | *Usuários:* %totalreg 
 ┃│》♻️ | *Tempo Ativo:* %muptime 
 %sbot
 ┗│ [❗️] *ENGLISH:* _Use the command (/language) to translate your dialect._
