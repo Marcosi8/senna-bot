@@ -20,7 +20,7 @@ let handler = async (m, { conn, participants, groupMetadata }) => {
 • 📮 *Welcome:* ${welcome ? '✅' : '❎'}
 • ❕ *Detect:* ${detect ? '✅' : '❎'}
 • 🔞 *Nsfw:* ${nsfw ? '✅' : '❎'}
-• 🚨 *Anti Link Wha:* ${antiLink ? '✅' : '❎'}
+• 🚨 *Antilink:* ${antiLink ? '✅' : '❎'}
 • 🧬 *Captcha:* ${captcha ? '✅' : '❎'}
 • 📑 *Document:* ${useDocument ? '✅' : '❎'}
 
