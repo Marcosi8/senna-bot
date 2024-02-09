@@ -94,7 +94,7 @@ const connectionOptions = {
 	    version,
         printQRInTerminal: true,
         auth: state,
-        browser: ['soyuz-bot', 'Safari', '1.0.0'], 
+        browser: ['marcos-bot', 'Safari', '1.0.0'], 
 	      patchMessageBeforeSending: (message) => {
                 const requiresPatch = !!(
                     message.buttonsMessage 
