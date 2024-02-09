@@ -57,13 +57,13 @@ try {
 		m.react(done) 
 		
 		 } catch (error) {
-        m.reply(`❎ ${mssg.error}`)
+        m.reply(`🚫 ${mssg.error}`)
     }
 }
 
 }
 handler.help = ['play']
 handler.tags = ['dl']
-handler.command = ['play', 'musica']
+handler.command = ['play', 'musica', 'song']
 
 export default handler
