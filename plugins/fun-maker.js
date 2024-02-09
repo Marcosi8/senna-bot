@@ -37,7 +37,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
       conn.sendFile(m.chat, del, 'img.png', `✅ ${mssg.result}`, m)
       m.react(done)
       break 
-      case 'beautiful':
+      case 'lindo':
       let bea = global.API('fgmods', '/api/maker/beautiful', { url: pp }, 'apikey')
       conn.sendFile(m.chat, bea, 'img.png', `✅ ${mssg.result}`, m)
       m.react(done)
@@ -45,9 +45,9 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
     }
   }
-  handler.help = ['trash', 'rip', 'shit', 'spank', 'imgdel', 'beautiful']
+  handler.help = ['trash', 'rip', 'shit', 'spank', 'imgdel', 'lindo']
   handler.tags = ['fun']
-  handler.command = /^(trash|basura|rip|shit|spank|azotar|imgdel|beautiful)$/i
+  handler.command = /^(trash|basura|rip|shit|spank|azotar|imgdel|lindo)$/i
   
   export default handler
   
