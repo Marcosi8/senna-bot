@@ -244,7 +244,7 @@ const translations = {
   other: 'Outro',
   regIsOn: 'Você já está registrado\n\nDeseja se registrar novamente?\n\n 📌 Use este comando para remover seu registro',
   nameMax: 'O nome é muito longo',
-  oldReg: 'Uau, o vovô quer jogar com o bot',
+  oldReg: 'Uau, o vovô quer usar o bot, é tão fácil quanto jogar bingo!',
   numSn: 'Número de série',
   snVerify: 'Verifique seu número de série com o comando',
   snError: 'Número de série incorreto',
@@ -263,7 +263,7 @@ const translations = {
   groupH: 'Este comando só pode ser usado em grupos',
   privateH: 'Este comando só pode ser usado no *chat privado com o Bot*',
   adminH: 'Este comando é apenas para *administradores* do grupo',
-  botAdmin: 'Para usar este comando, devo ser *Administrador*!',
+  botAdmin: 'Para usar este comando, você deve tornar o bot *Administrador* do grupo!',
   unregH: 'Registre-se para usar esta função. Digite:\n\n*/reg*',
   ig: `▢ Siga-me no Instagram\n${fgig}`
 }
