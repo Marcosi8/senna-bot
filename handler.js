@@ -585,7 +585,7 @@ export async function deleteUpdate(message) {
         if (chat.delete)
             return
         await this.reply(msg.chat, `
-≡ Excluiu uma mensagem  
+≡ Você não pode excluir mensagens neste grupo.  
 ┌─⊷  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀 
 ▢ *Nome :* @${participant.split`@`[0]} 
 └─────────────
