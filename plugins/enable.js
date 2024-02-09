@@ -66,7 +66,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       break
     case 'antilink':
     case 'nolink':
-    case 'antilinkwha':
+    case 'linkoff':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
