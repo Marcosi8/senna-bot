@@ -10,7 +10,7 @@ let handler = async function (m, { conn, text, usedPrefix }) {
 }
 handler.help = ['setrules <text>']
 handler.tags = ['group']
-handler.command = ['setrules', 'addrules', 'addrule'] 
+handler.command = ['setrules', 'addregras', 'addrule'] 
 handler.group = true
 handler.admin = true
 
