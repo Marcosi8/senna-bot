@@ -31,9 +31,9 @@ const defaultMenu = {
   before: `
   *Soyuzᴮᴼᵀ* 
  
-┏│》 ✨️| *${mssg.msgoi}* %name 
-┃│》🚀 | *${mssg.usermenu}:* %totalreg 
-┃│》♻️ | *${mssg.tativo}:* %muptime 
+┏│》 ✨️| ${mssg.msgoi} %name 
+┃│》🚀 | ${mssg.usermenu}: %totalreg 
+┃│》♻️ | ${mssg.tativo}: %muptime 
 %sbot
 ┗│ [❗️] *ENGLISH:* _Use the command (/language) to translate your dialect._
 Example: /language en 
