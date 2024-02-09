@@ -17,26 +17,26 @@ let handler = async (m, { conn, participants, groupMetadata }) => {
 ▢ *🕵🏻‍♂️${mssg.admin}:* ${groupAdmins.length}
 
 ▢ *🪢 ${mssg.gpConf}:*
-• 📮 *Welcome:* ${welcome ? '✅' : '❎'}
-• ❕ *Detect:* ${detect ? '✅' : '❎'}
-• 🔞 *Nsfw:* ${nsfw ? '✅' : '❎'}
-• 🚨 *Antilink:* ${antiLink ? '✅' : '❎'}
-• 🧬 *Captcha:* ${captcha ? '✅' : '❎'}
-• 📑 *Document:* ${useDocument ? '✅' : '❎'}
+• 📮 *Welcome:* ${welcome ? '✅' : '🚫'}
+• ❕ *Detect:* ${detect ? '✅' : '🚫'}
+• 🔞 *Nsfw:* ${nsfw ? '✅' : '🚫'}
+• 🚨 *Antilink:* ${antiLink ? '✅' : '🚫'}
+• 🧬 *Captcha:* ${captcha ? '✅' : '🚫'}
+• 📑 *Document:* ${useDocument ? '✅' : '🚫'}
 
 *▢  📬 ${mssg.gpConfMsg}:*
 • *Welcome:* ${sWelcome}
 • *Bye:* ${sBye}
 
 ▢ *📌${mssg.desc}* :
-   • ${groupMetadata.desc?.toString() || 'desconocido'}
+   • ${groupMetadata.desc?.toString() || 'desconhecido'}
 `.trim()
     conn.sendFile(m.chat, pp, 'pp.jpg', text, m)
 }
 
 handler.help = ['infogp']
 handler.tags = ['group']
-handler.command = ['infogrupo', 'groupinfo', 'infogp'] 
+handler.command = ['infogrupo', 'groupinfo', 'infogp', 'sobregp'] 
 handler.group = true
 
 export default handler
