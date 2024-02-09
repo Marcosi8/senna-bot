@@ -14,10 +14,10 @@ export default handler
 
 
 let audioMsg = {
-  'fino senhores|fino|senhores': './src/mp3/fino.mp3',
+  'boa noite|noite|sono|cansado|dormir|vou dormir|quero dormir|boa noite pessoal|trabalhar|trabalho': 'https://g.top4top.io/m_2961taxle0.mp3',
   'bom dia|bom dia bot|bom dia pessoal|bomdia|bom dia gente|bom diaa|bundia|bom dia a todos': 'https://b.top4top.io/m_2961oeau70.mp3',
   'bot|robo|adm|o bot|esse bot': 'https://d.top4top.io/m_2961bgor02.mp3',
-  'fake|mentira|/fake|mentiroso|eu menti': 'https://f.top4top.io/m_2961e8ou64.mp3',
+  'verdade|mentira|tenho namorada|é mesmo|mentiroso|eu menti': 'https://f.top4top.io/m_2961e8ou64.mp3',
   'paulo|nidney|samuel|jao|alif': 'https://c.top4top.io/m_29613e80q1.mp3',
   '@558881647724': 'https://e.top4top.io/m_29619bg673.mp3'
 }
