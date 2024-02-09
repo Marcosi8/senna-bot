@@ -19,5 +19,5 @@ let audioMsg = {
   'bot|robo|adm|o bot|esse bot|eae': 'https://h.top4top.io/m_2961wuhjj1.mp3',
   'verdade|mentira|tenho namorada|é mesmo|mentiroso|eu menti': 'https://f.top4top.io/m_2961e8ou64.mp3',
   'paulo|nidney|samuel|jao|alif': 'https://c.top4top.io/m_29613e80q1.mp3',
-  '@558881647724|é sim|so': 'https://d.top4top.io/m_2961bgor02.mp3'
+  '@558881647724|é sim|so|sim': 'https://d.top4top.io/m_2961bgor02.mp3'
 }
