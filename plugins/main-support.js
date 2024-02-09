@@ -34,6 +34,6 @@ https://chat.whatsapp.com/G7MP2jGbrq4Anl4ag81DtD
 }
 handler.help = ['support']
 handler.tags = ['main']
-handler.command = ['grupos', 'groups', 'support'] 
+handler.command = ['grupos', 'suporte', 'support'] 
 
 export default handler
