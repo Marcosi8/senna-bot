@@ -5,21 +5,21 @@ import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 let limit = 320
 let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
   
-    if (!text) throw `✳️ ${mssg.example} *${usedPrefix + command}* Lil Peep hate my life`
+    if (!text) throw `🤔 ${mssg.example} *${usedPrefix + command}* Lil Peep hate my life`
   let chat = global.db.data.chats[m.chat]
   let res = await yts(text)
   //let vid = res.all.find(video => video.seconds < 3600)
   let vid = res.videos[0]
-  if (!vid) throw `✳️ Vídeo/Audio nao encontrado`
+  if (!vid) throw `❗️ Vídeo/Audio nao encontrado`
   let isVideo = /vid$/.test(command)
   m.react('🎧') 
   
   let play = `
-	≡ *FG MUSIC*
+	≡ *YT MUSIC*
 ┌──────────────
-▢ 📌 *${mssg.title}:* ${vid.title}
+▢ 📥 *${mssg.title}:* ${vid.title}
 ▢ 📆 *${mssg.aploud}:* ${vid.ago}
-▢ ⌚ *${mssg.duration}:* ${vid.timestamp}
+▢ ⏱️ *${mssg.duration}:* ${vid.timestamp}
 ▢ 👀 *${mssg.views}:* ${vid.views.toLocaleString()}
 └──────────────
 
@@ -35,9 +35,6 @@ try {
      await conn.loadingMsg(m.chat, '📥 BAIXANDO', ` ${isLimit ? `≡  *FG YTDL*\n\n▢ *⚖️${mssg.size}*: ${size}\n▢ *🎞️${mssg.quality}*: ${quality}\n\n▢ _${mssg.limitdl}_ *+${limit} MB*` : '✅ COMPLETO!' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
      
 	  if(!isLimit) conn.sendFile(m.chat, dl_url, title + '.mp' + (3 + /vid$/.test(command)), `
- ≡  *FG YTDL*
-  
-▢ *📌Título* : ${title}
 ▢ *🎞️Qualidade* : ${quality}
 ▢ *⚖️Peso* : ${size}
 `.trim(), m, false, { mimetype: isVideo ? '' : 'audio/mpeg', asDocument: chat.useDocument })
