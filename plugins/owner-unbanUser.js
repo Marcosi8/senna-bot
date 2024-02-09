@@ -13,7 +13,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 
     if(!text && !m.quoted) return m.reply(`✳️ ${mssg.noMention}`)
-    if(isNaN(number)) return m.reply(`✳️ El número que ingresaste no es válido`)
+    if(isNaN(number)) return m.reply(`🚫 Este número não é valido.`)
 
       try {
 		if(text) {
@@ -29,7 +29,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         let num = global.db.data.users[user]
         num.banned = false
         conn.reply(m.chat, `
-✅ DESBANEO
+✅ DESBANIDO!
 
 ───────────
 @${number} ${mssg.unBanUser}`, m, { mentions: [user] })
@@ -38,7 +38,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 }
 handler.help = ['unban @user']
 handler.tags = ['owner']
-handler.command = ['unban'] 
+handler.command = ['unban', 'unbanbot'] 
 handler.rowner = true
 
 export default handler
