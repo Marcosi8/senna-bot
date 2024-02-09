@@ -16,7 +16,7 @@ global.APIs = { // API Prefix
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
-  'https://api.fgmods.xyz': 'Uq89jxhQ' //--- 100 de límite diario --- Regístrese en https://api.fgmods.xyz/
+  'https://api.fgmods.xyz': 'lfm3PQI3' //--- 100 de límite diario --- Regístrese en https://api.fgmods.xyz/
 }
 
 // Sticker WM
@@ -38,7 +38,7 @@ global.bgp2 = 'https://chat.whatsapp.com/G7MP2jGbrq4Anl4ag81DtD'
 global.bgp3 = 'https://chat.whatsapp.com/G7MP2jGbrq4Anl4ag81DtD' //--GP NSFW
 
 global.wait = '⏲️ _Carregando..._\n*▬▬▬▭*'
-global.rwait = '⌛'
+global.rwait = '📥'
 global.dmoji = '🤠'
 global.done = '✅'
 global.error = '🚫' 
