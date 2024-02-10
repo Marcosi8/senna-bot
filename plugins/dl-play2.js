@@ -5,22 +5,22 @@ import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 let limit = 320
 let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
   
-    if (!text) throw `✳️ ${mssg.example} *${usedPrefix + command}* Lil Peep hate my life`
+    if (!text) throw `🤔 Você quer ouvir que música? ${mssg.example}: *${usedPrefix + command}* don't stop me now, queen`
   let chat = global.db.data.chats[m.chat]
   let res = await yts(text)
   //let vid = res.all.find(video => video.seconds < 3600)
   let vid = res.videos[0]
-  if (!vid) throw `✳️ Vídeo/Audio no encontrado`
+  if (!vid) throw `🚫 Vídeo/Audio não encontrado`
   let isVideo = /vid$/.test(command)
-  m.react('🎧') 
+  m.react('💿') 
   
   let play = `
-	≡ *FG MUSIC*
+	≡ *YT MUSIC*
 ┌──────────────
-▢ 📌 *${mssg.title}:* ${vid.title}
+▢ 🎧 *${mssg.title}:* ${vid.title}
 ▢ 📆 *${mssg.aploud}:* ${vid.ago}
-▢ ⌚ *${mssg.duration}:* ${vid.timestamp}
-▢ 👀 *${mssg.views}:* ${vid.views.toLocaleString()}
+▢ ⏱️ *${mssg.duration}:* ${vid.timestamp}
+▢ ♻️ *${mssg.views}:* ${vid.views.toLocaleString()}
 └──────────────
 
 _Enviando..._` 
@@ -32,14 +32,13 @@ try {
   let { title, dl_url, quality, size, sizeB } = yt
   let isLimit = limit * 1024 < sizeB 
 
-     await conn.loadingMsg(m.chat, '📥 Descargando', ` ${isLimit ? `≡  *FG YTDL*\n\n▢ *⚖️${mssg.size}*: ${size}\n▢ *🎞️${mssg.quality}*: ${quality}\n\n▢ _${mssg.limitdl}_ *+${limit} MB*` : '✅ Descarga Completada' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
+     await conn.loadingMsg(m.chat, '📥 Baixando', ` ${isLimit ? `≡  *YTDL*\n\n▢ *⚖️${mssg.size}*: ${size}\n▢ *🎞️${mssg.quality}*: ${quality}\n\n▢ _${mssg.limitdl}_ *+${limit} MB*` : '🎉 Download Completo!' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
      
 	  if(!isLimit) conn.sendFile(m.chat, dl_url, title + '.mp' + (3 + /vid$/.test(command)), `
- ≡  *FG YTDL*
+ ≡ 💿 *MP3*
   
-▢ *📌Título* : ${title}
-▢ *🎞️Calidad* : ${quality}
-▢ *⚖️Peso* : ${size}
+▢ *🎞️Qualidade* : ${quality}
+▢ *⚖️Tamanho* : ${size}
 `.trim(), m, false, { mimetype: isVideo ? '' : 'audio/mpeg', asDocument: chat.useDocument })
 		m.react(done) 
   } catch {
@@ -49,7 +48,7 @@ try {
   let { title, dl_url, quality, size, sizeB } = yt
   let isLimit = limit * 1024 < sizeB 
 
-     await conn.loadingMsg(m.chat, '📥 Descargando', ` ${isLimit ? `≡  *FG YTDL*\n\n▢ *⚖️${mssg.size}*: ${size}\n▢ *🎞️${mssg.quality}*: ${quality}\n\n▢ _${mssg.limitdl}_ *+${limit} MB*` : '✅ Descarga Completada' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
+     await conn.loadingMsg(m.chat, '📥 baixando', ` ${isLimit ? `≡  *YTDL*\n\n▢ *⚖️${mssg.size}*: ${size}\n▢ *🎞️${mssg.quality}*: ${quality}\n\n▢ _${mssg.limitdl}_ *+${limit} MB*` : '🎉 Download Completo!' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
 	  if(!isLimit) conn.sendFile(m.chat, dl_url, title + '.mp' + (3 + /2$/.test(command)), `
  ≡  *FG YTDL 2*
   
@@ -60,13 +59,13 @@ try {
 		m.react(done) 
 		
 		 } catch (error) {
-        m.reply(`❎ ${mssg.error}`)
+        m.reply(`🚫 ${mssg.error}`)
     }
 }
 
 }
 handler.help = ['play']
 handler.tags = ['dl']
-handler.command = ['play', 'playvid']
+handler.command = ['play', 'song', 'musica', 'música']
 
 export default handler
