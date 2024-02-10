@@ -12,8 +12,8 @@ let handler = async (m, { conn, text }) => {
 		var number = text
   }
 
-    if(!text && !m.quoted) return m.reply(`*❏ RESETEAR A USUARIO*\n\nEtiquete al usuario, escriba el número o responda al mensaje del usuario que desea REINICIAR`)
-    if(isNaN(number)) return m.reply(`❏ El número que ingresaste no es válido`)
+    if(!text && !m.quoted) return m.reply(`*❏ RESETEAR A USUARIO*\n\nMencione o usuário, escreva o número ou responda à mensagem do usuário que deseja REINICIAR`)
+    if(isNaN(number)) return m.reply(`❏ O número que você digitou não é válido`)
 
       try { 
 		if(text) {
@@ -27,13 +27,13 @@ let handler = async (m, { conn, text }) => {
   } finally {
     	let number = user.split('@')[0]
         delete global.global.db.data.users[user]
-        conn.reply(m.chat, `*❏ USUARIO REINICIADO*\n\n✅ Se reinició a @${number} de la *BASE DE DATOS*`, null, { mentions: [user] })
+        conn.reply(m.chat, `*❏ USUARIO REINICIADO*\n\n✅ Registro de @${number} foi apagado da *BASE DE DADOS*`, null, { mentions: [user] })
     }
     
 }
 handler.help = ['reset-user']
 handler.tags = ['owner']
-handler.command = ['reset-user', 'resetuser'] 
+handler.command = ['reset-user', 'resetuser', 'deluser'] 
 handler.rowner = true
 
 export default handler
