@@ -1,6 +1,6 @@
 
 import { translate } from '@vitalets/google-translate-api'
-const defaultLang = 'es'
+const defaultLang = 'pt'
 const tld = 'cn'
 
 let handler = async (m, { args, usedPrefix, command }) => {
@@ -31,8 +31,8 @@ https://cloud.google.com/translate/docs/languages
     } 
 
 }
-handler.help = ['trad <idiom> <text>']
+handler.help = ['trad <leng> <text>']
 handler.tags = ['tools']
-handler.command = ['translate', 'trad', 'traduzir', 'tr', 'traducir']
+handler.command = ['translate', 'tl', 'trad', 'tr', 'traduzir']
 
 export default handler
