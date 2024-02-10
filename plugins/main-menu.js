@@ -29,7 +29,7 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-  *Soyuzᴮᴼᵀ* *Hora:* _%time_
+  *Soyuzᴮᴼᵀ*
  
 ┏│》 ✨️| *Oi!* %name. *XP: %level*
 ┃│》🚀 | *Usuários:* %totalreg 
