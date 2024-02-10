@@ -39,7 +39,7 @@ try {
   
 ▢ *🎞️ Qualidade* : ${quality}
 ▢ *⚖️ Tamanho* : ${size}
-`.trim(), m, false, { mimetype: isVideo ? '' : 'audio/mpeg', asDocument: chat.useDocument })
+.trim(), m, false, { mimetype: isVideo ? '' : 'audio/mpeg', asDocument: chat.useDocument })
 		m.react(done) 
   } catch {
   try {
