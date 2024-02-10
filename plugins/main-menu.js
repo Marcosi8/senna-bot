@@ -29,9 +29,9 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-  *Soyuzᴮᴼᵀ* 
- %timezone
-┏│》 ✨️| *Oi!* %name. *XP:* %level
+  *Soyuzᴮᴼᵀ* *Hora:* _%time_
+ 
+┏│》 ✨️| *Oi!* %name. *XP: %level*
 ┃│》🚀 | *Usuários:* %totalreg 
 ┃│》♻️ | *Tempo Ativo:* %muptime 
 %sbot
