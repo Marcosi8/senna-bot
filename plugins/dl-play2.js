@@ -33,7 +33,7 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
         });
         stream.on('end', () => {
             let buffer = Buffer.concat(bufs);
-            conn.sendFile(m.chat, buffer, 'audio.opus', '', m, false, { mimetype: 'audio/opus' });
+            conn.sendMessage(m.chat, buffer, 'audio.opus', { quoted: m });
         });
     } catch (error) {
         m.reply(`🚫 ${mssg.error}`);
