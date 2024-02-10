@@ -31,7 +31,7 @@ const defaultMenu = {
   before: `
   *Soyuzᴮᴼᵀ* 
  
-┏│》 ✨️| *Oi!* %name 
+┏│》 ✨️| *Oi!* %name. XP: %level
 ┃│》🚀 | *Usuários:* %totalreg 
 ┃│》♻️ | *Tempo Ativo:* %muptime 
 %sbot
