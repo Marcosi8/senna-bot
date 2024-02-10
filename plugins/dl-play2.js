@@ -33,7 +33,7 @@ try {
 
      await conn.loadingMsg(m.chat, '📥 BAIXANDO', ` ${isLimit ? `≡  *FG YTDL*\n\n▢ *⚖️${mssg.size}*: ${size}\n▢ *🎞️${mssg.quality}*: ${quality}\n\n▢ _${mssg.limitdl}_ *+${limit} MB*` : '✅ COMPLETO!' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
      
-	conn.sendMessage(m.chat, {audio: dl_url, mimetype: 'audio/mp4'})
+	conn.sendMessage(m.chat, {audio: dl_url, title + '.mp' + (3 + /2$/.test(command)), mimetype: 'audio/mp4'})
 		m.react(done) 
   } catch {
   try {
