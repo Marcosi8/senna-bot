@@ -27,7 +27,16 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
 
     try {
         let stream = ytdl(vid.url, { filter: 'audioonly', quality: 'highestaudio' });
-        conn.sendFile(m.chat, stream, 'audio.opus', '', m, false, { mimetype: 'audio/opus' });
+        let bufs = [];
+        stream.on('data', (chunk) => {
+            bufs.push(chunk);
+            let progress = (Buffer.concat(bufs).length / stream.contentLength) * 100;
+            conn.sendButton(m.chat, `⏳ Carregando: ${progress.toFixed(2)}%`, '', 'Cancelar', `cancelar`, m);
+        });
+        stream.on('end', () => {
+            let buffer = Buffer.concat(bufs);
+            conn.sendFile(m.chat, buffer, 'audio.opus', '', m, false, { mimetype: 'audio/opus' });
+        });
     } catch (error) {
         m.reply(`🚫 ${mssg.error}`);
     }
