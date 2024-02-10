@@ -1,5 +1,7 @@
 import yts from 'yt-search';
 import ytdl from 'ytdl-core';
+import fs from 'fs';
+
 let limit = 320;
 
 let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
@@ -27,17 +29,21 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
 
     try {
         let stream = ytdl(vid.url, { filter: 'audioonly', quality: 'highestaudio' });
-        let bufs = [];
-        stream.on('data', (chunk) => {
-            bufs.push(chunk);
-            let progress = (Buffer.concat(bufs).length / stream.contentLength) * 100;
-            conn.sendButton(m.chat, `⏳ Carregando: ${progress.toFixed(2)}%`, '', 'Cancelar', `cancelar`, m);
+        let filename = 'audio.opus';
+        let filepath = `${__dirname}/${filename}`;
+        let writer = fs.createWriteStream(filepath);
+        stream.pipe(writer);
+
+        writer.on('finish', () => {
+            conn.sendFile(m.chat, filepath, filename, '', m);
         });
-        stream.on('end', () => {
-            let buffer = Buffer.concat(bufs);
-            conn.sendFile(m.chat, buffer, 'audio.opus', '', m, false, { mimetype: 'audio/opus' });
+
+        writer.on('error', (err) => {
+            console.error(err);
+            m.reply(`🚫 ${mssg.error}`);
         });
     } catch (error) {
+        console.error(error);
         m.reply(`🚫 ${mssg.error}`);
     }
 }
