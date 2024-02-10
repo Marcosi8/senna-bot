@@ -23,7 +23,7 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
 └──────────────
 
 _Enviando..._` 
-conn.sendFile(m.chat, vid.thumbnail, 'play', play, m, null, rcanal)
+conn.sendMessage(m.chat, vid.thumbnail, 'play', play)
   
   let q = isVideo ? '360p' : '128kbps' 
 try {
@@ -33,10 +33,10 @@ try {
 
      await conn.loadingMsg(m.chat, '📥 BAIXANDO', ` ${isLimit ? `≡  *FG YTDL*\n\n▢ *⚖️${mssg.size}*: ${size}\n▢ *🎞️${mssg.quality}*: ${quality}\n\n▢ _${mssg.limitdl}_ *+${limit} MB*` : '✅ COMPLETO!' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
      
-	  if(!isLimit) conn.sendFile(m.chat, dl_url, title + '.mp' + (3 + /vid$/.test(command)), `
+	  if(!isLimit) conn.sendMessage(m.chat, dl_url), `
 ▢ *🎞️Qualidade* : ${quality}
 ▢ *⚖️Peso* : ${size}
-`.trim(), m, false, { mimetype: isVideo ? '' : 'audio/mpeg', asDocument: chat.useDocument })
+`.trim(), m, false, { mimetype: isVideo ? '' : 'audio/mpeg' })
 		m.react(done) 
   } catch {
   try {
@@ -46,7 +46,7 @@ try {
   let isLimit = limit * 1024 < sizeB 
 
      await conn.loadingMsg(m.chat, '📥BAIXANDO', ` ${isLimit ? `≡  *FG YTDL*\n\n▢ *⚖️${mssg.size}*: ${size}\n▢ *🎞️${mssg.quality}*: ${quality}\n\n▢ _${mssg.limitdl}_ *+${limit} MB*` : '✅ COMPLETO!' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
-	  if(!isLimit) conn.sendFile(m.chat, dl_url, title + '.mp' + (3 + /2$/.test(command)), `
+	  if(!isLimit) conn.sendMessage(m.chat, dl_url), `
  ≡  *FG YTDL 2*
   
 *📌${mssg.title}* : ${title}
