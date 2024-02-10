@@ -27,8 +27,14 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
 
     try {
         let stream = ytdl(vid.url, { filter: 'audioonly', quality: 'highestaudio' });
-        await conn.loadingMsg(m.chat, '📥 BAIXANDO', '', ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m);
-        conn.sendFile(m.chat, stream, 'audio.opus', '', m, false, { mimetype: 'audio/opus' });
+        let bufs = [];
+        stream.on('data', (chunk) => {
+            bufs.push(chunk);
+        });
+        stream.on('end', () => {
+            let buffer = Buffer.concat(bufs);
+            conn.sendFile(m.chat, buffer, 'audio.opus', '', m, false, { mimetype: 'audio/opus' });
+        });
     } catch (error) {
         m.reply(`🚫 ${mssg.error}`);
     }
