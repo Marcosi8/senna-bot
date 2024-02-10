@@ -30,8 +30,8 @@ let tags = {
 const defaultMenu = {
   before: `
   *Soyuzᴮᴼᵀ* 
- 
-┏│》 ✨️| *Oi!* %name. XP: %level
+ %timezone
+┏│》 ✨️| *Oi!* %name. *XP:* %level
 ┃│》🚀 | *Usuários:* %totalreg 
 ┃│》♻️ | *Tempo Ativo:* %muptime 
 %sbot
@@ -167,7 +167,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 }
 //handler.help = ['help']
 //handler.tags = ['main']
-handler.command = ['menu', 'help', 'comandos'] 
+handler.command = ['menu', 'help', 'comandos', 'menus', 'lista'] 
 handler.register = false
 
 export default handler
