@@ -585,7 +585,7 @@ export async function deleteUpdate(message) {
         if (chat.delete)
             return
         await this.reply(msg.chat, `
-≡ *Você não pode excluir mensagens neste grupo.*
+≡ [❗️] *Você não pode excluir mensagens neste grupo.*
 
 ┌─⊷  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀 
 ▢ *Nome :* @${participant.split`@`[0]} 
@@ -593,7 +593,6 @@ export async function deleteUpdate(message) {
 
 Para desativar esta função, escreva 
 */off antidelete*
-*.enable delete*
 `.trim(), msg, {
             mentions: [participant]
         })
