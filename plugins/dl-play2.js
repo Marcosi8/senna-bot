@@ -1,6 +1,6 @@
 
 import yts from 'yt-search'
-import fg from 'ytdl-core'
+import fg from 'api-dylux'
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 let limit = 320
 let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
@@ -34,12 +34,12 @@ try {
 
      await conn.loadingMsg(m.chat, '📥 Baixando', ` ${isLimit ? `≡  *YT YTDL*\n\n▢ *⚖️${mssg.size}*: ${size}\n▢ *🎞️${mssg.quality}*: ${quality}\n\n▢ _${mssg.limitdl}_ *+${limit} MB*` : '✅ Download Completo }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
      
-	  if(!isLimit) conn.sendFile(m.chat, dl_url, title + '.opus' + (3 + /vid$/.test(command)), `
+	  if(!isLimit) conn.sendFile(m.chat, dl_url, title + '.mp' + (3 + /vid$/.test(command)), `
  ≡  💿 *MP3*
   
 ▢ *🎞️ Qualidade* : ${quality}
 ▢ *⚖️ Tamanho* : ${size}
-`.trim(), m, false, { mimetype: isVideo ? '' : 'audio/opus', asDocument: chat.useDocument })
+`.trim(), m, false, { mimetype: isVideo ? '' : 'audio/mpeg', asDocument: chat.useDocument })
 		m.react(done) 
   } catch {
   try {
