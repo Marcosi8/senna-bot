@@ -7,13 +7,19 @@ let messages = {
 };
 
 let handler = async function (m) {
+  let lowerCaseText = m.text.toLowerCase(); // Converter a mensagem recebida para minúsculas
+  let responded = false; // Variável para controlar se uma resposta foi enviada
+
+  // Verifica se a mensagem recebida corresponde a alguma das chaves no objeto de mensagens
   for (const key in messages) {
-    if (new RegExp(`^${key}$`, 'i').test(m.text)) {
+    if (lowerCaseText.includes(key)) { // Verifica se a chave está incluída na mensagem
       await this.sendText(m.chat, messages[key]); // Envia a mensagem correspondente
-      break;
+      responded = true; // Define responded como verdadeiro pois uma resposta foi enviada
+      break; // Sai do loop após encontrar uma correspondência
     }
   }
-  return true;
+
+  return responded; // Retorna true se uma resposta foi enviada, caso contrário retorna false
 }
 
 handler.all = handler; // Define o handler.all como a função handler definida acima
