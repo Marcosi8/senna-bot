@@ -6,15 +6,16 @@ import { xpRange } from '../lib/levelling.js'
 //import { plugins } from '../lib/plugins.js'
 let tags = {
   'main': 'SOBRE',
+  'prime': 'PRINCIPAIS',
   'bebot': 'SUB BOTS',
-  'game': 'JOGOS',
+  'group': 'GRUPO',
   'econ': 'NIVEL & ECONOMIA',
   'rg': 'REGISTRO',
   'sticker': 'STICKER',
   'img': 'IMAGEM',
   'maker': 'MAKER',
   'prem': 'PREMIUM',
-  'group': 'GRUPO',
+  'game': 'JOGOS',
   'nable': 'ATIVA/DESATIVA OPÇÕES', 
   'nime': 'ANIME',
   'rnime': 'ANIME REACT',
