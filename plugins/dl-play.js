@@ -31,7 +31,8 @@ const handler = async (m, {
     const views = result.views; // Salva o número de visualizações do primeiro resultado
 
     const doc = {
-        text: `🎶 *${title}*\n👤 Autor: ${author}\n📅 Upload em: ${uploadedAt}\n👀 Visualizações: ${views}\n🔗 ${selectedUrl}\n\n_Powered by marcoskz_`, // Mensagem com as informações e créditos
+        text: `💿 *${title}*
+        \n👤 *Autor:* ${author}\n📅 *Upload em:* ${uploadedAt}\n👀 *Visualizações:* ${views}\n🔗 ${selectedUrl}\n\n*_Powered by marcoskz_*`, // Mensagem com as informações e créditos
         thumbnail, // Thumbnail do vídeo
     };
 
