@@ -45,6 +45,7 @@
         "awesome-phonenumber": "^3.4.0",
         "axios": "^1.1.2",
         "acrcloud": "^1.4.0",
+        "googleapis": "^xx.xx.xx",
         "form-data": "^4.0.0",
         "cfonts": "^3.1.1",
         "chalk": "^5.1.0",
