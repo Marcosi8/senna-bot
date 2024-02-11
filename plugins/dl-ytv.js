@@ -93,7 +93,7 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
 }};
 handler.help = ['dlvideo'];
 handler.command = /^(dlvideo|dlmp4|ytvideo|yt(v|mp4)?)$/i;
-handler. tags = ['downloader'];
+handler. tags = ['prime'];
 export default handler;
 
 function bytesToSize(bytes) {
