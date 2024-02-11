@@ -1,23 +1,25 @@
-
-let handler = m => m
-handler.all = async function (m) {
-  for (const message in audioMsg) {
+let handler = async function (m) {
+  for (const message in textMsg) {
     if (new RegExp(`^${message}$`, 'i').test(m.text)) {
-      this.sendFile(m.chat, audioMsg[message], 'audio.mp3', null, m, true)
-      break
+      const responses = textMsg[message];
+      const randomIndex = Math.floor(Math.random() * responses.length);
+      this.sendText(m.chat, responses[randomIndex]);
+      break;
     }
   }
-  return !0
- }
+  return true;
+}
 
-export default handler
+handler.all = handler;
 
+export default handler;
 
-let audioMsg = {
-  'boa noite|noite|sono|cansado|dormir|trabalhar|trabalho': 'https://g.top4top.io/m_2961taxle0.mp3',
-  'bom dia|bom dia bot|bom dia pessoal|bomdia|bom dia gente|bom diaa|bundia|bom dia a todos': 'https://f.top4top.io/m_2961uuv7l0.mp3',
-  'robo|o bot|eae': 'https://c.top4top.io/m_29613e80q1.mp3',
-  'verdade|mentira|tenho namorada|é mesmo|mentiroso|eu menti|sim': 'https://f.top4top.io/m_2961e8ou64.mp3',
-  'paulo|nidney|samuel|jao|alif': 'https://c.top4top.io/m_29613e80q1.mp3',
-  '@558881647724': 'https://d.top4top.io/m_2961bgor02.mp3'
+let textMsg = {
+  'olá': ['Olá! Como posso ajudá-lo?', 'E aí, tudo bem? Como posso ser útil?'],
+  'como vai?': ['Estou bem, obrigado por perguntar. E você?', 'Ótimo! E você, como está?'],
+  'qual é o seu nome?': ['Meu nome é ChatGPT. Em que posso ajudar?', 'Eu sou o ChatGPT. Como posso ser útil para você?'],
+  'o que você gosta de fazer?': ['Adoro conversar com pessoas inteligentes como você!', 'Eu gosto de ajudar as pessoas a encontrar respostas para suas perguntas.'],
+  'você é um robô?': ['Sim, sou um assistente virtual criado para ajudar com várias tarefas.', 'Sou um bot criado para auxiliar em diferentes tipos de interações.'],
+  'você tem hobbies?': ['Meu hobby favorito é aprender coisas novas todos os dias!', 'Adoro ler e aprender sobre uma ampla variedade de tópicos.'],
+  // Adicione mais respostas aqui conforme necessário
 }
