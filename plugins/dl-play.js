@@ -15,12 +15,12 @@ const handler = async (m, {
     args,
     usedPrefix
 }) => {
-    if (!text) throw `*_🤔 diga o nome da música_* \n*_Exemplo: ${usedPrefix + command} To Serve Russia_*`;
+    if (!text) throw `🤔 Diga o nome da música.\n🎵 Exemplo: ${usedPrefix + command} To Serve Russia`;
     conn.GURUPLAY = conn.GURUPLAY ? conn.GURUPLAY : {};
     await conn.reply(m.chat, wait, m);
     const result = await searchAndDownloadMusic(text);
     if (!result.allLinks || !result.allLinks.length) {
-        return await conn.reply(m.chat, "Sorry, no video results were found for this search.", m);
+        return await conn.reply(m.chat, "Desculpe, nenhum resultado de vídeo encontrado para esta pesquisa.", m);
     }
 
     const selectedUrl = result.allLinks[0].url; // Seleciona o URL do primeiro resultado
@@ -31,8 +31,7 @@ const handler = async (m, {
     const views = result.views; // Salva o número de visualizações do primeiro resultado
 
     const doc = {
-        text: `Powered by: marcoskz
-        _*💿 TÍTULO*_${title}\n📥 _*Postado por:*_ ${author}\n_*Postado em:_ ${uploadedAt}\n_*Views:*_ ${views}\n${selectedUrl}`, // Mensagem com as informações
+        text: `🎶 *${title}*\n👤 Autor: ${author}\n📅 Upload em: ${uploadedAt}\n👀 Visualizações: ${views}\n🔗 ${selectedUrl}\n\n_Powered by marcoskz_`, // Mensagem com as informações e créditos
         thumbnail, // Thumbnail do vídeo
     };
 
@@ -76,7 +75,7 @@ export default handler;
 async function searchAndDownloadMusic(query) {
     try {
         const { videos } = await yts(query);
-        if (!videos.length) return "Sorry, no video results were found for this search.";
+        if (!videos.length) return "Desculpe, nenhum resultado de vídeo encontrado para esta pesquisa.";
 
         const allLinks = videos.map(video => ({
             title: video.title,
@@ -97,7 +96,7 @@ async function searchAndDownloadMusic(query) {
 
         return jsonData;
     } catch (error) {
-        return "Error: " + error.message;
+        return "Erro: " + error.message;
     }
 }
 
@@ -110,4 +109,4 @@ function generateRandomName() {
     const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
     
     return randomAdjective + "-" + randomNoun;
-                }
+}
