@@ -1,5 +1,5 @@
 let active = true; // Inicialmente ativado
-
+//valeu chatGPT!!
 const responses = {
     "oi": "Olá!",
     "marcos": "oi lind",
