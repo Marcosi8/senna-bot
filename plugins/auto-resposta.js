@@ -15,32 +15,21 @@ const responses = {
     // Adicione mais palavras e respostas conforme desejado
 };
 
-const handler = async (m, { conn, args }) => {
-    if (args[0] === 'on') {
-        await conn.reply(m.chat, 'Respostas automáticas ativadas!', m);
-    } else if (args[0] === 'off') {
-        await conn.reply(m.chat, 'Respostas automáticas desativadas!', m);
-    }
-};
-
-handler.command = ["resposta"];
-handler.tags = ["prime"];
-
-export default handler;
-
-async function start(client) {
-    client.onMessage(async (message) => {
-        const text = message.body.toLowerCase();
-        const response = responses[text];
-        if (response) {
-            if (Array.isArray(response)) {
-                const randomResponse = response[Math.floor(Math.random() * response.length)];
-                await client.sendText(message.from, randomResponse);
-            } else {
-                await client.sendText(message.from, response);
-            }
+async function handleMessage(client, message) {
+    const text = message.body.toLowerCase();
+    const response = responses[text];
+    if (response) {
+        if (Array.isArray(response)) {
+            const randomResponse = response[Math.floor(Math.random() * response.length)];
+            await client.sendText(message.from, randomResponse);
+        } else {
+            await client.sendText(message.from, response);
         }
-    });
+    }
 }
 
-export const run = start;
+export const run = (client) => {
+    client.onMessage(async (message) => {
+        await handleMessage(client, message);
+    });
+};
