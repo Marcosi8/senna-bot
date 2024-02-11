@@ -107,9 +107,9 @@ handler.before = async (m, {
     }
 };
 
-handler.help = ["play"];
-handler.tags = ["downloader"];
-handler.command = /^(play)$/i;
+handler.help = ["musica"];
+handler.tags = ["prime"];
+handler.command = /^(song)$/i;
 handler.limit = false;
 export default handler;
 
