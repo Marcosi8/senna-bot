@@ -1,9 +1,34 @@
+const textToSpeech = require('@google-cloud/text-to-speech');
+const fs = require('fs');
+
+// Configuração do cliente Text-to-Speech da Google
+const client = new textToSpeech.TextToSpeechClient({
+  keyFilename: 'caminho/para/suas/credenciais.json' // Substitua pelo caminho do seu arquivo JSON de credenciais
+});
+
 let handler = async function (m) {
   for (const message in textMsg) {
     if (new RegExp(`^${message}$`, 'i').test(m.text)) {
       const responses = textMsg[message];
       const randomIndex = Math.floor(Math.random() * responses.length);
-      this.sendText(m.chat, responses[randomIndex]);
+      const text = responses[randomIndex];
+
+      // Configuração da solicitação de síntese de voz
+      const request = {
+        input: { text: text },
+        voice: { languageCode: 'pt-BR', ssmlGender: 'NEUTRAL' },
+        audioConfig: { audioEncoding: 'MP3' },
+      };
+
+      // Solicitação de síntese de voz
+      const [response] = await client.synthesizeSpeech(request);
+      // Escreve o áudio em um arquivo temporário
+      const outputFile = `audio_${Date.now()}.mp3`;
+      fs.writeFileSync(outputFile, response.audioContent, 'binary');
+      // Envio do arquivo de áudio
+      this.sendFile(m.chat, outputFile, null, null, m);
+      // Exclui o arquivo temporário após o envio
+      fs.unlinkSync(outputFile);
       break;
     }
   }
