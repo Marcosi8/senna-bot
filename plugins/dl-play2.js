@@ -65,7 +65,7 @@ try {
 }
 
 }
-handler.help = ['play mp3']
+handler.help = ['playmp3']
 handler.tags = ['prime', 'dl']
 handler.command = ['play', 'song2', 'mp3', 'playmp3']
 
