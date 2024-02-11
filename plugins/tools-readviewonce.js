@@ -18,8 +18,8 @@ let handler = async (m, { conn }) => {
     }
 }
 
-handler.help = ['revelar']
-handler.tags = ['tools']
-handler.command = ['revelar', 'read', 'ver', 'v'] 
+handler.help = ['verfoto']
+handler.tags = ['tools', 'prime']
+handler.command = ['verfoto', 'read', 'ver', 'v'] 
 
 export default handler
