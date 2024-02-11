@@ -19,19 +19,19 @@ if (code !== 0) throw msg
 let { title, artists, album, genres, release_date } = res.metadata.music[0]
 let txt = `
 𝚁𝙴𝚂𝚄𝙻𝚃
-• 📌 *TITULO*: ${title}
+• 📌 *TÍTULO:* ${title}
 
-• 👨‍🎤 *_Artista:_* ${artists !== undefined ? artists.map(v => v.name).join(', ') : 'NOT FOUND'}
-• 💾 *_Álbum:_* ${album.name || 'NOT FOUND'}
-• 🌐 *_Genero:_* ${genres !== undefined ? genres.map(v => v.name).join(', ') : 'NOT FOUND'}
-• 📆 *RELEASE DATE:* ${release_date || 'NOT FOUND'}
+• 👨‍🎤 *_ARTISTA:_* ${artists !== undefined ? artists.map(v => v.name).join(', ') : 'NOT FOUND'}
+• 💾 *_ÁLBUM:_* ${album.name || 'NOT FOUND'}
+• 🌐 *_GÊNERO:_* ${genres !== undefined ? genres.map(v => v.name).join(', ') : 'NOT FOUND'}
+• 📆 *DATA DE UPLOAD:* ${release_date || 'NOT FOUND'}
 `.trim()
 fs.unlinkSync(`./tmp/${m.sender}.${ext}`)
 m.reply(txt)
-} else throw '*Responda o áudio ou vídeo para descobrir a música!*'
+} else throw '*😉 Responda o áudio e vou descobrir a música para você!*'
 }
 
 handler.help = ['shazam']
-handler.tags = ['tools']
-handler.command = /^quemusica|shazam|sabermusica|whatmusic|find$/i
+handler.tags = ['tools', 'prime']
+handler.command = /^quemusica|shazam|whatmusic|find$/i
 export default handler
