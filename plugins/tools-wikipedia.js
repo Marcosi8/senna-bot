@@ -18,7 +18,7 @@ let handler = async (m, { text }) => {
 }
 }
 handler.help = ['wikipedia']
-handler.tags = ['tools']
+handler.tags = ['tools', 'prime']
 handler.command = ['wiki','wikipedia'] 
 
 
