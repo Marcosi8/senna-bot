@@ -34,7 +34,7 @@ const handler = async (m, { conn, args }) => {
 };
 
 handler.command = ["resposta"];
-handler.tags = ["message"];
+handler.tags = ["prime"];
 
 export default handler;
 
