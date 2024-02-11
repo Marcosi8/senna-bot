@@ -1,5 +1,5 @@
-const textToSpeech = require('@google-cloud/text-to-speech');
-const fs = require('fs');
+const textToSpeech = import('@google-cloud/text-to-speech');
+const fs = import('fs');
 
 // Chave de API para autenticação na API Text-to-Speech da Google
 const API_KEY = 'AIzaSyDo_JvDc3zfhUAdk3xkMlI0b-Gw7J9OGyM';
