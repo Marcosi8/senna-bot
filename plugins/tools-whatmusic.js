@@ -21,9 +21,9 @@ let txt = `
 𝚁𝙴𝚂𝚄𝙻𝚃
 • 📌 *TITULO*: ${title}
 
-• 👨‍🎤 _Artista:_ ${artists !== undefined ? artists.map(v => v.name).join(', ') : 'NOT FOUND'}
-• 💾 <Álbum:_ ${album.name || 'NOT FOUND'}
-• 🌐 _Genero:_ ${genres !== undefined ? genres.map(v => v.name).join(', ') : 'NOT FOUND'}
+• 👨‍🎤 *_Artista:_* ${artists !== undefined ? artists.map(v => v.name).join(', ') : 'NOT FOUND'}
+• 💾 *_Álbum:_* ${album.name || 'NOT FOUND'}
+• 🌐 *_Genero:_* ${genres !== undefined ? genres.map(v => v.name).join(', ') : 'NOT FOUND'}
 • 📆 *RELEASE DATE:* ${release_date || 'NOT FOUND'}
 `.trim()
 fs.unlinkSync(`./tmp/${m.sender}.${ext}`)
