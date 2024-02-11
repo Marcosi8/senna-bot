@@ -21,12 +21,12 @@ let tags = {
   'rnime': 'ANIME REACT 👮‍♀️',
   'dl': 'BAIXAR 📥',
   'tools': 'TOOLS/UTILITARIOS ⚒️',
-  'fun': 'FUN',
-  'cmd': 'DATABASE',
-  'nsfw': 'NSFW +18',
-  'ansfw': 'NSFW ANIME', 
-  'owner': 'OWNER', 
-  'advanced': 'AVANÇADO',
+  'fun': 'FUN 🤡',
+  'cmd': 'DATABASE 💾',
+  'nsfw': 'NSFW +18 🔞',
+  'ansfw': 'NSFW ANIME 🔞', 
+  'owner': 'OWNER 👑', 
+  'advanced': 'AVANÇADO 💻',
 }
 const defaultMenu = {
   before: `
