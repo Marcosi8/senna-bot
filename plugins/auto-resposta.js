@@ -18,6 +18,12 @@ const responses = {
 };
 
 const handler = async (m, { conn, args }) => {
+    const ownerNumber = '61488873561'; // Substitua pelo número do dono do bot
+
+    if (m.sender !== ownerNumber) {
+        return await conn.reply(m.chat, 'Este comando é restrito ao dono do bot.', m);
+    }
+
     if (args[0] === 'on') {
         active = true;
         await conn.reply(m.chat, 'Respostas automáticas ativadas!', m);
@@ -32,11 +38,9 @@ handler.tags = ["prime"];
 
 export default handler;
 
-create().then((client) => start(client));
-
 async function start(client) {
     client.onMessage(async (message) => {
-        if (!active) return; // Se não estiver ativo, não responde
+        if (!active || message.sender !== ownerNumber) return; // Se não estiver ativo ou não for o dono, não responde
         const text = message.body.toLowerCase();
         const response = responses[text];
         if (response) {
@@ -49,3 +53,5 @@ async function start(client) {
         }
     });
 }
+
+export const run = start;
