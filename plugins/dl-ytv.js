@@ -91,7 +91,8 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
     }
   }
 }};
-handler.command = /^(fgmp4|dlmp4|getvid|yt(v|mp4)?)$/i;
+handler.help = ['dlvideo'];
+handler.command = /^(dlvideo|dlmp4|ytvideo|yt(v|mp4)?)$/i;
 handler. tags = ['downloader'];
 export default handler;
 
