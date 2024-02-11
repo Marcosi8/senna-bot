@@ -16,15 +16,15 @@ const handler = async (m, {
     args,
     usedPrefix
 }) => {
-    if (!text) throw `*_give a text to search_* \n*_Example: ${usedPrefix + command} A Subz gumbad waly naat Ahmed Raza Qadri_*`;
+    if (!text) throw `*_🤔 diga o nome da música_* \n*_Exemplo: ${usedPrefix + command} To Serve Russia_*`;
     conn.GURUPLAY = conn.GURUPLAY ? conn.GURUPLAY : {};
     await conn.reply(m.chat, wait, m);
     const result = await searchAndDownloadMusic(text);
-    const infoText = `🎧🎼『 *ᴘʀɪɴᴄᴇ ᴘʟᴀʏᴇʀ* 』🎼🎧
+    const infoText = `🎧『 *ᴘʟᴀʏᴇʀ* 』🎧
 
     
    
-*🎶ᖇEᑭᒪY ᗯITᕼ ᑎᑌᗰᗷEᖇ TO GET YOᑌᖇ ᗩᑌᗪIO🎵*`;
+*❗️ RESPONDA COM O NÚMERO DA MÚSICA DESEJADA! 🎵*`;
 
 const orderedLinks = result.allLinks.map((link, index) => {
     const sectionNumber = index + 1;
@@ -103,13 +103,13 @@ handler.before = async (m, {
 
         
     } else {
-        m.reply("Invalid sequence number. Please select the appropriate number from the list above.\nBetween 1 to " + result.allLinks.length);
+        m.reply("Número inválido. Selecione o número apropriado usando a lista acima.\nEntre 1 e" + result.allLinks.length);
     }
 };
 
-handler.help = ["musica"];
+handler.help = ["música"];
 handler.tags = ["prime"];
-handler.command = /^(song)$/i;
+handler.command = /^(musica)$/i;
 handler.limit = false;
 export default handler;
 
