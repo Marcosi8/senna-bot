@@ -1,8 +1,8 @@
 import fs from 'fs'
 import acrcloud from 'acrcloud'
 let acr = new acrcloud({
-host: 'identify-eu-west-1.acrcloud.com',
-access_key: 'c33c767d683f78bd17d4bd4991955d81',
+host: 'identify-us-west-2.acrcloud.com',
+access_key: 'tvRsiOyDPi8BcmlDUEbWueGG716zUASNJsQHKXjp',
 access_secret: 'bvgaIAEtADBTbLwiPGYlxupWqkNGIjT7J9Ag2vIu'
 })
 
@@ -19,18 +19,19 @@ if (code !== 0) throw msg
 let { title, artists, album, genres, release_date } = res.metadata.music[0]
 let txt = `
 𝚁𝙴𝚂𝚄𝙻𝚃
-• 📌 *TITLE*: ${title}
-• 👨‍🎤 𝙰𝚁𝚃𝙸𝚂𝚃: ${artists !== undefined ? artists.map(v => v.name).join(', ') : 'NOT FOUND'}
-• 💾 𝙰𝙻𝙱𝚄𝙼: ${album.name || 'NOT FOUND'}
-• 🌐 𝙶𝙴𝙽𝙴𝚁: ${genres !== undefined ? genres.map(v => v.name).join(', ') : 'NOT FOUND'}
-• 📆 RELEASE DATE: ${release_date || 'NOT FOUND'}
+• 📌 *TITULO*: ${title}
+
+• 👨‍🎤 _Artista:_ ${artists !== undefined ? artists.map(v => v.name).join(', ') : 'NOT FOUND'}
+• 💾 <Álbum:_ ${album.name || 'NOT FOUND'}
+• 🌐 _Genero:_ ${genres !== undefined ? genres.map(v => v.name).join(', ') : 'NOT FOUND'}
+• 📆 *RELEASE DATE:* ${release_date || 'NOT FOUND'}
 `.trim()
 fs.unlinkSync(`./tmp/${m.sender}.${ext}`)
 m.reply(txt)
-} else throw '*𝚁𝙴𝚂𝙿𝙾𝙽𝙳 𝙰𝚄𝙳𝙸𝙾*'
+} else throw '*Responda o áudio ou vídeo para descobrir a música!*'
 }
 
 handler.help = ['shazam']
 handler.tags = ['tools']
-handler.command = /^quemusica|shazam|whatmusic|find$/i
+handler.command = /^quemusica|shazam|sabermusica|whatmusic|find$/i
 export default handler
