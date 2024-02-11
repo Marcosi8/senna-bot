@@ -103,13 +103,13 @@ handler.before = async (m, {
 
         
     } else {
-        m.reply("Número inválido. Selecione o número apropriado usando a lista acima.\nEntre 1 e" + result.allLinks.length);
+        m.reply("*Número inválido!* Selecione o número apropriado usando a *lista acima.*\nEntre 1 e " + result.allLinks.length);
     }
 };
 
 handler.help = ["música"];
 handler.tags = ["prime"];
-handler.command = /^(musica)$/i;
+handler.command = ['musica', 'música', 'song', 'som'];
 handler.limit = false;
 export default handler;
 
