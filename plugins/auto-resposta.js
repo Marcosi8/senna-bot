@@ -1,4 +1,5 @@
 let active = true; // Inicialmente ativado
+const ownerPassword = "1234"; // Senha do proprietário do bot
 
 const responses = {
     "oi": "Olá!",
@@ -18,12 +19,11 @@ const responses = {
 };
 
 const handler = async (m, { conn, args }) => {
-    const ownerNumber = '558881647724'; // Substitua pelo número do dono do bot
-
-    if (!m.key.fromMe) {
-        return await conn.reply(m.chat, 'Este comando é restrito ao dono do bot.', m);
+    const password = args[1];
+    if (password !== ownerPassword) {
+        await conn.reply(m.chat, 'Senha incorreta!', m);
+        return;
     }
-
     if (args[0] === 'on') {
         active = true;
         await conn.reply(m.chat, 'Respostas automáticas ativadas!', m);
@@ -37,6 +37,8 @@ handler.command = ["resposta"];
 handler.tags = ["prime"];
 
 export default handler;
+
+create().then((client) => start(client));
 
 async function start(client) {
     client.onMessage(async (message) => {
@@ -53,5 +55,3 @@ async function start(client) {
         }
     });
 }
-
-export const run = start;
