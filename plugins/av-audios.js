@@ -2,13 +2,13 @@ const textToSpeech = require('@google-cloud/text-to-speech');
 const fs = require('fs');
 
 // Chave de API para autenticação na API Text-to-Speech da Google
-const API_KEY = 'sua_chave_de_api_aqui';
+const API_KEY = 'AIzaSyDo_JvDc3zfhUAdk3xkMlI0b-Gw7J9OGyM';
 
 // Configuração do cliente Text-to-Speech da Google
 const client = new textToSpeech.TextToSpeechClient({
   credentials: {
     private_key: API_KEY,
-    client_email: 'seu_email_de_serviço@dominio.com' // Substitua pelo seu email de serviço
+    client_email: 'teste-604@api1-414019.iam.gserviceaccount.com' // Substitua pelo seu email de serviço
   }
 });
 
