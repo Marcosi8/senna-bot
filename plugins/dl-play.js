@@ -20,7 +20,7 @@ const handler = async (m, {
     await conn.reply(m.chat, wait, m);
     const result = await searchAndDownloadMusic(text);
     if (!result.allLinks || !result.allLinks.length) {
-        return await conn.reply(m.chat, "Desculpe, nenhum resultado de vídeo foi encontrado para esta pesquisa.", m);
+        return await conn.reply(m.chat, "Sorry, no video results were found for this search.", m);
     }
 
     const selectedUrl = result.allLinks[0].url; // Seleciona o URL do primeiro resultado
@@ -31,7 +31,7 @@ const handler = async (m, {
     const views = result.views; // Salva o número de visualizações do primeiro resultado
 
     const doc = {
-        text: `*${title}*\n${selectedUrl}\n\n_Uploaded by: ${author}_\n_Uploaded at: ${uploadedAt}_\n_Views: ${views}_\n\n⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️`, // Mensagem com as informações e animação de download
+        text: `*${title}*\nUploaded by: ${author}\nUploaded at: ${uploadedAt}\nViews: ${views}\n${selectedUrl}`, // Mensagem com as informações
         thumbnail, // Thumbnail do vídeo
     };
 
@@ -60,8 +60,7 @@ const handler = async (m, {
     };
 
     await conn.sendMessage(m.chat, audioDoc, {
-        quoted: m,
-        thumbnail: fs.readFileSync('./download.gif'), // Adiciona uma animação de download
+        quoted: m
     });
 };
 
@@ -72,3 +71,42 @@ handler.limit = false;
 export default handler;
 
 // Funções auxiliares abaixo...
+
+async function searchAndDownloadMusic(query) {
+    try {
+        const { videos } = await yts(query);
+        if (!videos.length) return "Sorry, no video results were found for this search.";
+
+        const allLinks = videos.map(video => ({
+            title: video.title,
+            url: video.url,
+        }));
+
+        const jsonData = {
+            title: videos[0].title,
+            description: videos[0].description,
+            duration: videos[0].duration,
+            author: videos[0].author.name,
+            allLinks: allLinks,
+            videoUrl: videos[0].url,
+            thumbnail: videos[0].thumbnail,
+            uploadedAt: videos[0].uploadedAt, // Adicionando a data de upload
+            views: videos[0].views // Adicionando o número de visualizações
+        };
+
+        return jsonData;
+    } catch (error) {
+        return "Error: " + error.message;
+    }
+}
+
+
+function generateRandomName() {
+    const adjectives = ["happy", "sad", "funny", "brave", "clever", "kind", "silly", "wise", "gentle", "bold"];
+    const nouns = ["cat", "dog", "bird", "tree", "river", "mountain", "sun", "moon", "star", "cloud"];
+    
+    const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+    const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+    
+    return randomAdjective + "-" + randomNoun;
+                }
