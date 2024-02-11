@@ -1,4 +1,3 @@
-
 import fetch from "node-fetch";
 import ytdl from 'youtubedl-core';
 import yts from 'youtube-yts';
@@ -37,6 +36,7 @@ const handler = async (m, {
         audio: {
             url: `${tmpDir}/${title}.mp3`
         },
+        thumbnail: result.thumbnail, // Adiciona a thumbnail do primeiro resultado
         mimetype: 'audio/mpeg',
         ptt: false,
         waveform: [100, 0, 0, 0, 0, 0, 100],
@@ -73,7 +73,7 @@ async function searchAndDownloadMusic(query) {
             author: videos[0].author.name,
             allLinks: allLinks,
             videoUrl: videos[0].url,
-            thumbnail: videos[0].thumbnail,
+            thumbnail: videos[0].thumbnail, // Adiciona a thumbnail do primeiro resultado
         };
 
         return jsonData;
@@ -91,4 +91,4 @@ function generateRandomName() {
     const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
     
     return randomAdjective + "-" + randomNoun;
-}
+                                              }
