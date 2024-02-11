@@ -6,7 +6,7 @@ import { xpRange } from '../lib/levelling.js'
 //import { plugins } from '../lib/plugins.js'
 let tags = {
   'main': 'SOBRE',
-  'prime': 'PRINCIPAIS',
+  'prime': 'MAIS USADOS 🥳',
   'group': 'GRUPO',
   'bebot': 'SUB BOTS',
   'econ': 'NIVEL & ECONOMIA',
