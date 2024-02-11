@@ -7,8 +7,8 @@ import { xpRange } from '../lib/levelling.js'
 let tags = {
   'main': 'SOBRE',
   'prime': 'PRINCIPAIS',
-  'bebot': 'SUB BOTS',
   'group': 'GRUPO',
+  'bebot': 'SUB BOTS',
   'econ': 'NIVEL & ECONOMIA',
   'rg': 'REGISTRO',
   'sticker': 'STICKER',
