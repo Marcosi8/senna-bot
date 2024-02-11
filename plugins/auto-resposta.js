@@ -1,8 +1,7 @@
 let active = true; // Inicialmente ativado
-//valeu chatGPT!!
+
 const responses = {
     "oi": "Olá!",
-    "marcos": "oi lind",
     "tchau": "Até mais!",
     "como você está?": "Estou bem, obrigado por perguntar.",
     "bot": ["Sim?", "Precisou de alguma coisa?", "Aqui estou!"],
@@ -35,11 +34,9 @@ const handler = async (m, { conn, args }) => {
 };
 
 handler.command = ["resposta"];
-handler.tags = ["prime"];
+handler.tags = ["message"];
 
 export default handler;
-
-create().then((client) => start(client));
 
 async function start(client) {
     client.onMessage(async (message) => {
@@ -55,4 +52,6 @@ async function start(client) {
             }
         }
     });
-                  }
+}
+
+export const run = start;
