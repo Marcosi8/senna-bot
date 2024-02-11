@@ -22,28 +22,41 @@ const handler = async (m, {
     if (!result.allLinks || !result.allLinks.length) {
         return await conn.reply(m.chat, "Sorry, no video results were found for this search.", m);
     }
+
     const selectedUrl = result.allLinks[0].url; // Seleciona o URL do primeiro resultado
-    let title = generateRandomName();
+    const thumbnail = result.thumbnail; // Salva a thumbnail do primeiro resultado
+    const title = result.title; // Salva o título do primeiro resultado
+
+    const doc = {
+        text: `*${title}*\n${selectedUrl}`, // Mensagem com o título e o link
+        thumbnail, // Thumbnail do vídeo
+    };
+
+    await conn.sendMessage(m.chat, doc, {
+        quoted: m
+    });
+
+    let fileName = generateRandomName();
     const audioStream = ytdl(selectedUrl, {
         filter: 'audioonly',
         quality: 'highestaudio',
     });
+
     const tmpDir = os.tmpdir();
-    const writableStream = fs.createWriteStream(`${tmpDir}/${title}.mp3`);
+    const writableStream = fs.createWriteStream(`${tmpDir}/${fileName}.mp3`);
     await streamPipeline(audioStream, writableStream);
 
-    const doc = {
+    const audioDoc = {
         audio: {
-            url: `${tmpDir}/${title}.mp3`
+            url: `${tmpDir}/${fileName}.mp3`
         },
-        thumbnail: result.thumbnail, // Adiciona a thumbnail do primeiro resultado
         mimetype: 'audio/mpeg',
         ptt: false,
         waveform: [100, 0, 0, 0, 0, 0, 100],
-        fileName: `${title}`,
+        fileName: `${fileName}`,
     };
 
-    await conn.sendMessage(m.chat, doc, {
+    await conn.sendMessage(m.chat, audioDoc, {
         quoted: m
     });
 };
@@ -73,7 +86,7 @@ async function searchAndDownloadMusic(query) {
             author: videos[0].author.name,
             allLinks: allLinks,
             videoUrl: videos[0].url,
-            thumbnail: videos[0].thumbnail, // Adiciona a thumbnail do primeiro resultado
+            thumbnail: videos[0].thumbnail,
         };
 
         return jsonData;
@@ -91,4 +104,4 @@ function generateRandomName() {
     const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
     
     return randomAdjective + "-" + randomNoun;
-                                              }
+}
