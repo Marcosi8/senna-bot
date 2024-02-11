@@ -50,7 +50,10 @@ let textMsg = {
   'como vai?': ['Estou bem, obrigado por perguntar. E você?', 'Ótimo! E você, como está?'],
   'qual é o seu nome?': ['Meu nome é ChatGPT. Em que posso ajudar?', 'Eu sou o ChatGPT. Como posso ser útil para você?'],
   'o que você gosta de fazer?': ['Adoro conversar com pessoas inteligentes como você!', 'Eu gosto de ajudar as pessoas a encontrar respostas para suas perguntas.'],
-  'você é um robô?': ['Sim, sou um assistente virtual criado para ajudar com várias tarefas.', 'Sou um bot criado para auxiliar em diferentes tipos de interações.'],
+  'você é um bot?': ['Sim, sou um assistente virtual criado para ajudar com várias tarefas.', 'Sou um bot criado para auxiliar em diferentes tipos de interações.'],
   'você tem hobbies?': ['Meu hobby favorito é aprender coisas novas todos os dias!', 'Adoro ler e aprender sobre uma ampla variedade de tópicos.'],
+  'boa noite': ['Boa noite! Tenha bons sonhos.', 'Que sua noite seja tranquila e repousante. Até logo!'],
+  'bom dia': ['Bom dia! Que seu dia seja cheio de realizações.', 'Desejo a você um dia repleto de felicidade e sucesso.'],
+  'boa tarde': ['Boa tarde! Espero que esteja tendo um dia maravilhoso.', 'Que sua tarde seja leve e produtiva.'],
   // Adicione mais respostas aqui conforme necessário
 }
