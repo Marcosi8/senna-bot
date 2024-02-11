@@ -2,8 +2,8 @@ import fs from 'fs'
 import acrcloud from 'acrcloud'
 let acr = new acrcloud({
 host: 'identify-us-west-2.acrcloud.com',
-access_key: 'tvRsiOyDPi8BcmlDUEbWueGG716zUASNJsQHKXjp',
-access_secret: 'bvgaIAEtADBTbLwiPGYlxupWqkNGIjT7J9Ag2vIu'
+access_key: '402013e26582c7f23f3fbd4814100759',
+access_secret: 'tvRsiOyDPi8BcmlDUEbWueGG716zUASNJsQHKXjp'
 })
 
 let handler = async (m) => {
