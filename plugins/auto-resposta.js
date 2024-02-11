@@ -18,7 +18,7 @@ const responses = {
 };
 
 const handler = async (m, { conn, args }) => {
-    const ownerNumber = '+558881647724'; // Substitua pelo número do dono do bot
+    const ownerNumber = '+5588981647724'; // Substitua pelo número do dono do bot
 
     if (m.sender !== ownerNumber) {
         return await conn.reply(m.chat, 'Este comando é restrito ao dono do bot.', m);
