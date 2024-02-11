@@ -66,6 +66,6 @@ try {
 }
 handler.help = ['play mp3']
 handler.tags = ['prime', 'dl']
-handler.command = ['play', 'song', 'mp3', 'playmp3']
+handler.command = ['play', 'song2', 'mp3', 'playmp3']
 
 export default handler
