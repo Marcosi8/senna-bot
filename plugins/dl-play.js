@@ -31,7 +31,7 @@ const handler = async (m, {
     const views = result.views; // Salva o número de visualizações do primeiro resultado
 
     const doc = {
-        text: `*${title}*\n${selectedUrl}\n\n_Uploaded by: ${author}_\n_Uploaded at: ${uploadedAt}_\n_Views: ${views}_`, // Mensagem com as informações
+        text: `*${title}*\n${selectedUrl}\n\n_Uploaded by: ${author}_\n_Uploaded at: ${uploadedAt}_\n_Views: ${views}_\n\n⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️`, // Mensagem com as informações e animação de download
         thumbnail, // Thumbnail do vídeo
     };
 
@@ -72,42 +72,3 @@ handler.limit = false;
 export default handler;
 
 // Funções auxiliares abaixo...
-
-async function searchAndDownloadMusic(query) {
-    try {
-        const { videos } = await yts(query);
-        if (!videos.length) return "Desculpe, nenhum resultado de vídeo foi encontrado para esta pesquisa.";
-
-        const allLinks = videos.map(video => ({
-            title: video.title,
-            url: video.url,
-        }));
-
-        // Obter informações adicionais do primeiro resultado
-        const videoInfo = await ytdl.getInfo(allLinks[0].url);
-        const jsonData = {
-            title: videoInfo.videoDetails.title,
-            author: videoInfo.videoDetails.author.name,
-            uploadedAt: videoInfo.videoDetails.uploadDate,
-            views: videoInfo.videoDetails.viewCount,
-            thumbnail: videoInfo.videoDetails.thumbnails[0].url,
-            allLinks: allLinks,
-            videoUrl: allLinks[0].url,
-        };
-
-        return jsonData;
-    } catch (error) {
-        return "Error: " + error.message;
-    }
-}
-
-
-function generateRandomName() {
-    const adjectives = ["happy", "sad", "funny", "brave", "clever", "kind", "silly", "wise", "gentle", "bold"];
-    const nouns = ["cat", "dog", "bird", "tree", "river", "mountain", "sun", "moon", "star", "cloud"];
-    
-    const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
-    const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
-    
-    return randomAdjective + "-" + randomNoun;
-                   }
