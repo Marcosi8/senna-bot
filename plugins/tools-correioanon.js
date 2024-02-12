@@ -1,4 +1,4 @@
-const { Client } = require('whatsapp-web.js');
+const { Client } = import('whatsapp-web.js');
 
 const client = new Client();
 
