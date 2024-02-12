@@ -8,6 +8,7 @@ access_secret: 'tvRsiOyDPi8BcmlDUEbWueGG716zUASNJsQHKXjp'
 
 let handler = async (m) => {
 let q = m.quoted ? m.quoted : m
+m.react('⚡️');
 let mime = (q.msg || q).mimetype || ''
 if (/audio|video/.test(mime)) {
 let media = await q.download()
