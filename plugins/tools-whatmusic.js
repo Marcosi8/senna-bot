@@ -36,7 +36,7 @@ let handler = async (m) => {
 🌐 *_GÊNERO:_* ${genre}
 📆 *DATA DE UPLOAD:* ${release_date || 'NOT FOUND'}
 
-🔗 *YouTube:* ${youtubeUrl}
+🔗 *YouTube:* ${youtubeUrl || '_Sem Retorno_'}
 `.trim();
 
             if (youtubeUrl) {
