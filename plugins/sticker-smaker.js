@@ -1,7 +1,8 @@
-
 import uploadImage from '../lib/uploadImage.js'
 import { sticker } from '../lib/sticker.js'
-const effects = ['preso', 'gay', 'vidro', 'wasted' ,'trigger', 'lolice', 'simcard', 'doce']
+
+const effects = ['jail', 'gay', 'glass', 'wasted' ,'triggered', 'lolice', 'simpcard', 'horny']
+
 let handler = async (m, { conn, usedPrefix, text, command }) => {
 let effect = text.trim().toLowerCase()
 if (!effects.includes(effect)) throw `
@@ -15,7 +16,7 @@ ${usedPrefix + command} wasted
 `.trim()
 let q = m.quoted ? m.quoted : m
 let mime = (q.msg || q).mimetype || ''
-if (!mime) throw '🤔 *Responda uma Foto para usar este comando*'
+if (!mime) throw '🚫 Responda uma imagem'
 if (!/image\/(jpe?g|png)/.test(mime)) throw `🚫 Formato não suportado`
 let img = await q.download()
 let url = await uploadImage(img)
@@ -26,12 +27,12 @@ try {
 let stiker = await sticker(null, apiUrl, global.packname, global.author)
 conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
 } catch (e) {
-m.reply('🚫 Erro ao converter para adesivo, enviado como imagem')
+m.reply('Conversion to sticker error, send as image instead')
 await conn.sendFile(m.chat, apiUrl, 'smaker.png', null, m)
 }}
 handler.help = ['smaker']
 handler.tags = ['sticker', 'prime']
-handler.command = ['stickmaker', 'stickermaker', 'smaker', 'sefeito'] 
+handler.command = ['stickmaker', 'stickermaker', 'smaker'] 
 handler.diamond = false
 
 export default handler
