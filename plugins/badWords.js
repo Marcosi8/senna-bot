@@ -25,12 +25,12 @@ async function handler(m, { isAdmin, isBotAdmin }) {
             "☠️  ☠️  ☠️  ☠️  ☠️"   // Extremely toxic!
         ];
         var toxicityVerdict = [
-            "You are so friendly. Very welcoming to know you!",
-            "You are not too toxic, is it fun?",
-            "You appear to be toxic. Calm down!",
-            "Don't be so toxic. You can relax!",
-            "There's nothing more I could say, you're totally the most toxic person in the world!",
-            "Your toxic meter also goes above 100%."
+            "Você é tão amigável. Muito acolhedor conhecê-lo!",
+            "Você não é tão tóxico, é divertido?",
+            "Você parece ser tóxico. Acalme-se!",
+            "Não seja tão tóxico. Você pode relaxar!",
+            "Não há mais nada que eu possa dizer, você é totalmente a pessoa mais tóxica do mundo!",
+            "Seu medidor de toxicidade também ultrapassa 100%."
         ];
 
         const toxicityPercentage = Number(analysisResult.toxicity * 100).toFixed(2)
