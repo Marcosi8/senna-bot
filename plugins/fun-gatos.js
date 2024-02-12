@@ -3,8 +3,8 @@ function handler(m, { conn, groupMetadata }) {
     let lindos = [];
     while (lindos.length < 3) {
         let randomParticipant = participants[Math.floor(Math.random() * participants.length)];
-        if (!lindos.includes(randomParticipant)) {
-            lindos.push(randomParticipant);
+        if (!lindos.includes(randomParticipant.jid)) {
+            lindos.push(randomParticipant.jid);
         }
     }
     let mentions = lindos.map(p => ({ "tag": `@${p.split("@")[0]}`, "id": p }));
@@ -13,9 +13,9 @@ function handler(m, { conn, groupMetadata }) {
     `, null, { mentions });
 }
 
-handler.help = ['toplindos'];
+handler.help = ['marcarlindos'];
 handler.tags = ['fun'];
-handler.command = ['toplindos'];
+handler.command = ['marcarlindos'];
 handler.group = true;
 
 export default handler;
