@@ -1,79 +1,22 @@
+
+import cheerio from 'cheerio';
 import fetch from 'node-fetch';
+let handler = async (m, { conn, text }) => {
+	
+if (!text) throw `🤖 ${mssg.notext}`;
+m.react('💬')
 
-let handler = async (m, { text, conn, usedPrefix, command }) => {
-  if (!text && !(m.quoted && m.quoted.text)) {
-    throw `*Exemplo: ${usedPrefix + command} onde fica Vladivostok?*`;
-  }
+	try {
+		let gpt = await fetch(global.API('fgmods', '/api/info/openai2', { text }, 'apikey'));
+        let res = await gpt.json()
+        await m.reply(res.result)
+	} catch {
+		m.reply(`🚫 Error: Tente novamente`);
+	}
 
-  if (!text && m.quoted && m.quoted.text) {
-    text = m.quoted.text;
-  }
-
-  let pp = princegpt.getRandom()
-  
-  try {
-    m.react(rwait)
-    const { key } = await conn.sendMessage(m.chat, {
-      image: pp,
-      caption: '_*Gerando uma resposta*_...'
-    }, {quoted: m})
-    conn.sendPresenceUpdate('composing', m.chat);
-    const prompt = encodeURIComponent(text);
-
-    const guru1 = 'api.vihangayt.me';
-    
-    try {
-      let response = await fetch(guru1);
-      let data = await response.json();
-      let result = data.result;
-
-      if (!result) {
-        
-        throw new Error('No valid JSON response from the first API');
-      }
-
-      await conn.relayMessage(m.chat, {
-        protocolMessage: {
-          key,
-          type: 14,
-          editedMessage: {
-            imageMessage: { caption: result }
-          }
-        }
-      }, {});
-      m.react(done);
-    } catch (error) {
-      console.error('Error from the first API:', error);
-
-  
-      const model = 'llama';
-      const senderNumber = m.sender.replace(/[^0-9]/g, ''); 
-      const session = `GURU_BOT_${senderNumber}`;
-      const guru2 = `api.vihangayt.me`;
-      
-      let response = await fetch(guru2);
-      let data = await response.json();
-      let result = data.completion;
-
-      await conn.relayMessage(m.chat, {
-        protocolMessage: {
-          key,
-          type: 14,
-          editedMessage: {
-            imageMessage: { caption: result }
-          }
-        }
-      }, {});
-      m.react(done);
-    }
-
-  } catch (error) {
-    console.error('Error:', error);
-    throw `*ERROR*`;
-  }
-};
-handler.help = ['chatgpt']
-handler.tags = ['prime']
-handler.command = ['ai', 'gpt', 'chatgpt'];
+}
+handler.help = ['chatgpt <text>']; 
+handler.tags = ['tools', 'prime'];
+handler.command = ['ia', 'ai', 'chatgpt', 'openai', 'gpt'];
 
 export default handler;
