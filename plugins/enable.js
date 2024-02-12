@@ -179,7 +179,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 ▢ solopv
 ▢ sologp
 └─────────────
-*📌 Ejemplo :*
+*📌 Exemplo :*
 *${usedPrefix}on* welcome
 *${usedPrefix}off* welcome
 `)
@@ -191,8 +191,8 @@ m.reply(`
 `.trim()) 
 
 }
-handler.help = ['en', 'dis'].map(v => v + 'able <option>')
-handler.tags = ['nable']
+handler.help = ['on', 'off'].map(v => v + '<opção>')
+handler.tags = ['On/Off']
 handler.command = /^((en|dis)able|(tru|fals)e|(turn)?o(n|ff)|[01])$/i
 
 export default handler
