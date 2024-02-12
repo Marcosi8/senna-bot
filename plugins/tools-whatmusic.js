@@ -24,6 +24,7 @@ if (res.metadata && res.metadata.music && res.metadata.music.length > 0) {
 let { title, artists, album, genres, release_date } = res.metadata.music[0];
 txt = `
 𝘙𝘌𝘚𝘜𝘓𝘛𝘈𝘋𝘖 𝘋𝘖 𝘉𝘈𝘕𝘊𝘖 𝘋𝘌 𝘋𝘈𝘋𝘖𝘚 📥
+
 📌 *TÍTULO:* ${title}
     
 👨‍🎤 *_ARTISTA:_* ${artists !== undefined ? artists.map(v => v.name).join(', ') : 'NOT FOUND'}
