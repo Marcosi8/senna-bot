@@ -121,7 +121,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     case 'onlypv':
     case 'onlydm':
     case 'onlymd':
-    case 'solopv':
+    case 'sopv':
       isAll = true
       if (!isOwner) {
         global.dfail('owner', m, conn)
@@ -159,7 +159,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     default:
       //if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, listMessage, { quoted: m })
       if (!/[01]/.test(command)) return m.reply(`
-≡ Lista de Opciones
+≡ Lista de Opções
 
 ┌─⊷ *ADMIN*
 ▢ captcha
