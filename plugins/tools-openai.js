@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { text, conn, usedPrefix, command }) => {
   if (!text && !(m.quoted && m.quoted.text)) {
-    throw `❇️𝙀𝙭𝙖𝙢𝙥𝙡𝙚: ${usedPrefix + command} 𝘸𝘩𝘢𝘵 𝘪𝘴 𝘪𝘴𝘭𝘢𝘮?`;
+    throw `*Exemplo: ${usedPrefix + command} onde fica Vladivostok?*`;
   }
 
   if (!text && m.quoted && m.quoted.text) {
@@ -15,7 +15,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     m.react(rwait)
     const { key } = await conn.sendMessage(m.chat, {
       image: pp,
-      caption: '𝙃𝙤𝙡𝙙 𝙤𝙣 𝙜𝙚𝙩𝙩𝙞𝙣𝙜 𝙮𝙤𝙪𝙧 𝙖𝙣𝙨𝙬𝙚𝙧...'
+      caption: '_*Gerando uma resposta*_...'
     }, {quoted: m})
     conn.sendPresenceUpdate('composing', m.chat);
     const prompt = encodeURIComponent(text);
@@ -73,7 +73,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
   }
 };
 handler.help = ['chatgpt']
-handler.tags = ['prime]
+handler.tags = ['prime']
 handler.command = ['ai', 'gpt', 'chatgpt'];
 
 export default handler;
