@@ -34,7 +34,7 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
       }
     }
   }
-  const { key } = await m.reply(`*♻️ Obtendo seu vídeo..._*`);
+  const { key } = await m.reply(`*_♻️ Obtendo seu vídeo..._*`);
   try {
     const formats = await bestFormat(youtubeLink, 'video');
     const buff = await getBuffer(formats.url);
@@ -50,7 +50,7 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
     enviando = false
    } else {
     await conn.sendMessage(m.chat, {video: buff, caption: `*🪩Titulo:* ${ttl_1}\n*🪩Tamnho:* ${roundedFileSizeInMB} MB`, fileName: ttl_1 + '.mp4', mimetype: 'video/mp4'}, {quoted: m});
-    await conn.sendMessage(m.chat, {text: `*[ ✅ ] Vídeo baixado com sucesso!..*`, edit: key}, {quoted: m});
+    await conn.sendMessage(m.chat, {text: `*[ ✅ ] Vídeo baixado com sucesso!*`, edit: key}, {quoted: m});
     enviando = false   
    }
  } catch (ee) {
