@@ -29,13 +29,14 @@ let handler = async (m) => {
             txt = `
 •𝘙𝘌𝘚𝘜𝘓𝘛𝘈𝘋𝘖 𝘋𝘖 𝘉𝘈𝘕𝘊𝘖 𝘋𝘌 𝘋𝘈𝘋𝘖𝘚 📥
 
-📌 *TÍTULO:* ${title}
+📀 *MÚSICA:* ${title}
+
 👨‍🎤 *_ARTISTA:_* ${artists !== undefined ? artists.map(v => v.name).join(', ') : 'NOT FOUND'}
 💾 *_ÁLBUM:_* ${album.name || 'NOT FOUND'}
 🌐 *_GÊNERO:_* ${genre}
 📆 *DATA DE UPLOAD:* ${release_date || 'NOT FOUND'}
 
-🔗 *YouTube:* ${youtubeUrl || 'Link não encontrado'}
+🔗 *YouTube:* ${youtubeUrl}
 `.trim();
 
             if (youtubeUrl) {
