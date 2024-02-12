@@ -10,6 +10,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
        let g = typeof stick[1] !== "undefined" ? stick[1] : author;
   try { 	
     let q = m.quoted ? m.quoted : m
+    m.react('🫦');
     let mime = (q.msg || q).mimetype || q.mediaType || ''
     if (/webp|image|video/g.test(mime)) {
       if (/video/g.test(mime)) if ((q.msg || q).seconds > 11) return m.reply('Máximo 10 segundos!')
