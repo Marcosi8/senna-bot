@@ -1,5 +1,5 @@
 // Este plugin permite enviar mensagens anônimas a outros números usando o bot como intermediário
-// O comando é /anonimo <numero> <mensagem>
+// O comando é /anonimo | <numero> | <mensagem>
 // O número deve estar no formato internacional, por exemplo: +5511999999999
 // A mensagem deve ter no máximo 90 caracteres
 // O plugin verifica se o número é válido e se a mensagem não está vazia
@@ -7,7 +7,8 @@
 
 let handler = async (m, { text, conn }) => {
   // Extrai o número e a mensagem do texto
-  let [number, message] = text.split(' ').map(v => v.trim())
+  // Usa o caractere | como separador
+  let [number, message] = text.split('|').map(v => v.trim())
   // Verifica se o número é válido
   if (!number || !/^\+?\d{10,15}$/.test(number)) throw 'Número inválido'
   // Verifica se a mensagem não está vazia
