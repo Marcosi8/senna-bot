@@ -20,7 +20,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     conn.sendPresenceUpdate('composing', m.chat);
     const prompt = encodeURIComponent(text);
 
-    const guru1 = 'api.vihangayt.me`;
+    const guru1 = 'api.vihangayt.me';
     
     try {
       let response = await fetch(guru1);
