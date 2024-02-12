@@ -15,10 +15,18 @@ let handler = async (m, { text, conn }) => {
   if (!message) throw 'Mensagem vazia'
   // Verifica se a mensagem não é muito longa
   if (message.length > 90) throw 'Mensagem muito longa'
+  // Adiciona um aviso ao início da mensagem
+  // Informa que a mensagem é um correio anônimo
+  message = '[AVISO: Esta é uma mensagem de correio anônimo. O remetente não é o número do bot, mas outro usuário que usou o comando /anonimo.]\n\n' + message
+  // Cria um objeto com as opções da mensagem, usando a função generateWAMessageContent
+  // Essa função recebe o texto da mensagem e um objeto com as opções adicionais
+  // Você pode ver mais detalhes sobre essa função neste artigo: [1](https://stackoverflow.com/questions/23673184/uncaught-typeerror-cannot-use-in-operator-to-search-for-in-json-string)
+  let messageOptions = generateWAMessageContent(message, {quoted: null, contextInfo: {}})
   // Envia a mensagem para o número usando o bot
-  await conn.sendMessage(number, message, 'conversation')
+  // Passa o objeto com as opções da mensagem como o terceiro argumento, e não uma string
+  await conn.sendMessage(number, messageOptions, {})
   // Retorna uma confirmação para o usuário
-  m.reply('Mensagem enviada com sucesso')
+  m.reply('Mensagem enviada com sucesso!')
 }
 
 handler.help = ['anonimo']
