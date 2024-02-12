@@ -1,36 +1,33 @@
-const { Client } = required('whatsapp-web.js');
+const { Api, WhatsApp } = import('venom-bot');
 
-const client = new Client();
+const api = new Api({
+    headless: true, // Opcional: evita a inicialização do navegador
+});
 
-client.on('message', async (message) => {
-    try {
-        if (message.body.startsWith('/anonimo')) {
-            // Reação ao reconhecer o comando
-            await message.react('📬');
-            
-            // Verifica se o comando está no formato correto
-            const command = message.body.split(' ');
-            if (command.length < 3) {
-                await message.reply('Formato incorreto. Use /anonimo [número do destinatário] [mensagem]');
-                return;
-            }
+const whatsapp = new WhatsApp(api, {
+    session: 'sessions', // Nome da pasta para salvar a sessão
+});
 
-            // Extrai o número do destinatário e a mensagem
-            const destinatario = command[1];
-            const mensagem = command.slice(2).join(' ');
+whatsapp.onMessage(async (message) => {
+    if (message.body === '/anonimo') {
+        // Reação ao reconhecer o comando
+        await whatsapp.sendSeen(message.chatId);
+        await whatsapp.sendReaction(message.chatId, '');
 
-            // Envia a mensagem ao destinatário
-            await client.sendMessage(destinatario + '@c.us', `Mensagem anônima: ${mensagem}`);
+        // Extrai o número do destinatário e a mensagem
+        const command = message.body.split(' ');
+        const destinatario = command[1];
+        const mensagem = command.slice(2).join(' ');
 
-            // Confirmação para o remetente
-            await message.reply('Mensagem enviada de forma anônima!');
-        }
-    } catch (err) {
-        console.error('Erro ao enviar a mensagem anônima:', err);
+        // Envia a mensagem ao destinatário
+        await whatsapp.sendText(destinatario + '@c.us', `Mensagem anônima: ${mensagem}`);
+
+        // Confirmação para o remetente
+        await whatsapp.sendText(message.chatId, 'Mensagem enviada de forma anônima!');
     }
 });
 
-client.initialize();
+whatsapp.connect();
 
 const handler = {
     help: ['/anonimo [número do destinatário] [mensagem]'],
