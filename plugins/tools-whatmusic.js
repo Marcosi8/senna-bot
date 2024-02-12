@@ -22,36 +22,30 @@ let handler = async (m) => {
 
         let txt = '';
         if (res.metadata && res.metadata.music && res.metadata.music.length > 0) {
-            let { title, artists, external_metadata } = res.metadata.music[0];
-            let youtubeUrl = external_metadata && external_metadata.youtube ? external_metadata.youtube.video_url : '';
-            let youtubeThumbnail = '';
-
-            if (youtubeUrl) {
-                let videoId = youtubeUrl.split('v=')[1];
-                let thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
-                try {
-                    let response = await axios.get(thumbnailUrl, { responseType: 'arraybuffer' });
-                    youtubeThumbnail = `data:image/jpeg;base64,${Buffer.from(response.data, 'binary').toString('base64')}`;
-                } catch (error) {
-                    console.error('Error fetching YouTube thumbnail:', error);
-                }
-            }
+            let { title, artists, album, genres, release_date, external_metadata } = res.metadata.music[0];
+            let youtubeUrl = external_metadata && external_metadata.youtube && external_metadata.youtube.video_url ? external_metadata.youtube.video_url : '';
+            let genre = genres !== undefined ? genres.map(v => v.name).join(', ') : 'NOT FOUND';
 
             txt = `
-𝘙𝘌𝘚𝘜𝘓𝘛𝘈𝘋𝘖 𝘋𝘖 𝘉𝘈𝘕𝘊𝘖 𝘋𝘌 𝘋𝘈𝘋𝘖𝘚 📥
+•𝘙𝘌𝘚𝘜𝘓𝘛𝘈𝘋𝘖 𝘋𝘖 𝘉𝘈𝘕𝘊𝘖 𝘋𝘌 𝘋𝘈𝘋𝘖𝘚 📥
 
 📌 *TÍTULO:* ${title}
 👨‍🎤 *_ARTISTA:_* ${artists !== undefined ? artists.map(v => v.name).join(', ') : 'NOT FOUND'}
+💾 *_ÁLBUM:_* ${album.name || 'NOT FOUND'}
+🌐 *_GÊNERO:_* ${genre}
+📆 *DATA DE UPLOAD:* ${release_date || 'NOT FOUND'}
 
 🔗 *YouTube:* ${youtubeUrl || 'Link não encontrado'}
 `.trim();
-            if (youtubeThumbnail) {
-                m.reply({ url: youtubeThumbnail, text: txt }, m.from, { thumbnailUrl: youtubeThumbnail });
+
+            if (youtubeUrl) {
+                m.reply(txt);
             } else {
+                txt += "\n *😞 Link do YouTube não encontrado*";
                 m.reply(txt);
             }
         } else {
-            txt = "*😞 Não consegui identificar a música, por favor use uma mais audível!*";
+            txt = "*😞 Não consegui identificar a música, por favor use uma de melhor qualidade!*";
             m.reply(txt);
         }
 
