@@ -36,19 +36,9 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
        }
        chat.detect = isEnable
      break
-}
+     }
        chat.detect = isEnable
      break
- 
-      case 'autosticker':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
-        }
-      }
-      chat.autosticker = isEnable
-      break
  
       case 'antispam':
       if (m.isGroup) {
