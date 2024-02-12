@@ -13,9 +13,9 @@ function handler(m, { conn, groupMetadata }) {
     `, null, { mentions });
 }
 
-handler.help = ['marcarlindos'];
+handler.help = ['toplindo'];
 handler.tags = ['fun'];
-handler.command = ['marcarlindos'];
+handler.command = ['toplindo'];
 handler.group = true;
 
 export default handler;
