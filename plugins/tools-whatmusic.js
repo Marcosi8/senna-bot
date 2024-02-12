@@ -24,12 +24,12 @@ if (res.metadata && res.metadata.music && res.metadata.music.length > 0) {
 let { title, artists, album, genres, release_date } = res.metadata.music[0];
 txt = `
 𝚁𝙴𝚂𝚄𝙻𝚃
-• 📌 *TÍTULO:* ${title}
+📌 *TÍTULO:* ${title}
     
-• 👨‍🎤 *_ARTISTA:_* ${artists !== undefined ? artists.map(v => v.name).join(', ') : 'NOT FOUND'}
-• 💾 *_ÁLBUM:_* ${album.name || 'NOT FOUND'}
-• 🌐 *_GÊNERO:_* ${genres !== undefined ? genres.map(v => v.name).join(', ') : 'NOT FOUND'}
-• 📆 *DATA DE UPLOAD:* ${release_date || 'NOT FOUND'}
+👨‍🎤 *_ARTISTA:_* ${artists !== undefined ? artists.map(v => v.name).join(', ') : 'NOT FOUND'}
+💾 *_ÁLBUM:_* ${album.name || 'NOT FOUND'}
+🌐 *_GÊNERO:_* ${genres !== undefined ? genres.map(v => v.name).join(', ') : 'NOT FOUND'}
+📆 *DATA DE UPLOAD:* ${release_date || 'NOT FOUND'}
 `.trim();
 } else {
 txt = "*😞 Não consegui identificar a música, por favor use uma mais audível!*";
