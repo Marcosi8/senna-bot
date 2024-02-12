@@ -36,17 +36,6 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
        }
        chat.detect = isEnable
      break
-     }
-       chat.detect = isEnable
-     break
- 
-      case 'antispam':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
-        }
-      }
     
     case 'antidelete':
     case 'delete':
@@ -76,8 +65,8 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       global.opts['self'] = !isEnable
       break
     case 'antilink':
-    case 'nolink':
-    case 'linkoff':
+    case 'antilinkwa':
+    case 'antilinkwha':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
@@ -147,7 +136,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     case 'onlygp':
     case 'grouponly':
     case 'sogp':
-    case 'sogrupo':
+    case 'sologrupo':
       isAll = true
       if (!isOwner) {
         global.dfail('owner', m, conn)
@@ -160,23 +149,22 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     default:
       //if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, listMessage, { quoted: m })
       if (!/[01]/.test(command)) return m.reply(`
-≡ Lista de Opções On/Off
+≡ Lista de Opciones
 
 ┌─⊷ *ADMIN*
-▢ antidelete
 ▢ captcha
 ▢ welcome
 ▢ antilink
 ▢ detect 
-▢ documento
+▢ document
 ▢ nsfw
 └───────────── 
 ┌─⊷ *USERS*
 ▢ autolevelup
-▢ autosimi 
+▢ chatbot 
 └─────────────
 ┌─⊷ *OWNER*
-▢ publico
+▢ public
 ▢ sopv
 ▢ sogp
 └─────────────
