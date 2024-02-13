@@ -1,14 +1,10 @@
 //Powered by: marcoskz_
 
 function handler(m, {conn, groupMetadata }) {
-    let now = new Date();
-    let lastUsed = global.db.data.users[m.sender].shipping || 0;
-    let elapsedTime = now - lastUsed;
 
-    if (elapsedTime < 1800000) // 30 minutos em milissegundos
-        throw `🐮 Você pode tocar o berrante em *${msToTime(1800000 - elapsedTime)}*`;
-
-    let ps = groupMetadata.participants.map(v => v.id);
+        let time = global.db.data.users[m.sender].shipping + 28800000
+  if (new Date - global.db.data.users[m.sender].shipping < 28800000) throw `🐮 Você pode tocar o berrante novamente em *${msToTime(time - new Date())}* `
+let ps = groupMetadata.participants.map(v => v.id)
     let f = ps.getRandom();
     let h = ps.getRandom();
     let g = ps.getRandom();
