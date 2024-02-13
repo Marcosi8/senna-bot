@@ -1,4 +1,4 @@
-export async function before(m, { match }) {
+/ok/export async function before(m, { match }) {
 if (!m.chat.endsWith('@s.whatsapp.net'))
 return !0
 this.anonymous = this.anonymous ? this.anonymous : {}
