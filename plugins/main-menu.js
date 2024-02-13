@@ -33,13 +33,11 @@ const defaultMenu = {
   before: `
   *Soyuzᴮᴼᵀ*
  
-┏│》 ✨️| *Oi!* %name. *XP: %level*
-┃│》🚀 | *Usuários:* %totalreg 
-┃│》♻️ | *Tempo Ativo:* %muptime 
+┏│》✨️ *Oi!* %name. *XP: %level*
+┃│》🚀  *Usuários:* %totalreg 
+┃│》♻️  *Tempo Ativo:* %muptime 
 %sbot
-┗│ [❗️] *ENGLISH:* _Use the command (/language) to translate your dialect._
-Example: /language en 
-🎉
+┗│ [❗️] *Versão:* 1.4.0
 ────────────
   ≡ *ʟɪꜱᴛᴀ ᴅᴇ ᴍᴇɴᴜꜱ ⤵*
 %readmore
