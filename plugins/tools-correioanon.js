@@ -11,7 +11,7 @@ let handler = async (m, { text, conn }) => {
     // Limita o tamanho da mensagem
     if (message.length > 90) throw 'Mensagem muito longa';
     // Cria a mensagem com aviso de anonimato
-    message = `[AVISO: Esta é uma mensagem de correio anônimo. O remetente não é o número do bot, mas outro usuário que usou o plugin anonimo.]\n\n` + message;
+    message = '[AVISO: Esta é uma mensagem de correio anônimo. O remetente não é o número do bot, mas outro usuário que usou o plugin anonimo.]\n\n' + text;
     // Envia a mensagem
     await conn.sendMessage(number, message, 'conversation');
     // Retorna confirmação para o usuário
