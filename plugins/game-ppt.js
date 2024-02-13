@@ -1,5 +1,5 @@
 
-let poin = 200
+let poin = 10
 let cooldown = 15000
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     
@@ -52,9 +52,9 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         throw reseqv
     }
 }
-handler.help = ['ppt']
+handler.help = ['pedra, 'papel', 'tesoura]
 handler.tags = ['game']
-handler.command = ['ppt'] 
+handler.command = ['ppt', 'pedra', 'papel', 'tesoura'] 
 handler.register = false
 
 export default handler
