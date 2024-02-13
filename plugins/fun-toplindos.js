@@ -4,7 +4,7 @@ function handler(m, {conn, groupMetadata }) {
     let elapsedTime = now - lastUsed;
 
     if (elapsedTime < 1800000) // 30 minutos em milissegundos
-        throw `🕴 Próximos lindos em *${msToTime(1800000 - elapsedTime)}*`;
+        throw `🕴 Você pode usar novamente em *${msToTime(1800000 - elapsedTime)}*`;
 
     let ps = groupMetadata.participants.map(v => v.id);
     let f = ps.getRandom();
@@ -16,7 +16,7 @@ function handler(m, {conn, groupMetadata }) {
     } while (h === f || h === g);
 
     m.reply(`
-▢ *❗️🚨 ATENÇÃO PARA OS MAIS LINDOS DO GRUPO!!👇*
+▢ *❗️🚨 ATENÇÃO 🚨❗️ PARA OS MAIS LINDOS DO GRUPO!!👇*
 
 🥇🏳️‍🌈 ${toM(f)}
 
