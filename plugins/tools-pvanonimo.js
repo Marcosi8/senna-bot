@@ -1,7 +1,7 @@
 async function handler(m, { command, args }) {
     command = command.toLowerCase()
     switch (command) {
-        case 'correio': {
+        case 'pvanonimo': {
             // Verifica se foram fornecidos argumentos corretos
             if (!args || args.length < 2) return reply(`Exemplo: ${prefixo + command} +55 00.../Oi amor, sdds`)
 
