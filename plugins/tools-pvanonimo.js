@@ -1,4 +1,4 @@
-let handler = async (m) => {
+let handler = async (m, { args }) => { // Adicionando { args } como parâmetro
     let txt = args.join(" ");
     if (!txt) return reply(`Exemplo: *${usedPrefix + command}* +55 88.../Oi amor, sdds`);
     let txt1 = txt.split("/")[0].replace(/\D/g,'');
@@ -13,8 +13,8 @@ let handler = async (m) => {
     reply(`Mensagem enviada com sucesso para wa.me/${result.jid.split("@")[0]}`);
 };
 
-handler.help = ['pvcorreio'];
+handler.help = ['correio'];
 handler.tags = ['tools', 'prime'];
-handler.command = /^pvcorreio|mail$/i;
+handler.command = /^correio|mail$/i;
 
 export default handler;
