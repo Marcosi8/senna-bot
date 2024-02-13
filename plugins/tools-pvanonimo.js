@@ -1,6 +1,6 @@
 let handler = async (m, { args }) => { // Adicionando { args } como parâmetro
     let txt = args.join(" ");
-    if (!txt) return reply(`Exemplo: *${usedPrefix + command}* +55 88.../Oi amor, sdds`);
+    if (!txt) return reply(`Exemplo: *${usedPrefix + command}* +55 88.../Oi amo, sdds`);
     let txt1 = txt.split("/")[0].replace(/\D/g,'');
     let txt2 = txt.split("/")[1];
     if (!txt1) return reply('Cadê o número da pessoa?');
