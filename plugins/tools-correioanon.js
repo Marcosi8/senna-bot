@@ -5,7 +5,7 @@ let handler = async (m, { text, conn }) => {
 
   try {
     // Valida o número
-    if (!number || !/^\+?\d{10,15}$/.test(number)) throw 'Número inválido';
+    if (!number || !/^\+?\d{10,15}$/.test(number)) throw '*Número inválido. Certifique-se de usar o formato:* _+5588xxxxxxxx_';
     // Valida a mensagem
     if (!message) throw 'Mensagem vazia';
     // Limita o tamanho da mensagem
