@@ -2,13 +2,13 @@
 function handler(m, {conn, groupMetadata }) {
 
         let time = global.db.data.users[m.sender].shipping + 28800000
-  if (new Date - global.db.data.users[m.sender].shipping < 28800000) throw `🕴 Olha os lindos*${msToTime(time - new Date())}* `
+  if (new Date - global.db.data.users[m.sender].shipping < 28800000) throw `🕴 Próximos lindos em *${msToTime(time - new Date())}* `
 let ps = groupMetadata.participants.map(v => v.id)
 let f = ps.getRandom()
 let h = ps.getRandom()
 let g
 do g = ps.getRandom()
-while (g === f)
+while (h === f || h === g)
 m.reply(`
 ▢ *❗️🚨 ATENÇÃO PARA OS MAIS LINDOS DO GRUPO!!👇*
 
