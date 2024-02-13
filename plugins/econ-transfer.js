@@ -20,15 +20,15 @@ async function handler(m, { conn, args, usedPrefix, command }) {
     const type = (args[0] || '').toLowerCase()
     if (!item.includes(type)) return conn.reply(m.chat, lol, m, { mentions: [m.sender] })
     const count = Math.min(Number.MAX_SAFE_INTEGER, Math.max(1, (isNumber(args[1]) ? parseInt(args[1]) : 1))) * 1
-    if (!/^[1-9]\d*$/.test(args[1])) throw `✳️ ${mssg.isNan}`; //-- test
+    if (!/^[1-9]\d*$/.test(args[1])) throw `🪙 ${mssg.isNan}`; //-- test
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : args[2] ? (args[2].replace(/[@ .+-]/g, '') + '@s.whatsapp.net') : ''
-    if (!who) return m.reply(`✳️ ${mssg.noMention}`)
-    if (!(who in global.db.data.users)) return m.reply(`✳️ ${mssg.userDb}`)
-    if (user[type] * 1 < count) return m.reply(`✳️  *${type}* ${mssg.payNan}`)
+    if (!who) return m.reply(`🪙 ${mssg.noMention}`)
+    if (!(who in global.db.data.users)) return m.reply(`🪙 ${mssg.userDb}`)
+    if (user[type] * 1 < count) return m.reply(`🪙 *${type}* ${mssg.payNan}`)
     let confirm = `
 ¿${mssg.confirm} *${count}* _*${type}*_ ${mssg.to}  *@${(who || '').replace(/@s\.whatsapp\.net/g, '')}* ? 
 
-- Escribe *si* o *no*
+- Escreva *si* o *no*
 `.trim()
    
     conn.reply(m.chat, confirm, m, { mentions: [who] })
@@ -64,14 +64,14 @@ handler.before = async m => {
         else {
             user[type] = previous
             _user[type] = _previous
-            m.reply(`❎ ${mssg.payError} *${count}* ${type} ${mssg.to} *@${(to || '').replace(/@s\.whatsapp\.net/g, '')}*`, null, { mentions: [to] })
+            m.reply(`🚫 ${mssg.payError} *${count}* ${type} ${mssg.to} *@${(to || '').replace(/@s\.whatsapp\.net/g, '')}*`, null, { mentions: [to] })
         }
         clearTimeout(timeout)
         delete confirmation[sender]
     }
 }
 
-handler.help = ['transfer'].map(v => v + ' [tipo] [monto] [@tag]')
+handler.help = ['pagar'].map(v => v + ' [tipo] [quantia] [@tag]')
 handler.tags = ['econ']
 handler.command = ['payxp','pagar', 'transferir', 'darxp','dardi', 'pay']
 
