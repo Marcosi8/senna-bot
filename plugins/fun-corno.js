@@ -11,12 +11,12 @@ function handler(m, {conn, groupMetadata }) {
     let h = ps.getRandom(); 
     let k = ps.getRandom();
     let i = ps.getRandom();
-    let m = ps.getRandom();
+    let v = ps.getRandom();
     let g;
 
     do {
     g = ps.getRandom();
-} while (h === f || h === i || h === k || h === m || g === f || g === i || g === k || g === m);
+} while (h === f || h === i || h === k || h === v || g === f || g === i || g === k || g === v);
     m.reply(`
 🐂🚨*CHAMANDO TODOS OS CHiFRUDOS, REPITO, O BERRANTE FOI TOCADO*🚨🐂
 
@@ -28,7 +28,7 @@ function handler(m, {conn, groupMetadata }) {
 
 🐂 ${toM(i)}
 
-🐂 ${toM(m)}
+🐂 ${toM(v)}
 
 🐂 ${toM(k)}
 `, null, { mentions: [f, g] });
