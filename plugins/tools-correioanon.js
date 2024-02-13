@@ -8,13 +8,7 @@ async function handler(m, { usedPrefix, command }) {
             if (!room) return this.sendMessage(m.chat, { text: "[❗️] *Você não está em um chat anônimo.*"}, { quoted: m })
             m.reply("Você saiu do chat anônimo.")
             let other = room.other(m.sender) 
-            if (other) {
-                if (m.isGroup) {
-                    await this.sendMessage(other, { text: "[❗️] *Seu parceiro saiu do chat.*"}, { quoted: m })
-                } else {
-                    await this.sendMessage(other, "[❗️] *Seu parceiro saiu do chat.*")
-                }
-            }
+            if (other) await this.sendMessage(other, { text: "[❗️] *Seu parceiro saiu do chat.*"}, { quoted: m })
             delete this.anonymous[room.id]
             if (command === 'leave') break
         }
@@ -22,17 +16,35 @@ async function handler(m, { usedPrefix, command }) {
             if (Object.values(this.anonymous).find(room => room.check(m.sender))) return this.sendMessage(m.chat, { text: "🤔 *Você já está em um chat anônimo.*"}, { quoted: m })
             let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
             if (room) {
-                if (m.isGroup) {
-                    await this.sendMessage(room.a, { text: "🥳 *Um parceiro se juntou ao chat.*"}, { quoted: m })
-                } else {
-                    await this.sendMessage(room.a, "🥳 *Um parceiro se juntou ao chat.*")
-                }
+                await this.sendMessage(room.a, { text: "🥳 *Um parceiro se juntou ao chat.*"}, { quoted: m })
                 room.b = m.sender
                 room.state = 'CHATTING'
-                if (m.isGroup) {
-                    await this.sendMessage(m.chat, { text: "🎉 *Você foi conectado a um chat anônimo.*"}, { quoted: m })
-                } else {
-                    await this.sendMessage(m.chat, "🎉 *Você foi conectado a um chat anônimo.*")
+                await this.sendMessage(m.chat, { text: "🎉 *Você foi conectado a um chat anônimo.*"}, { quoted: m })
+            } else {
+                let id = + new Date
+                this.anonymous[id] = {
+                    id,
+                    a: m.sender,
+                    b: '',
+                    state: 'WAITING',
+                    check: function (who = '') {
+                        return [this.a, this.b].includes(who)
+                    },
+                    other: function (who = '') {
+                        return who === this.a ? this.b : who === this.b ? this.a : ''
+                    },
+                }
+                await this.sendMessage(m.chat, { text: "👥 *Aguardando um parceiro para o chat anônimo...*"}, { quoted: m })
+            }
+            break
+        }
+    }
+}
+
+module.exports = {
+    handler
+}
+
                 }
             } else {
                 let id = + new Date
