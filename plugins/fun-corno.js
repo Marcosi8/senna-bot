@@ -17,7 +17,6 @@ let g;
 do {
     g = ps.getRandom();
 } while (h === f || h === i || h === k || h === v || h === g || g === f || g === i || g === k || g === v);
-
 // Agora você tem 6 pessoas (f, h, k, i, v, g) sem repetição
     m.reply(`
 🐂🚨 *CHAMANDO TODOS OS CHiFRUDOS, REPITO, O BERRANTE FOI TOCADO* 🚨🐂
