@@ -18,7 +18,7 @@ async function handler(m, { usedPrefix, command }) {
             if (room) {
                 await this.sendMessage(room.a, { text: "🥳 *Um parceiro se juntou ao chat.*"}, { quoted: m })
                 room.b = m.sender
-                room.state = 'CONVERSANDO'
+                room.state = 'CHATTING'
                 await this.sendMessage(m.chat, { text: "🎉 *Você foi conectado a um chat anônimo.*"}, { quoted: m })
             } else {
                 let id = + new Date
@@ -26,7 +26,7 @@ async function handler(m, { usedPrefix, command }) {
                     id,
                     a: m.sender,
                     b: '',
-                    state: '*_PROCURANDO...*_',
+                    state: 'WAITING',
                     check: function (who = '') {
                         return [this.a, this.b].includes(who)
                     },
