@@ -11,9 +11,9 @@ while (g === f)
 m.reply(`
 ▢ *${mssg.shipp}*
 
-${toM(f)}
-       ❤️
- ${toM(g)}
+❤️‍🔥 ${toM(f)}
+  💑💏👫👬👭
+❤️‍🔥 ${toM(g)}
 `, null, { mentions: [f, g] })
 global.db.data.users[m.sender].shipping = new Date * 1
 }
