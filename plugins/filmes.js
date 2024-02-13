@@ -29,8 +29,8 @@ const handler = async (m, {text, usedPrefix, command, conn}) => {
   conn.sendMessage(m.chat, {image: {url: img}, caption: ads + res}, {quoted: m});
 };
 
-handler.tags = ['prime'];
-handler.command = ['filme', 'pelisplus'];
+handler.tags = ['movie', 'download'];
+handler.command = ['movie', 'pelisplus'];
 handler.help = ['cuevana', 'pelisplus <texto>'];
 
 export default handler;
@@ -63,7 +63,7 @@ async function searchC(query, numberPage = 1) {
 }
 
 async function searchP(query, numberPage = 1) {
-  const $ = await safeLoad(`https://pelisplushd.cx/search/`, { params: {s: query, page: numberPage}});
+  const $ = await safeLoad(`https://filmesonlinegratis.com/?s=${query}`, { params: {page: numberPage}});
   const resultSearch = [];
   
   $('a[class^=\'Posters\']').each((_, e) => {
