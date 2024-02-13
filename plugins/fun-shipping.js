@@ -17,9 +17,9 @@ m.reply(`
 `, null, { mentions: [f, g] })
 global.db.data.users[m.sender].shipping = new Date * 1
 }
-handler.help = ['shipping']
+handler.help = ['casal']
 handler.tags = ['fun']
-handler.command = ['shipping']
+handler.command = ['casal']
 handler.group = true
 
 export default handler
