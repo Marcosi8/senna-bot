@@ -12,11 +12,11 @@ while (h === f || h === g)
 m.reply(`
 ▢ *❗️🚨 ATENÇÃO PARA OS MAIS LINDOS DO GRUPO!!👇*
 
- 🥇${toM(f)} 🏳️‍🌈
+ 🥇🏳️‍🌈 ${toM(f)}
 
- 🥈${toM(h)} 🫦
+ 🥈🫦 ${toM(h)}
     
- 🥉${toM(g)} 🧌
+ 🥉🧌 ${toM(g)}
 `, null, { mentions: [f, g] })
 global.db.data.users[m.sender].shipping = new Date * 1
 }
