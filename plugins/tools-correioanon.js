@@ -5,7 +5,7 @@ async function handler(m, { usedPrefix, command }) {
         case 'next':
         case 'leave': {
             let room = Object.values(this.anonymous).find(room => room.check(m.sender))
-            if (!room) return this.sendMessage(m.chat, { text: "[❗️] *Você não está em um chat anônimo.*"}, { quoted: m })
+            if (!room) return this.sendMessage(m.isGroup ? m.chat : m.sender, { text: "[❗️] *Você não está em um chat anônimo.*"}, { quoted: m })
             m.reply("Você saiu do chat anônimo.")
             let other = room.other(m.sender) 
             if (other) {
@@ -49,9 +49,9 @@ async function handler(m, { usedPrefix, command }) {
                     },
                 }
                 if (m.isGroup) {
-                    await this.sendMessage(m.chat, { text: "🚦 _*Você está na fila para um chat anônimo, aguarde até alguem se conectar!*_ "}, { quoted: m })
+                    await this.sendMessage(m.chat, { text: "🚦 _*Você está na fila para um chat anônimo, aguarde até alguém se conectar!*_ "}, { quoted: m })
                 } else {
-                    await this.sendMessage(m.chat, "🚦 _*Você está na fila para um chat anônimo, aguarde até alguem se conectar!*_ ")
+                    await this.sendMessage(m.chat, "🚦 _*Você está na fila para um chat anônimo, aguarde até alguém se conectar!*_ ")
                 }
             }
             break
