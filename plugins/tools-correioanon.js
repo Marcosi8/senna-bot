@@ -1,9 +1,11 @@
+
 let handler = async (m, { text, conn }) => {
   try {
     // Extrai o número e a mensagem do texto
-    // Usa o caractere | como separador
-    let [number, ...parts] = (text ?? '').split('|').map(v => v.trim());
-    let message = parts.join('|');
+    // Usa o caractere '|' como separador
+    let parts = (text ?? '').split('|').map(v => v.trim());
+    let number = parts.shift(); // Remove e retorna o primeiro elemento do array (o número)
+    let message = parts.join('|'); // Junta os elementos restantes para formar a mensagem
     
     // Valida o número
     if (!number || !/^\+?\d{10,15}$/.test(number)) throw new Error('*Número inválido. Certifique-se de usar o formato:* _+5588xxxxxxxx_');
