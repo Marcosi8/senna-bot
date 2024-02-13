@@ -54,7 +54,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 }
 handler.help = ['ppt']
 handler.tags = ['game']
-handler.command = ['ppt', 'pedra', 'papel', 'tesoura'] 
+handler.command = ['ppt'] 
 handler.register = false
 
 export default handler
