@@ -1,43 +1,47 @@
-let handler = async (m, { text, conn }) => {
-  try {
-    // Extrai o número e a mensagem do texto
-    // Usa a vírgula como separador
-    const parts = text.split(',').map(v => v.trim());
-    const number = parts[0];
-    const message = parts.slice(1).join(',').trim();
-    
-    // Valida o número
-    if (!number || !/^\+?\d{10,15}$/.test(number)) {
-      throw new Error('*Número inválido. Certifique-se de usar o formato:* _+5588xxxxxxxx_');
+async function handler(m, { usedPrefix, command }) {
+    command = command.toLowerCase()
+    this.anonymous = this.anonymous ? this.anonymous : {}
+    switch (command) {
+        case 'next':
+        case 'leave': {
+            let room = Object.values(this.anonymous).find(room => room.check(m.sender))
+            if (!room) return this.sendMessage(m.chat, { text: "Você não está em um chat anônimo."}, { quoted: m })
+            m.reply("Você saiu do chat anônimo.")
+            let other = room.other(m.sender) 
+            if (other) await this.sendMessage(other, { text: "Seu parceiro saiu do chat."}, { quoted: m })
+            delete this.anonymous[room.id]
+            if (command === 'leave') break
+        }
+        case 'start': {
+            if (Object.values(this.anonymous).find(room => room.check(m.sender))) return this.sendMessage(m.chat, { text: "Você já está em um chat anônimo."}, { quoted: m })
+            let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
+            if (room) {
+                await this.sendMessage(room.a, { text: "Um parceiro se juntou ao chat."}, { quoted: m })
+                room.b = m.sender
+                room.state = 'CHATTING'
+                await this.sendMessage(m.chat, { text: "Você foi conectado a um chat anônimo."}, { quoted: m })
+            } else {
+                let id = + new Date
+                this.anonymous[id] = {
+                    id,
+                    a: m.sender,
+                    b: '',
+                    state: 'WAITING',
+                    check: function (who = '') {
+                        return [this.a, this.b].includes(who)
+                    },
+                    other: function (who = '') {
+                        return who === this.a ? this.b : who === this.b ? this.a : ''
+                    },
+                }
+                await this.sendMessage(m.chat, { text: "Você está na fila para um chat anônimo."}, { quoted: m })
+            }
+            break
+        }
     }
-    
-    // Valida a mensagem
-    if (!message) {
-      throw new Error('Mensagem vazia');
-    }
-    
-    // Limita o tamanho da mensagem
-    if (message.length > 90) {
-      throw new Error('Mensagem muito longa');
-    }
-    
-    // Cria a mensagem com aviso de anonimato
-    const anonymousMessage = '[AVISO: Esta é uma mensagem de correio anônimo. O remetente não é o número do bot, mas outro usuário que usou o plugin anonimo.]\n\n' + message;
-    
-    // Envia a mensagem
-    await conn.sendMessage(number, anonymousMessage, 'conversation');
-    
-    // Retorna confirmação para o usuário
-    m.reply('Mensagem enviada com sucesso');
-  } catch (error) {
-    // Trata o erro e informa o usuário
-    m.reply(`Erro ao enviar a mensagem: ${error.message}`);
-  }
-};
-
-handler.help = ['anonimo'];
-handler.tags = ['fun'];
-handler.command = ['anonimo'];
-handler.group = false;
-
-export default handler;
+}
+handler.help = ['start', 'leave', 'next']
+handler.tags = ['prime']
+handler.command = ['start', 'leave', 'next']
+handler.private = true
+export default handler
