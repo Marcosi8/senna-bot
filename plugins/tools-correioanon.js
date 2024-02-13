@@ -13,7 +13,7 @@ async function handler(m, { usedPrefix, command }) {
             if (command === 'leave') break
         }
         case 'start': {
-            if (Object.values(this.anonymous).find(room => room.check(m.sender))) return this.sendMessage(m.chat, { text: "🤔 *Você já está em um chat anônimo. Digite /sair para sair.*"}, { quoted: m })
+            if (Object.values(this.anonymous).find(room => room.check(m.sender))) return this.sendMessage(m.chat, { text: "🤔 *Você já está em um chat anônimo. Digite: /sair para sair.*"}, { quoted: m })
             let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
             if (room) {
                 await this.sendMessage(room.a, { text: "🥳 *Um parceiro se juntou ao chat!*"}, { quoted: m })
