@@ -18,7 +18,7 @@ async function handler(m, { usedPrefix, command }) {
             if (room) {
                 await this.sendMessage(room.a, { text: "🥳 *Um parceiro se juntou ao chat.*"}, { quoted: m })
                 room.b = m.sender
-                room.state = '_*CONVERSANDO!*_'
+                room.state = 'CONVERSANDO'
                 await this.sendMessage(m.chat, { text: "🎉 *Você foi conectado a um chat anônimo.*"}, { quoted: m })
             } else {
                 let id = + new Date
