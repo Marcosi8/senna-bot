@@ -1,3 +1,4 @@
+
 async function handler(m, { usedPrefix, command }) {
     command = command.toLowerCase()
     this.anonymous = this.anonymous ? this.anonymous : {}
@@ -38,16 +39,9 @@ async function handler(m, { usedPrefix, command }) {
             }
             break
         }
-        default: {
-            let room = Object.values(this.anonymous).find(room => room.check(m.sender))
-            if (room) {
-                let other = room.other(m.sender) 
-                if (other) await this.sendMessage(other, { text: m.text }, { quoted: m })
-            }
-        }
     }
 }
-handler.help = ['start', 'parar', 'proximo']
+handler.help = ['start', 'leave', 'next']
 handler.tags = ['Chat']
 handler.command = ['start', 'leave', 'next']
 handler.private = false
