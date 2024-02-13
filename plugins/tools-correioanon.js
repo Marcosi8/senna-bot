@@ -1,4 +1,3 @@
-
 let handler = async (m, { text, conn }) => {
   try {
     // Extrai o número e a mensagem do texto
@@ -8,7 +7,7 @@ let handler = async (m, { text, conn }) => {
     let message = parts.join('|'); // Junta os elementos restantes para formar a mensagem
     
     // Valida o número
-    if (!number || !/^\+?\d{10,15}$/.test(number)) throw new Error('*Número inválido. Certifique-se de usar o formato:* _+5588xxxxxxxx_');
+    if (!number || !/^\+?\d{10,15}$/.test(number)) throw new Error('Número inválido. Certifique-se de usar o formato: _+5588xxxxxxxx_');
     
     // Valida a mensagem
     if (!message) throw new Error('Mensagem vazia');
@@ -26,7 +25,7 @@ let handler = async (m, { text, conn }) => {
     m.reply('Mensagem enviada com sucesso');
   } catch (error) {
     // Trata o erro e informa o usuário
-    m.reply(`Erro ao enviar a mensagem: ${error.message}`);
+    m.reply(`*Erro ao enviar a mensagem:* ${error.message}`);
   }
 };
 
