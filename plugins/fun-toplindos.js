@@ -1,7 +1,6 @@
 function handler(m, {conn, groupMetadata }) {
     let now = new Date();
     let lastUsed = global.db.data.users[m.sender].shipping || 0;
-    m.react('⚡️');
     let elapsedTime = now - lastUsed;
 
     if (elapsedTime < 1800000) // 30 minutos em milissegundos
