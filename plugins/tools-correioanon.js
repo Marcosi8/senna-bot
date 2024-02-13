@@ -65,9 +65,9 @@ async function handler(m, { usedPrefix, command }) {
     }
 }
 
-handler.help = ['start', 'leave', 'next', 'anonimoinfo'];
+handler.help = ['anonimo', 'start', 'leave', 'next'];
 handler.tags = ['chat'];
-handler.command = ['start', 'leave', 'next', 'anonimoinfo'];
+handler.command = ['start', 'leave', 'next', 'anonimo'];
 handler.private = false;
 
 export default handler;
