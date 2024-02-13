@@ -13,6 +13,20 @@ let handler = async (m, { text, conn }) => {
     // Adiciona um aviso ao início da mensagem
     // Informa que a mensagem é um correio anônimo
     message = `[AVISO: Esta é uma mensagem de correio anônimo. O remetente não é o número do bot, mas outro usuário que usou o plugin anonimo.]\n\n` + message
+
+    // Verifica se a mensagem de correio anônimo tem a propriedade "text"
+    if (message.hasOwnProperty("text")) {
+      // Se sim, use o operador `in` para verificar se a string "text" está presente
+      if ("text" in message) {
+        // ...
+      } else {
+        // ...
+      }
+    } else {
+      // Se não, a mensagem de correio anônimo não é válida
+      throw `Mensagem de correio anônimo inválida`
+    }
+
     // Envia a mensagem para o número usando o bot
     await conn.sendMessage(number, message, 'conversation')
     // Retorna uma confirmação para o usuário
