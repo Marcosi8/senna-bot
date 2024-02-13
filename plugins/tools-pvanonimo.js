@@ -1,4 +1,4 @@
-async function handler(m, { command, args }) {
+kasync function handler(m, { command, args }) {
     command = command.toLowerCase()
     switch (command) {
         case 'pvanonimo': {
