@@ -3,8 +3,8 @@ function handler(m, {conn, groupMetadata }) {
     let lastUsed = global.db.data.users[m.sender].shipping || 0;
     let elapsedTime = now - lastUsed;
 
-    if (elapsedTime < 1800000) // 30 minutos em milissegundos
-        throw `Você pode acionar a boiada novamente em *${msToTime(1800000 - elapsedTime)}*`;
+    if (elapsedTime < 300000) // 5 minutos em milissegundos
+        throw `Você pode acionar a boiada novamente em *${msToTime(300000 - elapsedTime)}*`;
 
     let ps = groupMetadata.participants.map(v => v.id);
     let f = ps.getRandom();
@@ -18,13 +18,13 @@ function handler(m, {conn, groupMetadata }) {
     g = ps.getRandom();
 } while (h === f || h === i || h === k || h === v || g === f || g === i || g === k || g === v);
     m.reply(`
-🐂🚨*CHAMANDO TODOS OS CHiFRUDOS, REPITO, O BERRANTE FOI TOCADO*🚨🐂
+🐂🚨 *CHAMANDO TODOS OS CHiFRUDOS, REPITO, O BERRANTE FOI TOCADO* 🚨🐂
 
 🥇 _*Boi Supremo*_ ${toM(f)}
 
 🥈 _*Boi Master*_ ${toM(h)}
 
-🥉 Bezerra ${toM(g)}
+🥉 _*Bezerra*_ ${toM(g)}
 
 🐂 ${toM(i)}
 
