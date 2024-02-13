@@ -41,8 +41,8 @@ function handler(m, {conn, groupMetadata }) {
 
 🐂 ${toM(n)}
 
-🐂 ${toM(o)}
-`, null, { mentions: [f, g, i, j, k, l, m, n, o] });
+🐂  ${toM(o)}
+`, null, { mentions: [f, h, g, i, j, k, l, m, n, o] }); // Corrigido aqui
 
     global.db.data.users[m.sender].shipping = now;
 }
