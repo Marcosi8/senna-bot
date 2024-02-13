@@ -17,7 +17,7 @@ let tags = {
   'maker': 'MAKER 🌇',
   'prem': 'PREMIUM 🎖',
   'game': 'JOGOS 🎲',
-  'on/off': 'ATIVA/DESATIVA OPÇÕES 🔑', 
+  'On/Off': 'ATIVA/DESATIVA OPÇÕES 🔑', 
   'nime': 'ANIME 🥷',
   'rnime': 'ANIME REACT 👮‍♀️',
   'dl': 'BAIXAR 📥',
