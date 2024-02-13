@@ -7,7 +7,7 @@ import { xpRange } from '../lib/levelling.js'
 let tags = {
   'main': 'SOBRE 🇧🇷',
   'prime': 'MAIS USADOS 🥳',
-  'Chat': 'CHAT ANÔNIMO 👻',
+  'chat': 'CHAT ANÔNIMO 👻',
   'group': 'GRUPO 👮‍♀️',
   'bebot': 'SER BOT 🤖',
   'econ': 'NIVEL & ECONOMIA 💵',
