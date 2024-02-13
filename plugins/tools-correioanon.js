@@ -17,7 +17,7 @@ let [number, message] = text.split('|').map(v => v.trim())
   if (message.length > 90) throw 'Mensagem muito longa'
   // Adiciona um aviso ao início da mensagem
   // Informa que a mensagem é um correio anônimo
-  message = '[AVISO: Esta é uma mensagem de correio anônimo. O remetente não é o número do bot, mas outro usuário que usou o plugin anonimo.]\n\n' + message
+  message = '[AVISO: Esta é uma mensagem de correio anônimo. O remetente não é o número do bot, mas outro usuário que usou o plugin anonimo.]' + message
   // Envia a mensagem para o número usando o bot
   await conn.sendMessage(number, message, 'conversation')
   // Retorna uma confirmação para o usuário
