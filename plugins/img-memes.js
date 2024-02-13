@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-let handler = async(m, { conn, usedPrefix, command }) => {
+let handler = async (m, { conn }) => {
     const options = {
         method: 'GET',
         url: 'https://memes-brasileiros1.p.rapidapi.com/dev/memes',
@@ -19,10 +19,10 @@ let handler = async(m, { conn, usedPrefix, command }) => {
         console.error(error);
         m.reply('Erro ao obter o meme.');
     }
-}
+};
 
 handler.help = ['meme'];
-handler.tags = ['img', 'prime'];
+handler.tags = ['prime'];
 handler.command = ['meme', 'memes'];
 
-export default handler;
+module.exports = handler;
