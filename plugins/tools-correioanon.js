@@ -9,8 +9,9 @@ async function handler(m, { usedPrefix, command }) {
             m.reply("Você saiu do chat anônimo.")
             let other = room.other(m.sender) 
             if (other) await this.sendMessage(other, { text: "[❗️] *Seu parceiro saiu do chat.*"}, { quoted: m })
-            delete this.anonymous[room.id]
-            if (command === 'leave') break
+        if (command === 'leave') break
+delete this.anonymous[room.id]
+break
         }
         case 'start': {
             if (Object.values(this.anonymous).find(room => room.check(m.sender))) return this.sendMessage(m.chat, { text: "🤔 *Você já está em um chat anônimo. Digite: /sair para sair.*"}, { quoted: m })
