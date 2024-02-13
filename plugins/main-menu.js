@@ -7,7 +7,8 @@ import { xpRange } from '../lib/levelling.js'
 let tags = {
   'main': 'SOBRE 🇧🇷',
   'prime': 'MAIS USADOS 🥳',
-  'group': 'GRUPO 👲',
+  'Chat': 'CHAT ANÔNIMO 👻',
+  'group': 'GRUPO 👮‍♀️',
   'bebot': 'SER BOT 🤖',
   'econ': 'NIVEL & ECONOMIA 💵',
   'rg': 'REGISTRO 🗂',
@@ -16,7 +17,7 @@ let tags = {
   'maker': 'MAKER 🌇',
   'prem': 'PREMIUM 🎖',
   'game': 'JOGOS 🎲',
-  'nable': 'ATIVA/DESATIVA OPÇÕES 🔑', 
+  'on/off': 'ATIVA/DESATIVA OPÇÕES 🔑', 
   'nime': 'ANIME 🥷',
   'rnime': 'ANIME REACT 👮‍♀️',
   'dl': 'BAIXAR 📥',
