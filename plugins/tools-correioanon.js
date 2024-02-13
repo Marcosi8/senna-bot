@@ -5,22 +5,22 @@ async function handler(m, { usedPrefix, command }) {
         case 'next':
         case 'sair': {
             let room = Object.values(this.anonymous).find(room => room.check(m.sender))
-            if (!room) return this.sendMessage(m.chat, { text: "[❗️] *Você não está em um chat anônimo.*"}, { quoted: m })
+            if (!room) return this.sendMessage(m.chat, { text: "[❗️] _*Você não está em um chat anônimo.*_"}, { quoted: m })
             m.reply("Você saiu do chat anônimo.")
             let other = room.other(m.sender) 
-            if (other) await this.sendMessage(other, { text: "[❗️] *Seu parceiro saiu do chat.*"}, { quoted: m })
+            if (other) await this.sendMessage(other, { text: "[❗️] *_Seu parceiro saiu do chat._*"}, { quoted: m })
         if (command === 'leave') break
 delete this.anonymous[room.id]
 break
         }
         case 'start': {
-            if (Object.values(this.anonymous).find(room => room.check(m.sender))) return this.sendMessage(m.chat, { text: "🤔 *Você já está em um chat anônimo. Digite: /sair para sair.*"}, { quoted: m })
+            if (Object.values(this.anonymous).find(room => room.check(m.sender))) return this.sendMessage(m.chat, { text: "🤔 _*Você já está em um chat anônimo. Digite: /sair para sair._*"}, { quoted: m })
             let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
             if (room) {
-                await this.sendMessage(room.a, { text: "🥳 *Um parceiro se juntou ao chat!*"}, { quoted: m })
+                await this.sendMessage(room.a, { text: "🥳 _*Um parceiro se juntou ao chat!*_"}, { quoted: m })
                 room.b = m.sender
                 room.state = 'CHATTING'
-                await this.sendMessage(m.chat, { text: "🎉 *Você foi conectado a um chat anônimo.*"}, { quoted: m })
+                await this.sendMessage(m.chat, { text: "🎉 *_Você foi conectado a um chat anônimo._*"}, { quoted: m })
             } else {
                 let id = + new Date
                 this.anonymous[id] = {
@@ -35,7 +35,7 @@ break
                         return who === this.a ? this.b : who === this.b ? this.a : ''
                     },
                 }
-                await this.sendMessage(m.chat, { text: "🚦 _*Você está na fila para um chat anônimo, aguarde até alguem se conectar!*_ "}, { quoted: m })
+                await this.sendMessage(m.chat, { text: "🚦 _*Você está na fila para um chat anônimo, aguarde até alguém se conectar!*_ "}, { quoted: m })
             }
             break
         }
