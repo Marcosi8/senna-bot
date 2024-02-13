@@ -21,7 +21,7 @@ global.APIKeys = { // APIKey Here
 
 // Sticker WM
 global.packname = '🤖 𝚂𝙾𝚈𝚄𝚉-𝙱𝙾𝚃-𝙼𝙳' 
-global.author = '%name' 
+global.author = '@user' 
 
 //--info FG
 global.botName = 'Vladivostok'
