@@ -10,16 +10,18 @@ let g
 do g = ps.getRandom()
 while (g === f)
 m.reply(`
-▢ *ATENÇÃO PARA OS MAIS LINDOS DO GRUPO👇*
+▢ *❗️🚨 ATENÇÃO PARA OS MAIS LINDOS DO GRUPO!!👇*
 
- ${toM(f)}
- ${toM(f)}    
- ${toM(g)}
+ 🥇${toM(f)} 🏳️‍🌈
+
+ 🥈${toM(h)} 🫦
+    
+ 🥉${toM(g)} 🧌
 `, null, { mentions: [f, g] })
 global.db.data.users[m.sender].shipping = new Date * 1
 }
 handler.help = ['toplindo']
-handler.tags = ['fun']
+handler.tags = ['fun', 'prime']
 handler.command = ['toplindo']
 handler.group = true
 
