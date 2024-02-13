@@ -1,3 +1,5 @@
+
+
 async function handler(m, { usedPrefix, command }) {
     command = command.toLowerCase()
     this.anonymous = this.anonymous ? this.anonymous : {}
@@ -34,37 +36,7 @@ async function handler(m, { usedPrefix, command }) {
                         return who === this.a ? this.b : who === this.b ? this.a : ''
                     },
                 }
-                await this.sendMessage(m.chat, { text: "👥 *Aguardando um parceiro para o chat anônimo...*"}, { quoted: m })
-            }
-            break
-        }
-    }
-}
-
-module.exports = {
-    handler
-}
-
-                }
-            } else {
-                let id = + new Date
-                this.anonymous[id] = {
-                    id,
-                    a: m.sender,
-                    b: '',
-                    state: 'WAITING',
-                    check: function (who = '') {
-                        return [this.a, this.b].includes(who)
-                    },
-                    other: function (who = '') {
-                        return who === this.a ? this.b : who === this.b ? this.a : ''
-                    },
-                }
-                if (m.isGroup) {
-                    await this.sendMessage(m.chat, { text: "🚦 _*Você está na fila para um chat anônimo, aguarde até alguém se conectar!*_ "}, { quoted: m })
-                } else {
-                    await this.sendMessage(m.chat, "🚦 _*Você está na fila para um chat anônimo, aguarde até alguém se conectar!*_ ")
-                }
+                await this.sendMessage(m.chat, { text: "🚦 _*Você está na fila para um chat anônimo, aguarde até alguem se conectar!*_ "}, { quoted: m })
             }
             break
         }
