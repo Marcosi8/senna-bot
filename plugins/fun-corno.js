@@ -7,16 +7,18 @@ function handler(m, {conn, groupMetadata }) {
         throw `Você pode acionar a boiada novamente em *${msToTime(300000 - elapsedTime)}*`;
 
     let ps = groupMetadata.participants.map(v => v.id);
-    let f = ps.getRandom();
-    let h = ps.getRandom(); 
-    let k = ps.getRandom();
-    let i = ps.getRandom();
-    let v = ps.getRandom();
-    let g;
+let f = ps.getRandom();
+let h = ps.getRandom(); 
+let k = ps.getRandom();
+let i = ps.getRandom();
+let v = ps.getRandom();
+let g;
 
-    do {
+do {
     g = ps.getRandom();
-} while (h === f || h === i || h === k || h === v || g === f || g === i || g === k || g === v);
+} while (h === f || h === i || h === k || h === v || h === g || g === f || g === i || g === k || g === v);
+
+// Agora você tem 6 pessoas (f, h, k, i, v, g) sem repetição
     m.reply(`
 🐂🚨 *CHAMANDO TODOS OS CHiFRUDOS, REPITO, O BERRANTE FOI TOCADO* 🚨🐂
 
