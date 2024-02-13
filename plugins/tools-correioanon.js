@@ -44,5 +44,5 @@ async function handler(m, { usedPrefix, command }) {
 handler.help = ['start', 'leave', 'next']
 handler.tags = ['Chat']
 handler.command = ['start', 'leave', 'next']
-handler.private = false
+handler.private = true
 export default handler
