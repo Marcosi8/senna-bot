@@ -193,7 +193,7 @@ const translations = {
   gpInfo: 'Informações do grupo',
   members: 'Membros',
   gpOwner: 'Dono do grupo',
-  admin: 'Administrador',
+  admin: 'administrador',
   gpConf: 'Configurações do grupo',
   gpConfMsg: 'Configurações de mensagens',
   kick: 'Usuário expulso',
@@ -263,7 +263,7 @@ const translations = {
   groupH: 'Este comando só pode ser usado em grupos',
   privateH: 'Este comando só pode ser usado no *chat privado com o Bot*',
   adminH: 'Este comando é apenas para *administradores* do grupo',
-  botAdmin: 'Para usar este comando, você deve tornar o bot *Administrador* do grupo!',
+  botAdmin: 'Para usar este comando, você deve tornar o bot *administrador* do grupo!',
   unregH: 'Registre-se para usar esta função. Digite:\n\n*/reg*',
   ig: `▢ Siga-me no Instagram\n${fgig}`
 }
