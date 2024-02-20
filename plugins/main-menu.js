@@ -33,9 +33,9 @@ const defaultMenu = {
   before: `
   *Soyuzᴮᴼᵀ*
  
-┏│》✨️ *Oi!* %name. *XP: %level*
-┃│》🚀  *Usuários:* %totalreg 
-┃│》♻️  *Tempo Ativo:* %muptime 
+> 🌎 *Oi!* %name. *XP: %level*
+> 🚀  *Usuários:* %totalreg 
+> ♻️  *Tempo Ativo:* %muptime 
 %sbot
 ┗│ [❗️] *Versão:* 1.4.0
 ────────────
@@ -45,8 +45,8 @@ const defaultMenu = {
 🪙 = É ᴘʀᴇᴄɪꜱᴏ ᴘʀᴇᴍɪᴜᴍ
 💎 = É ᴘʀᴇᴄɪꜱᴏ ᴅɪᴀᴍᴀɴᴛᴇꜱ
 `.trimStart(),
-  header: '┌─⊷ *%category*',
-  body: '⤿ %cmd %isdiamond %isPremium',
+  header: '> *%category*',
+  body: '```%cmd``` %isdiamond %isPremium',
   footer: '└───────────\n',
   after: `*ᴘᴏᴡᴇʀᴇᴅ ʙʏ: ᴍᴀʀᴄᴏsᴋᴢ_*
 `,
@@ -158,7 +158,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     ], m, rpl)*/
     conn.sendFile(m.chat, pp, 'menu.jpg', text.trim(), m, null, rcanal)
   
-    m.react('💍') 
+   m.react('🇦🇿'), m.react('🇦🇼'), m.react('🇧🇸'), m.react('🇧🇩'), m.react('🇧🇪'), m.react('🇧🇷'), m.react('🇨🇦'), m.react('🇨🇳'), m.react('🇩🇰'), m.react('🇩🇪'), m.react('🇪🇸'), m.react('🇫🇷'), m.react('🇬🇧'), m.react('🇮🇳'), m.react('🇮🇹'), m.react('🇯🇵'), m.react('🇲🇽'), m.react('🇳🇱'), m.react('🇳🇴'), m.react('🇵🇱'), m.react('🇵🇹'), m.react('🇷🇺'), m.react('🇸🇪'), m.react('🇹🇷'), m.react('🇺🇸'), m.react('🇦🇷'), m.react('🇦🇹'), m.react('🇦🇺'), m.react('🇨🇭'), m.react('🇨🇿'), m.react('🇩🇿'), m.react('🇪🇬'), m.react('🇬🇷'), m.react('🇭🇷'), m.react('🇭🇺'), m.react('🇮🇱'), m.react('🇮🇩'), m.react('🇯🇲'), m.react('🇰🇷'), m.react('🇲🇾'), m.react('🇵🇰'), m.react('🇵🇭'), m.react('🇸🇬'), m.react('🇹🇭'), m.react('🇹🇳'), m.react('🇺🇦'), m.react('🇿🇦'), m.react('🇧🇴'), m.react('🇨🇷'), m.react('🇨🇺'), m.react('🇩🇴'), m.react('🇪🇨'), m.react('🇪🇪'), m.react('🇫🇮'), m.react('🇬🇹'), m.react('🇭🇳'), m.react('🇭🇰'), m.react('🇮🇪'), m.react('🇰🇪'), m.react('🇰🇼'), m.react('🇱🇻'), m.react('🇱🇧'), m.react('🇱🇰'), m.react('🇲🇦'), m.react('🇲🇰'), m.react('🇲🇲'), m.react('🇳🇬'), m.react('🇵🇪'), m.react('🇵🇳'), m.react('🇷🇸'), m.react('🇷🇴'), m.react('🇸🇦'), m.react('🇸🇰'), m.react('🇸🇮'), m.react('🇹🇼'), m.react('🇹🇿'), m.react('🇺🇾'), m.react('🇻🇦'), m.react('🇻🇪'), m.react('🇿🇼'), m.react('🇦🇴'), m.react('🇦🇱'), m.react('🇦🇩'), m.react('🇧🇾'), m.react('🇧🇭'), m.react('🇧🇧'), m.react('🇧🇿'), m.react('🇧🇲'), m.react('🇧🇬'), m.react('🇨🇲'), m.react('🇨🇫'), m.react('🇨🇩'), m.react('🇨🇮'), m.react('🇩🇯'), m.react('🇪🇹'), m.react('🇫🇯'), m.react('🇬🇲'), m.react('🇬🇭'), m.react('🇬🇮'), m.react('🇬🇳'), m.react('🇬🇼'), m.react('🇬🇾')
     
   } catch (e) {
     conn.reply(m.chat, '❌️ Erro ao exibir o menu', m)
