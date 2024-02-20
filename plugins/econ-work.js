@@ -1,10 +1,10 @@
 
 import fetch from 'node-fetch'
 import axios from 'axios'
-let cooldown = 3600000
+let cooldown = 360000
 let handler = async (m, { conn, usedPrefix, command }) => {
 
-  let hasil = Math.floor(Math.random() * 500)
+  let hasil = Math.floor(Math.random() * 10500)
   let user = global.db.data.users[m.sender]
   if (new Date - user.lastwork < cooldown) throw `🧘🏻‍♂️ ${mssg.workCd} *${msToTime((user.lastwork + cooldown) - new Date())}*`
 
