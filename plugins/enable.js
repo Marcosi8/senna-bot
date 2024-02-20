@@ -135,7 +135,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     case 'onlygp':
     case 'grouponly':
     case 'sologp':
-    case 'sologrupo':
+    case 'sogrupo':
       isAll = true
       if (!isOwner) {
         global.dfail('owner', m, conn)
@@ -176,8 +176,8 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 └─────────────
 ┌─⊷ *OWNER*
 ▢ public
-▢ solopv
-▢ sologp
+▢ sopv
+▢ sogp
 └─────────────
 *📌 Exemplo :*
 *${usedPrefix}on* welcome
