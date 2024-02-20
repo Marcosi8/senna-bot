@@ -24,19 +24,19 @@ const rl = createInterface(process.stdin, process.stdout)
 const app = express()
 const port = process.env.PORT || 8080;
 
-say('Soyuz', {
+say('Senna FG98', {
   font: 'pallet',
   align: 'center',
   gradient: ['red', 'magenta']
 })
-say(`SoyuzBOT by Marcoskz`, {
+say(`senna-bot By FG98 Ig: @fg98_ff`, {
   font: 'console',
   align: 'center',
   gradient: ['cyan', 'magenta']
 })
 
 app.listen(port, () => {
-  console.log(chalk.green(`🌐 Porto ${port} esta aberto`));
+  console.log(chalk.green(`🌐 Puerto ${port} esta abierto`));
 });
 
 var isRunning = false
@@ -72,7 +72,7 @@ async function start(file) {
   //---
   p.on('exit', (_, code) => {
     isRunning = false
-    console.error('❗️Erro Inesperado:', code)
+    console.error('❎ Ocurrió un error inesperado:', code)
     start('main.js'); //
 
     if (code === 0) return
@@ -94,18 +94,18 @@ async function start(file) {
     try {
     const packageJsonData = await fsPromises.readFile(packageJsonPath, 'utf-8');
     const packageJsonObj = JSON.parse(packageJsonData);
-    console.log(chalk.blue.bold(`\n📦 Informações do pacote`));
-    console.log(chalk.cyan(`Nome: ${packageJsonObj.name}`));
-    console.log(chalk.cyan(`Versão: ${packageJsonObj.version}`));
-    console.log(chalk.cyan(`Descrição: ${packageJsonObj.description}`));
+    console.log(chalk.blue.bold(`\n📦 Información del Paquete`));
+    console.log(chalk.cyan(`Nombre: ${packageJsonObj.name}`));
+    console.log(chalk.cyan(`Versión: ${packageJsonObj.version}`));
+    console.log(chalk.cyan(`Descripción: ${packageJsonObj.description}`));
     console.log(chalk.cyan(`Autor: ${packageJsonObj.author.name}`));
   } catch (err) {
-    console.error(chalk.red(`❌ Erro ao ler o arquivo package.json: ${err}`));
+    console.error(chalk.red(`❌ No se pudo leer el archivo package.json: ${err}`));
   }
 
 
-  console.log(chalk.blue.bold(`\n⏰ Hora Atual`));
-  const currentTime = new Date().toLocaleString('es-ES', { timeZone: 'America/Sao_Paulo' })
+  console.log(chalk.blue.bold(`\n⏰ Hora Actual`));
+  const currentTime = new Date().toLocaleString('es-ES', { timeZone: 'America/Argentina/Buenos_Aires' })
   //const currentTime = new Date().toLocaleString();
   console.log(chalk.cyan(`${currentTime}`));
 
