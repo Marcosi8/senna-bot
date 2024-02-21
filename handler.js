@@ -504,9 +504,9 @@ export async function participantsUpdate({ id, participants, action }) {
             if (chat.welcome) {
 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
 for (let user of participants) {
-let pp = gataMenu.getRandom()
+let pp = marcosgpt.getRandom()
 try {
-pp = await this.profilePictureUrl(user, 'image')
+pp = marcosgpt.getRandom()
 } catch (e) {
 } finally {
 let apii = await this.getFile(pp)                                      
