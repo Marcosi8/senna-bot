@@ -1,7 +1,7 @@
 function handler(m, {conn, groupMetadata }) {
-    let now = new Date();
+//    let now = new Date();
     let lastUsed = global.db.data.users[m.sender].shipping || 0;
-    let elapsedTime = now - lastUsed;
+ //   let elapsedTime = now - lastUsed;
 
   // if (elapsedTime < 1800000) // 30 minutos em milissegundos
      //   throw `🕴 Você pode usar novamente em *${msToTime(1800000 - elapsedTime)}*`;
