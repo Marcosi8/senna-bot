@@ -23,7 +23,7 @@ global.APIKeys = { // APIKey Here
 //Menus
 global.img = fs.readFileSync("./src/menus/Menu4.jpg")
 global.img2 = fs.readFileSync("./src/menus/IMG-20240213-WA0035.jpg")
-global.img3 = fs.readFileSync("./src/menus/trippy_4208ins-20240216-0001.mp4")
+global.img3 = fs.readFileSync("./src/menus/IMG-20240213-WA0035.jpg")
 global.img4 = fs.readFileSync("./src/menus/download (9).jpeg")
 //global.img5 = 'https://i.ibb.co/7byyGk0/e5d4e244-1fa4-46a6-b68a-1927e9bac5db.jpg';
 //global.img6 = 'https://i.ibb.co/zPwRpz5/61769b3a-fd5c-4b78-9975-d19f87886d79.jpg';
@@ -69,7 +69,7 @@ global.bgp = 'https://chat.whatsapp.com/LPddZ7u0v8G3PxEQ1SR1mZ'
 global.bgp2 = 'https://chat.whatsapp.com/LPddZ7u0v8G3PxEQ1SR1mZ'
 global.bgp3 = 'https://chat.whatsapp.com/LPddZ7u0v8G3PxEQ1SR1mZ' //--GP NSFW
 
-global.wait = '⏲️ _Carregando..._\n*▬▬▬▭*'
+global.wait = '*_Processando..._\n*▬▬▬▭*'
 global.rwait = '🔄'
 global.dmoji = '🤠'
 global.done = '✅'
