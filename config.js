@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url'
 global.owner = [
   ['558881647724', 'marcoskz_', true],
   ['558881647724']
-] //Numeros de owner 
+] //Numeros dos donos
 
 global.mods = [''] 
 global.prems = ['558881647724', '558881647724']
@@ -17,9 +17,10 @@ global.APIs = { // API Prefix
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
-  'https://api.fgmods.xyz': 'aa9HWoim' //--- 100 de límite diario --- Regístrese en https://api.fgmods.xyz/
+  'https://api.fgmods.xyz': 'aa9HWoim' //--- 100 de límite diario --- Registro na API para comandos NSFW: https://api.fgmods.xyz/
 }
 
+//Menus
 global.img = fs.readFileSync("./src/menus/Menu4.jpg")
 global.img2 = fs.readFileSync("./src/menus/IMG-20240213-WA0035.jpg")
 global.img3 = fs.readFileSync("./src/menus/trippy_4208ins-20240216-0001.mp4")
@@ -50,11 +51,11 @@ global.gpt6 = fs.readFileSync("./src/GPT/gpt3.png")
 global.marcosMenu = [img, img2, img3, img4] //img6, img7, img8, img9, img13, img14, img15, img16, img17]
 global.marcosgpt = [gpt1, gpt2, gpt3, gpt4, gpt5, gpt6]
 
-// Sticker WM
+// Sticker PackName
 global.packname = '🤖 𝚂𝙾𝚈𝚄𝚉-𝙱𝙾𝚃-𝙼𝙳' 
 global.author = '@user' 
 
-//--info FG
+//--info
 global.botName = 'Vladivostok'
 global.fgig = 'https://www.instagram.com/marcoskz_' 
 global.fgsc = 'https://github.com/Marcosi8' 
