@@ -8,8 +8,9 @@ let tags = {
   'main': 'SOBRE 🇧🇷',
   'prime': 'MAIS USADOS 🥳',
   'chat': 'CHAT ANÔNIMO 👻',
-  'group': 'GRUPO 👮‍♀️',
-  'bebot': 'SER BOT 🤖',
+  'ia': 'IA/CHATGPT 🤖',
+  'more': '%readmore',
+  'group': 'GRUPO 👮‍',
   'econ': 'NIVEL & ECONOMIA 💵',
   'rg': 'REGISTRO 🗂',
   'sticker': 'STICKER 🎉',
@@ -33,17 +34,23 @@ const defaultMenu = {
   before: `
   *Soyuzᴮᴼᵀ*
  
-> 🌎 *Oi!* %name. *XP: %level*
-> 🚀  *Usuários:* %totalreg 
-> ♻️  *Tempo Ativo:* %muptime 
-%sbot
-┗│ [❗️] *Versão:* 1.4.0
-────────────
-  ≡ *ʟɪꜱᴛᴀ ᴅᴇ ᴍᴇɴᴜꜱ ⤵*
-%readmore
+> 🌎 *Oi!* %name
+> 📅 %week %date
 
-🪙 = É ᴘʀᴇᴄɪꜱᴏ ᴘʀᴇᴍɪᴜᴍ
-💎 = É ᴘʀᴇᴄɪꜱᴏ ᴅɪᴀᴍᴀɴᴛᴇꜱ
+> 🚀 *Usuários:* %totalreg 
+> 🗂 *Registros:* %rtotalreg
+> ♻️ *Tempo Ativo:* %muptime 
+%sbot
+> 💎 %diamond
+> 🎰 *Nivel:* %role *XP:* %level
+
+┗│ [❗️] *Versão:* 1.4.0
+
+> *Lista de Comandos* ↙️
+              %readmore
+
+🪙 = *REQUER PREMIUM*
+💎 = *REQUER DIAMANTES*
 `.trimStart(),
   header: '> *%category*',
   body: '```%cmd``` %isdiamond %isPremium',
@@ -58,7 +65,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     let { min, xp, max } = xpRange(level, global.multiplier)
     let name = await conn.getName(m.sender)
     let d = new Date(new Date + 3600000)
-    let locale = 'es'
+    let locale = 'pt'
     // d.getTimeZoneOffset()
     // Offset -420 is 18.00
     // Offset    0 is  0.00
@@ -120,8 +127,8 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
-                .replace(/%isdiamond/g, menu.diamond ? '(💎)' : '')
-                .replace(/%isPremium/g, menu.premium ? '(🪙)' : '')
+                .replace(/%isdiamond/g, menu.diamond ? '💎' : '')
+                .replace(/%isPremium/g, menu.premium ? '🪙' : '')
                 .trim()
             }).join('\n')
           }),
