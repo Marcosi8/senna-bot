@@ -1,4 +1,4 @@
-/*function handler(m, {conn, groupMetadata }) {
+/* function handler(m, {conn, groupMetadata }) {
 //    let now = new Date();
     let lastUsed = global.db.data.users[m.sender].shipping || 0;
  //   let elapsedTime = now - lastUsed;
