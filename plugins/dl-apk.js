@@ -22,7 +22,7 @@ let handler = async (m, { conn, usedPrefix: prefix, command, text }) => {
         { quoted: m }
       )
     }
-  m.react(🎰)
+  m.react(🗃), m.react(🌠)
   } catch {
     throw `*[🪩] Certifique-se de fornecer um nome/link válido.*`;
   }
