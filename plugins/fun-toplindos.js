@@ -3,8 +3,8 @@ function handler(m, {conn, groupMetadata }) {
     let lastUsed = global.db.data.users[m.sender].shipping || 0;
     let elapsedTime = now - lastUsed;
 
-    if (elapsedTime < 1800000) // 30 minutos em milissegundos
-        throw `🕴 Você pode usar novamente em *${msToTime(1800000 - elapsedTime)}*`;
+  // if (elapsedTime < 1800000) // 30 minutos em milissegundos
+     //   throw `🕴 Você pode usar novamente em *${msToTime(1800000 - elapsedTime)}*`;
 
     let ps = groupMetadata.participants.map(v => v.id);
     let f = ps.getRandom();
@@ -37,15 +37,15 @@ export default handler;
 
 let toM = f => '@' + f.split('@')[0];
 
-function msToTime(duration) {
-    var milliseconds = parseInt((duration % 1000) / 100),
-        seconds = Math.floor((duration / 1000) % 60),
-        minutes = Math.floor((duration / (1000 * 60)) % 60),
-        hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+// function msToTime(duration) {
+ //   var milliseconds = parseInt((duration % 1000) / 100),
+    //    seconds = Math.floor((duration / 1000) % 60),
+     //   minutes = Math.floor((duration / (1000 * 60)) % 60),
+      //  hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
 
-    hours = (hours < 10) ? "0" + hours : hours;
-    minutes = (minutes < 10) ? "0" + minutes : minutes;
-    seconds = (seconds < 10) ? "0" + seconds : seconds;
+   // hours = (hours < 10) ? "0" + hours : hours;
+   // minutes = (minutes < 10) ? "0" + minutes : minutes;
+   // seconds = (seconds < 10) ? "0" + seconds : seconds;
 
-    return hours + ` ${mssg.hour} ` + minutes + ` ${mssg.minute}`;
+   // return hours + ` ${mssg.hour} ` + minutes + ` ${mssg.minute}`;
 }
