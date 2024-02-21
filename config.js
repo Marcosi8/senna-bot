@@ -47,8 +47,8 @@ global.gpt4 = fs.readFileSync("./src/GPT/Menu4.png")
 global.gpt5 = fs.readFileSync("./src/GPT/Menu4.png")
 global.gpt6 = fs.readFileSync("./src/GPT/Menu4.png")
 
-global.princeMenu = [img, img2, img6, img7, img8] //img9, img13, img14, img15, img16, img17]
-global.princegpt = [gpt1, gpt2, gpt3, gpt4, gpt5, gpt6]
+global.marcosMenu = [img, img2, img6, img7, img8] //img9, img13, img14, img15, img16, img17]
+global.marcosgpt = [gpt1, gpt2, gpt3, gpt4, gpt5, gpt6]
 
 // Sticker WM
 global.packname = '🤖 𝚂𝙾𝚈𝚄𝚉-𝙱𝙾𝚃-𝙼𝙳' 
