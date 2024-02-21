@@ -3,7 +3,7 @@ import { download } from 'aptoide-scraper';
 let handler = async (m, { conn, usedPrefix: prefix, command, text }) => {
   try {
     if (command === 'modapk', 'apk', 'app') {
-      if (!text) throw `*[❗] Forneça o nome do APK que você deseja baixar! .*`;
+      if (!text) throw `*[❗] Forneça o nome do APK que você deseja baixar!.*`;
       m.react(rwait)
       await conn.reply(m.chat, global.wait, m);
       let data = await download(text);
@@ -22,7 +22,7 @@ let handler = async (m, { conn, usedPrefix: prefix, command, text }) => {
         { quoted: m }
       )
     }
-  m.react(done)
+  m.react(🎰)
   } catch {
     throw `*[🪩] Certifique-se de fornecer um nome/link válido.*`;
   }
