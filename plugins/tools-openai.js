@@ -9,7 +9,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     text = m.quoted.text;
   }
 
-  let pp = princegpt.getRandom()
+  let pp = marcosgpt.getRandom()
   
   try {
     m.react(rwait)
@@ -20,7 +20,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     conn.sendPresenceUpdate('composing', m.chat);
     const prompt = encodeURIComponent(text);
 
-    const guru1 = `https://api.vihangayt.me/tools/bard?q=Hi`;
+    const guru1 = `https://api.vihangayt.me/tools/chatgpt4?q=Hi`;
     
     try {
       let response = await fetch(guru1);
@@ -49,7 +49,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
       const model = 'llama';
       const senderNumber = m.sender.replace(/[^0-9]/g, ''); 
       const session = `GURU_BOT_${senderNumber}`;
-      const guru2 = `https://api.vihangayt.me/tools/bard?q=Hi`;
+      const guru2 = `https://api.vihangayt.me/tools/chatgpt3?q=chemistry`;
       
       let response = await fetch(guru2);
       let data = await response.json();
