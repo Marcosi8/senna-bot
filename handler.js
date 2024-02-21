@@ -1,4 +1,4 @@
- import { smsg } from './lib/simple.js'
+import { smsg } from './lib/simple.js'
 import { format } from 'util' 
 import { fileURLToPath } from 'url'
 import path, { join } from 'path'
@@ -554,6 +554,58 @@ export async function participantsUpdate({ id, participants, action }) {
             }
             break;
       
+      case 'remove':
+            if (chat.welcome) {
+              let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata;
+              for (let user of participants) {
+                let pp, ppgp;
+                try {
+                  pp = await this.profilePictureUrl(user, 'image');
+                  ppgp = await this.profilePictureUrl(id, 'image');
+                } catch (error) {
+                  console.error(`Error retrieving profile picture: ${error}`);
+                  pp = 'https://telegra.ph/file/b86cd15e5a49014d06660.jpg'; // Assign default image URL
+                  ppgp = 'https://telegra.ph/file/b86cd15e5a49014d06660.jpg'; // Assign default image URL
+                } finally {
+                  let text = (chat.sBye || this.bye || conn.bye || 'HELLO, @user')
+                    .replace('@user', '@' + user.split('@')[0]);
+          
+                  let nthMember = groupMetadata.participants.length;
+                  let secondText = `Goodbye, our ${nthMember}th group member`;
+          
+                  let leaveApiUrl = `https://wecomeapi.onrender.com/leave-image?username=${encodeURIComponent(
+                    await this.getName(user)
+                  )}&guildName=${encodeURIComponent(await this.getName(id))}&guildIcon=${encodeURIComponent(
+                    ppgp
+                  )}&memberCount=${encodeURIComponent(
+                    nthMember.toString()
+                  )}&avatar=${encodeURIComponent(pp)}&background=${encodeURIComponent(
+                    'https://telegra.ph/file/b86cd15e5a49014d06660.jpg'
+                  )}`;
+          
+                  try {
+                    let leaveResponse = await fetch(leaveApiUrl);
+                    let leaveBuffer = await leaveResponse.buffer();
+          
+                    this.sendMessage(id, {
+                        text: text,
+                        contextInfo: {
+                        mentionedJid: [user],
+                        externalAdReply: {
+                        title: global.botname,
+                        body: "Bye bye",
+                        thumbnailUrl: leaveApiUrl,
+                        sourceUrl: '',
+                        mediaType: 1,
+                        renderLargerThumbnail: true
+                        }}})
+                  } catch (error) {
+                    console.error(`Error generating leave image: ${error}`);
+                  }
+                }
+              }
+            }
+            break;
       
         case 'promote':
             text = (chat.sPromote || this.spromote || conn.spromote || '@user agora é um administrador')
