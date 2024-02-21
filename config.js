@@ -42,10 +42,10 @@ global.img4 = fs.readFileSync("./src/menus/download (9).jpeg")
 
 //Chatgpt
 global.gpt1 = fs.readFileSync("./src/GPT/gpt1.jpeg")
-global.gpt2 = fs.readFileSync("./src/GPT/gpt2.jpeg")
+global.gpt2 = fs.readFileSync("./src/GPT/gpt3.jpeg")
 global.gpt3 = fs.readFileSync("./src/GPT/gpt3.jpeg")
 global.gpt4 = fs.readFileSync("./src/GPT/gpt1.jpeg")
-global.gpt5 = fs.readFileSync("./src/GPT/gpt2.jpeg")
+global.gpt5 = fs.readFileSync("./src/GPT/gpt3.jpeg")
 global.gpt6 = fs.readFileSync("./src/GPT/gpt3.jpeg")
 
 global.marcosMenu = [img, img2, img3, img4] //img6, img7, img8, img9, img13, img14, img15, img16, img17]
