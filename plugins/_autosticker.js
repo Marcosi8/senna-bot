@@ -16,7 +16,7 @@ let img = await q.download?.()
 if (!img) return
 stiker = await sticker(img, false, packname, author)
 } else if (/video/g.test(mime)) {
-if (/video/g.test(mime)) if ((q.msg || q).seconds > 8) return await m.reply(lenguajeGB.smsAutoStik())
+if (/video/g.test(mime)) if ((q.msg || q).seconds > 8) return await m.reply(🦺)
 //this.sendButton(m.chat, lenguajeGB.smsAutoStik(), wm, [[lenguajeGB.smsApagar(), '/disable autosticker']], m)
 let img = await q.download()
 if (!img) return
