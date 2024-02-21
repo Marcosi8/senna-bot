@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { text, conn, usedPrefix, command }) => {
   if (!text && !(m.quoted && m.quoted.text)) {
-    throw `❇Exemplo: ${usedPrefix + command} 𝘸𝘩𝘢𝘵 𝘪𝘴 𝘪𝘴𝘭𝘢𝘮?`;
+    throw `*Exemplo: ${usedPrefix + command} 𝘸𝘩𝘢𝘵 𝘪𝘴 𝘪𝘴𝘭𝘢𝘮?`;
   }
 
   if (!text && m.quoted && m.quoted.text) {
@@ -20,7 +20,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     conn.sendPresenceUpdate('composing', m.chat);
     const prompt = encodeURIComponent(text);
 
-    const guru1 = `https://api.vihangayt.me/tools/chatgpt2?q=Hi`;
+    const guru1 = `https://api.vihangayt.me/tools/chatgpt4?q=Hi`;
     
     try {
       let response = await fetch(guru1);
@@ -73,7 +73,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
   }
 };
 handler.help = ['chatgpt']
-handler.tags = ['prime']
+handler.tags = ['ia']
 handler.command = ['ai', 'gpt', 'chatgpt'];
 
 export default handler;
