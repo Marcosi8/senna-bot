@@ -20,14 +20,14 @@ global.APIKeys = { // APIKey Here
   'https://api.fgmods.xyz': 'aa9HWoim' //--- 100 de límite diario --- Regístrese en https://api.fgmods.xyz/
 }
 
-global.img = 'https://i.ibb.co/7byyGk0/e5d4e244-1fa4-46a6-b68a-1927e9bac5db.jpg';
-global.img2 = 'https://i.ibb.co/7byyGk0/e5d4e244-1fa4-46a6-b68a-1927e9bac5db.jpg';
-global.img3 = 'https://i.ibb.co/GCXd0nH/8e9a0eb7-6e4e-4818-8a9d-08a8d19f7bed.jpg';
-global.img4 = 'https://i.ibb.co/P41NnX9/61769b3a-fd5c-4b78-9975-d19f87886d79.jpg';
-global.img5 = 'https://i.ibb.co/7byyGk0/e5d4e244-1fa4-46a6-b68a-1927e9bac5db.jpg';
-global.img6 = 'https://i.ibb.co/zPwRpz5/61769b3a-fd5c-4b78-9975-d19f87886d79.jpg';
-global.img7 = 'https://i.ibb.co/PWbLKw8/5c9710e0-de56-474e-80a8-2f89f243eaac.jpg';
-global.img8 = 'https://i.ibb.co/PWbLKw8/5c9710e0-de56-474e-80a8-2f89f243eaac.jpg';
+global.img = fs.readFileSync("./src/Menus/Menu4.jpg")
+global.img2 = fs.readFileSync("./src/Menus/IMG-20240213-WA0035.jpg")
+global.img3 = fs.readFileSync("./src/Menus/trippy_4208ins-20240216-0001.mp4")
+global.img4 = fs.readFileSync("./src/Menus/download(9).jpeg")
+//global.img5 = 'https://i.ibb.co/7byyGk0/e5d4e244-1fa4-46a6-b68a-1927e9bac5db.jpg';
+//global.img6 = 'https://i.ibb.co/zPwRpz5/61769b3a-fd5c-4b78-9975-d19f87886d79.jpg';
+//global.img7 = 'https://i.ibb.co/PWbLKw8/5c9710e0-de56-474e-80a8-2f89f243eaac.jpg';
+//global.img8 = 'https://i.ibb.co/PWbLKw8/5c9710e0-de56-474e-80a8-2f89f243eaac.jpg';
 //global.img9 = 'https://i.ibb.co/zPwRpz5/61769b3a-fd5c-4b78-9975-d19f87886d79.jpg';
 //global.img10 = 'https://i.ibb.co/zPwRpz5/61769b3a-fd5c-4b78-9975-d19f87886d79.jpg';
 //global.img11 = 'https://i.ibb.co/zPwRpz5/61769b3a-fd5c-4b78-9975-d19f87886d79.jpg';
@@ -40,14 +40,14 @@ global.img8 = 'https://i.ibb.co/PWbLKw8/5c9710e0-de56-474e-80a8-2f89f243eaac.jpg
 
 
 //Chatgpt
-global.gpt1 = fs.readFileSync("./src/GPT/Menu4.png")
-global.gpt2 = fs.readFileSync("./src/GPT/Menu4.png")
-global.gpt3 = fs.readFileSync("./src/GPT/Menu4.png")
-global.gpt4 = fs.readFileSync("./src/GPT/Menu4.png")
-global.gpt5 = fs.readFileSync("./src/GPT/Menu4.png")
-global.gpt6 = fs.readFileSync("./src/GPT/Menu4.png")
+global.gpt1 = fs.readFileSync("./src/GPT/gpt1.png")
+global.gpt2 = fs.readFileSync("./src/GPT/gpt2.png")
+global.gpt3 = fs.readFileSync("./src/GPT/gpt3.png")
+global.gpt4 = fs.readFileSync("./src/GPT/gpt4.png")
+global.gpt5 = fs.readFileSync("./src/GPT/gpt1.png")
+global.gpt6 = fs.readFileSync("./src/GPT/gpt2.png")
 
-global.marcosMenu = [img, img2, img6, img7, img8] //img9, img13, img14, img15, img16, img17]
+global.marcosMenu = [img, img2, img3, img4] //img6, img7, img8, img9, img13, img14, img15, img16, img17]
 global.marcosgpt = [gpt1, gpt2, gpt3, gpt4, gpt5, gpt6]
 
 // Sticker WM
