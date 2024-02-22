@@ -600,7 +600,7 @@ global.dfail = (type, m, conn) => {
     if (msg) return m.reply(msg)
 }
 
-try {
+try 
 if (!opts['noprint']) await (await import(`./lib/print.js`)).default(m, this)
 } catch (e) {
 console.log(m, m.quoted, e)}
