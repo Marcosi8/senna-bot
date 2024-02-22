@@ -9,8 +9,8 @@ if (jumlah && isNaN(jumlah)) throw `*QUANTAS MENSAGENS EMVIAR?* \n*🎰 ${usedPr
 await delay(5000)
 let fixedNumber = nomor.replace(/[-+<>@]/g, '').replace(/ +/g, '').replace(/^[0]/g, '62') + '@s.whatsapp.net'
 await delay(5000)
-let fixedJumlah = jumlah ? jumlah * 1 : 15
-if (fixedJumlah > 15) throw `❗️ _MÁXIMO DE *15* MENSAGENS PARA FAZER UM SPAM_ \n\n𝙈𝙄𝙉𝙄𝙈𝙐𝙈 *10* 𝙈𝙀𝙎𝙎𝘼𝙂𝙀𝙎 𝙏𝙊 𝙎𝙋𝘼𝙈`
+let fixedJumlah = jumlah ? jumlah * 1 : 10
+if (fixedJumlah > 10) throw `❗️ _MÁXIMO DE *10* MENSAGENS PARA FAZER UM SPAM_ \n\n𝙈𝙄𝙉𝙄𝙈𝙐𝙈 *10* 𝙈𝙀𝙎𝙎𝘼𝙂𝙀𝙎 𝙏𝙊 𝙎𝙋𝘼𝙈`
 await delay(5000)
 await m.reply(`*SPAM ENVIADO PARA* ${nomor} *QUANTIDADE* ${fixedJumlah}*\n\n𝙏𝙃𝙀 𝙎𝙋𝘼𝙈 𝙒𝘼𝙎 𝙎𝙀𝙉𝙏 *${nomor}* 𝙏𝙄𝙈𝙀𝙎 𝙏𝙊 *${fixedJumlah}*`)
 await delay(5000)
