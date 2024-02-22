@@ -7,9 +7,9 @@ if (!teks) throw `🫠 _De que música você quer a letra?_`
    try {
  let res = await fg.lyrics(text);
  let mes = `🎷 | *${res.title}*
- 👨‍🎤 | *${res.artist}*
+ 👨‍🎤 *${res.artist}*
 
- 🖋 | ${res.lyrics}`;
+ 🖋 ${res.lyrics}`;
     conn.sendFile(m.chat, res.thumb, 'img.png', mes, m);
 } catch (e) {
 	m.react(error)
