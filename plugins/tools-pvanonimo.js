@@ -1,7 +1,7 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     // Criado por: https://github.com/Marcosi8
     if (!text || !text.includes('|')) {
-        throw `*Por favor, use o comando corretamente.* \n\n*Formato:* \n*> ${usedPrefix + command} numero|mensagem*\n\n*Exemplo:* \n*> ${usedPrefix + command} 999999999999|Esta é uma mensagem anônima.*`
+        throw `❗️ *Por favor, use o comando corretamente.* \n\n*Formato:* \n*> ${usedPrefix + command} numero|mensagem*\n\n*Exemplo:* \n*> ${usedPrefix + command} 999999999999|Esta é uma mensagem anônima.*`
     }
 
     m.react('📬'); // Adicionando reação
