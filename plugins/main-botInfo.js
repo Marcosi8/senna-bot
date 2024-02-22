@@ -40,36 +40,40 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   
   let neww = performance.now()
   let speed = neww - old
+  let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
+let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './Assets/Prince.png')
+let user = global.db.data.users[who]
   
 let infobt = `
-≡ *INFO BOT*
+*INFO BOT*
   
-*ESTADO*
-▢ ${mssg.gp}s: *${groupsIn.length}*
-▢ Chats: *${chats.length - groupsIn.length}*
-▢ Total Chats: *${chats.length}*
+> *STADO*
+▢ *${groupsIn.length}* GROUP CHATS
+▢ *${groupsIn.length}* united groups
+▢ *${groupsIn.length - groupsIn.length}* abandoned groups
+▢ *${chats.length - groupsIn.length}* private chats
+▢ *${chats.length}* Total Chats
 
-*≡ OWNER*
-  *marcoskz_*
-▢ Instagram :
-  • ${fgig}
-▢ Telegram : 
-  • https://t.me/Marcoszk
-▢ YouTube : 
-  • https://youtube.com
+> *OWNER🧑‍💻*
+ _Marcoskz__
+▢ https://whatsapp.com/channel/0029VaKNbWkKbYMLb61S1v11
   
- *≡ HELPERS*
-  *marco*
-▢ WhatsApp : wa.me/558881647724`
+▢ MY BOT GC LINK.
+  https://chat.whatsapp.com/Jo5bmHMAlZpEIp75mKbwxP
 
-/*conn.sendButton(m.chat, infobt, mssg.ig, null, [
-  ['ꨄ︎ Apoyar', `${usedPrefix}donate`],
-   ['⌬ Grupos', `${usedPrefix}gpdylux`]
- ], m)*/
- m.reply(infobt)
+> *S E R V E R*
+*🛑 RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}
+*🔵 FreeRAM:* ${format(freemem())}
+
+> *NodeJS memory *
+${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(used[key])}`).join('\n') + '```'}
+`
+conn.sendFile(m.chat, pp, 'prefil.jpg', infobt, m, false, { mentions: [who] })
+m.react(done)
 
 }
-handler.help = ['info']
+handler.help = ['infobot']
 handler.tags = ['main']
 handler.command = ['info', 'infobot', 'botinfo']
 
