@@ -600,6 +600,22 @@ global.dfail = (type, m, conn) => {
     if (msg) return m.reply(msg)
 }
 
+try {
+if (!opts['noprint']) await (await import(`./lib/print.js`)).default(m, this)
+} catch (e) {
+console.log(m, m.quoted, e)}
+let settingsREAD = global.db.data.settings[this.user.jid] || {}  
+if (opts['autoread']) await this.readMessages([m.key])
+if (settingsREAD.autoread2) await this.readMessages([m.key])  
+//if (settingsREAD.autoread2 == 'true') await this.readMessages([m.key])    
+	    
+if (!db.data.chats[m.chat].reaction && m.isGroup) throw 0
+if (!m.fromMem && m.text.match(/(ata|des|able|izo|ido|.-.|._.|:)|:(|:v|v:|o.o|;v|v;|v':|:'v)/gi)) {
+let emot = pickRandom(["😺", "🪨", "🚀", "🏂", "😼", "🐀", "🙀", "🚦", "🥳", "🇧🇷", "😏", "😳", "🥵", "🤯", "😱", "😨", "🤫", "🥴", "🇧🇷", "🤑", "🤠", "🤖", "🤝", "💪", "👑", "😚", "👨‍💻", "🐈", "🐆", "🐅", "⚡️", "🌈", "☃️", "🍦", "🌝", "🌛", "🌜", "🍓", "🍎", "🎈", "🪄", "❤️", "👨‍💻", "🚪", "💉", "🥸", "🔌", "💡", "🕴", "🥇", "📂", "🍕", "👰", "😎", "🔥", "🖕", "🫂"])
+this.sendMessage(m.chat, { react: { text: emot, key: m.key }})}
+function pickRandom(list) { return list[Math.floor(Math.random() * list.length)]}
+}
+
 let file = global.__filename(import.meta.url, true)
 watchFile(file, async () => {
     unwatchFile(file)
