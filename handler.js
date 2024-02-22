@@ -497,47 +497,33 @@ export async function participantsUpdate({ id, participants, action }) {
     let text = ''
     switch (action) {
         case 'add':
-        case 'remove':
-            if (chat.welcome) {
-                let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
-                for (let user of participants) {
-                    let pp = 'https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg'
-                    let ppgp = 'https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg'
-                    try {
-                        pp = await this.profilePictureUrl(user, 'image')
-                        ppgp = await this.profilePictureUrl(id, 'image')
-                        } finally {
-                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Bem-vindo, @user').replace('@group', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'Desconhecido') :
-                            (chat.sBye || this.bye || conn.bye || 'Adeus, @user')).replace('@user', '@' + user.split('@')[0])
-                         
-                            let wel = API('fgmods', '/api/welcome', {
-                                username: await this.getName(user),
-                                groupname: await this.getName(id),
-                                groupicon: ppgp,
-                                membercount: groupMetadata.participants.length,
-                                profile: pp,
-                                background: 'https://i.ibb.co/3hmKcPH/IMG-20240207-WA0379.jpg'
-                            }, 'apikey')
+        case 'remswitch (action) {
+    case 'add':
+    case 'remove':
+        if (chat.welcome) {
+            let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata;
+            for (let user of participants) {
+                let pp = 'https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg';
+                let ppgp = 'https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg';
+                try {
+                    pp = await this.profilePictureUrl(user, 'image');
+                    ppgp = await this.profilePictureUrl(id, 'image');
+                } finally {
+                    text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Bem-vindo, @user').replace('@group', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'Desconhecido') :
+                        (chat.sBye || this.bye || conn.bye || 'Adeus, @user')).replace('@user', '@' + user.split('@')[0]);
 
-                            let lea = API('fgmods', '/api/goodbye2', {
-                                username: await this.getName(user),
-                                groupname: await this.getName(id),
-                                groupicon: ppgp,
-                                membercount: groupMetadata.participants.length,
-                                profile: pp,
-                                background: 'https://i.ibb.co/5KcdMpy/baixados.jpg'
-                            }, 'apikey')
+                    let infobt = (action === 'add' ? 'Bem-vindo ao grupo!' : 'Até logo!');
 
-                            this.sendFile(id, action === 'add' ? wel : lea, 'pp.jpg', text, null, false, { mentions: [user] })
-                            //this.sendFile(id, pp, 'pp.jpg', text, null, false, { mentions: [user] })
-                            /*this.sendButton(id, text, mssg.ig, action === 'add' ? wel : lea, [
-                             [(action == 'add' ? '⦙☰ MENU' : 'BYE'), (action == 'add' ? '/help' : 'khajs')], 
-                             [(action == 'add' ? '⏍ RULES' : 'ッ'), (action == 'add' ? '/rules' : ' ')] ], null, {mentions: [user]})*/
-                          
-                    }
+                    // Envie a imagem de perfil como boas-vindas ou adeus
+                    this.sendFile(id, pp, 'prefil.jpg', text, null, false, { mentions: [user] });
+                    
+                    // Reaja à mensagem original com 'done'
+                    this.sendButton(id, text, 'done', null, null, null, { mentions: [user] });
                 }
             }
-            break
+        }
+        break;
+                                  }
         case 'promote':
             text = (chat.sPromote || this.spromote || conn.spromote || '@user agora é um administrador')
         case 'demote':
