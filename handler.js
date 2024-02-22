@@ -522,8 +522,8 @@ export async function participantsUpdate({ id, participants, action }) {
                 }
             }
         }
-        break;
-                                  }
+        break
+      
         case 'promote':
             text = (chat.sPromote || this.spromote || conn.spromote || '@user agora é um administrador')
         case 'demote':
