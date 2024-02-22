@@ -509,8 +509,8 @@ export async function participantsUpdate({ id, participants, action }) {
             } finally {
                 const botTt2 = groupMetadata.participants.find(u => this.decodeJid(u.id) == this.user.jid) || {};
                 const isBotAdminNn = botTt2?.admin === "admin" || false;
-                const messageContent = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 😻') :
-                (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0]);
+                const messageContent = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || `Bem-vindo, @${user.split('@')[0]}!`).replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 😻') :
+                (chat.sBye || this.bye || conn.bye || `Adeus, @${user.split('@')[0]}!`).replace('@subject', await this.getName(id))));
                 
                 await this.sendFile(id, pp, 'prefil.jpg', messageContent, null, false, { mentions: [user] });
             
