@@ -1,4 +1,4 @@
-function handler(m, { conn, args }) {
+export function handler(m, { conn, args }) {
   if (args[0] === 'on') {
     conn.autoreactEnabled = true;
     conn.reply(m.chat, 'Auto-reaction ativado!', m);
@@ -15,9 +15,7 @@ handler.tags = ['prime'];
 handler.command = /^(autoreact)$/i;
 handler.group = true;
 
-function pickRandomEmoticon() { 
+export function pickRandomEmoticon() { 
   const emoticons = ["😺", "🪨", "🚀", "🏂", "😼", "🐀", "🙀", "🚦", "🥳", "🇧🇷", "😏", "😳", "🥵", "🤯", "😱", "😨", "🤫", "🥴", "🇧🇷", "🤑", "🤠", "🤖", "🤝", "💪", "👑", "😚", "👨‍💻", "🐈", "🐆", "🐅", "⚡️", "🌈", "☃️", "🍦", "🌝", "🌛", "🌜", "🍓", "🍎", "🎈", "🪄", "❤️", "👨‍💻", "🚪", "💉", "🥸", "🔌", "💡", "🕴", "🥇", "📂", "🍕", "👰", "😎", "🔥", "🖕", "🫂"];
   return emoticons[Math.floor(Math.random() * emoticons.length)];
 }
-
-module.exports = handler;
