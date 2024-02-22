@@ -1,37 +1,41 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
+    // Verifica se o comando foi usado corretamente
+    if (!text || !text.includes('|')) {
+        throw `*Por favor, use o comando corretamente.* \n\n*Formato:* \n*📩 ${usedPrefix + command} numero|mensagem*\n\n*Exemplo:* \n*📩 ${usedPrefix + command} 999999999999|Esta é uma mensagem anônima.*`
+    }
+
     m.react('📬'); // Adicionando reação
     
-    m.reply('📤 *Enviando seu correio anônimo...*') // Mensagem de envio imediato
+    let time = global.db.data.users[m.sender].lastrob + 300000; // 5 minutos em milissegundos
+    if (new Date - global.db.data.users[m.sender].lastrob < 300000) {
+        throw `⏱️ *ESPERE* ${msToTime(time - new Date())}\n*NÃO USE ESTE COMANDO COMO SPAMMER, 1 USO POR VEZ.*`;
+    }
     
-    let time = global.db.data.users[m.sender].lastrob + 300000 // 5 minutos em milissegundos
-    if (new Date - global.db.data.users[m.sender].lastrob < 300000) 
-        throw `⏱️ *ESPERE* ${msToTime(time - new Date())}\n*NÃO USE ESTE COMANDO COMO SPAMMER, 1 USO POR VEZ.*`
+    let [nomor, pesan] = text.split('|');
     
-    let [nomor, pesan] = text.split('|')
-    if (!nomor || !pesan) 
-        throw `*Por favor, forneça o número e a mensagem que deseja enviar.* \n\n*Formato:* \n*> ${usedPrefix + command} numero|mensagem*\n\n*Exemplo:* \n*> ${usedPrefix + command} 999999999999|Esta é uma mensagem anônima.*`
+    await delay(10000); // Aguarda 10 segundos
     
-    await delay(10000)
-    let fixedNumber = nomor.replace(/[-+<>@]/g, '').replace(/ +/g, '').replace(/^[0]/g, '62') + '@s.whatsapp.net'
+    let fixedNumber = nomor.replace(/[-+<>@]/g, '').replace(/ +/g, '').replace(/^[0]/g, '62') + '@s.whatsapp.net';
     
-     await delay(10000)
+    await delay(10000); // Aguarda 10 segundos
+    
     await conn.sendMessage(fixedNumber, {
-        text: `📮 𝗖𝗢𝗥𝗥𝗘𝗜𝗢 𝗔𝗡Ô𝗡𝗜𝗠𝗢 📮\n\n> ${m.text}\n\n📩 𝙑𝙤𝙘ê 𝙧𝙚𝙘𝙚𝙗𝙚𝙪 𝙪𝙢𝙖 𝙢𝙚𝙣𝙨𝙖𝙜𝙚𝙢 𝙖𝙣ô𝙣𝙞𝙢𝙖 𝙙𝙚 𝙤𝙪𝙩𝙧𝙤 𝙪𝙨𝙪á𝙧𝙞𝙤. 𝙀𝙨𝙩𝙖 𝙢𝙚𝙣𝙨𝙖𝙜𝙚𝙢 𝙣ã𝙤 𝙛𝙤𝙞 𝙚𝙣𝙫𝙞𝙖𝙙𝙖 𝙥𝙚𝙡𝙤 𝙪𝙨𝙪á𝙧𝙞𝙤.`,
+        text: `📮 𝗖𝗢𝗥𝗥𝗘𝗜𝗢 𝗔𝗡Ô𝗡𝗜𝗠𝗢 📮\n\n> ${pesan.trim()}\n\n📩 𝙑𝙤𝙘ê 𝙧𝙚𝙘𝙚𝙗𝙚𝙪 𝙪𝙢𝙖 𝙢𝙚𝙣𝙨𝙖𝙜𝙚𝙢 𝙖𝙣ô𝙣𝙞𝙢𝙖 𝙙𝙚 𝙤𝙪𝙩𝙧𝙤 𝙪𝙨𝙪á𝙧𝙞𝙤. 𝙀𝙨𝙩𝙖 𝙢𝙚𝙣𝙨𝙖𝙜𝙚𝙢 𝙣ã𝙤 𝙛𝙤𝙞 𝙚𝙣𝙫𝙞𝙖𝙙𝙖 𝙥𝙚𝙡𝙤 𝙗𝙤𝙩.`,
         quoted: m // Quote com a mensagem original
-    })
+    });
     
-    m.reply(`📥 *Mensagem enviada com sucesso para* ${nomor}!`) // Confirmação de envio
+    m.reply(`✅ *Mensagem enviada com sucesso para* ${nomor}!`); // Confirmação de envio
     
-    global.db.data.users[m.sender].lastrob = new Date * 1
+    global.db.data.users[m.sender].lastrob = new Date * 1;
 }
 
-handler.help = ['correio']
-handler.tags = ['prime', 'chat']
-handler.command = ['pvanonimo', 'correio', 'correioanonimo'] 
+handler.help = ['spam'];
+handler.tags = ['prime'];
+handler.command = ['spamar', 'spam'];
 
-export default handler 
+export default handler;
 
-const delay = time => new Promise(res => setTimeout(res, time))
+const delay = time => new Promise(res => setTimeout(res, time));
 
 function msToTime(duration) {
     var milliseconds = parseInt((duration % 1000) / 100),
@@ -42,4 +46,4 @@ function msToTime(duration) {
     minutes = (minutes < 10) ? "0" + minutes : minutes
     seconds = (seconds < 10) ? "0" + seconds : seconds
     return hours + " Hora(s) " + minutes + " Minuto(s)"
-                          }
+}
