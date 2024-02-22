@@ -598,23 +598,8 @@ global.dfail = (type, m, conn) => {
     }[type]
     //if (msg) return conn.sendButton(m.chat, msg, mssg.ig, null, [['🔖 OK', 'khajs'], ['⦙☰ MENU', '/menu'] ], m)
     if (msg) return m.reply(msg)
-// Seu código existente do handler de mensagens...
-
-async function handleMessage(m) {
-  try {
-    if (!db.data.chats[m.chat].reaction && m.isGroup) throw 0;
-    if (!m.fromMe && m.text.match(/(ata|des|able|izo|ido|.-.|._.|:)|:(|:v|v:|o.o|;v|v;|v':|:'v)/gi)) {
-      let emot = pickRandom(["😺", "🪨", "🚀", "🏂", "😼", "🐀", "🙀", "🚦", "🥳", "🇧🇷", "😏", "😳", "🥵", "🤯", "😱", "😨", "🤫", "🥴", "🇧🇷", "🤑", "🤠", "🤖", "🤝", "💪", "👑", "😚", "👨‍💻", "🐈", "🐆", "🐅", "⚡️", "🌈", "☃️", "🍦", "🌝", "🌛", "🌜", "🍓", "🍎", "🎈", "🪄", "❤️", "👨‍💻", "🚪", "💉", "🥸", "🔌", "💡", "🕴", "🥇", "📂", "🍕", "👰", "😎", "🔥", "🖕", "🫂"]);
-      this.sendMessage(m.chat, { react: { text: emot, key: m.key }});
-    }
-  } catch (error) {
-    console.error("Erro ao lidar com a mensagem:", error);
-  }
 }
 
-function pickRandom(list) { return list[Math.floor(Math.random() * list.length)]; }
-
-// Seu código existente do handler de mensagens...let file = global.__filename(import.meta.url, true)
 watchFile(file, async () => {
     unwatchFile(file)
     console.log(chalk.magenta("✅  Ele foi atualizado 'handler.js'"))
