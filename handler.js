@@ -5,7 +5,6 @@ import path, { join } from 'path'
 import { unwatchFile, watchFile } from 'fs'
 import chalk from 'chalk'
 import fetch from 'node-fetch'
-import { MessageType } from '@whiskeysockets/baileys';
 
 /**
  * @type {import('@whiskeysockets/baileys')}
@@ -498,25 +497,23 @@ export async function participantsUpdate({ id, participants, action }) {
     let text = ''
     switch (action) {
         case 'add':
-case 'remove':
-    if (chat.welccase 'add':
-case 'remove':
-    if (chat.welcome) {
-        let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata;
-        for (let user of participants) {
-            let pp = 'https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg';
-            let ppgp = 'https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg';
-            try {
-                pp = await this.profilePictureUrl(user, 'image');
-                ppgp = await this.profilePictureUrl(id, 'image');
-            } finally {
-                const messageContent = `Bem-vindo, ${user}!\n`; // Mensagem de boas-vindas
-                const mediaContent = { url: pp }; // Conteúdo de mídia (foto do usuário)
-                await this.sendMessage(id, messageContent, MessageType.text, { media: mediaContent }); // Envie a mensagem de boas-vindas com a foto
+        case 'remove':
+            if (cswitch (action) {
+    case 'add':
+    case 'remove':
+        if (chat.welcome) {
+            let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata;
+            for (let user of participants) {
+                let pp = await this.profilePictureUrl(user, 'image'); // Obtém a foto do perfil do usuário
+                let username = await this.getName(user); // Obtém o nome do usuário
+
+                // Envia a foto do perfil como mensagem de boas-vindas
+                await this.sendFile(id, pp, 'pp.jpg', `Bem-vindo, ${username}!`, null, false, { mentions: [user] });
+             
+                    }
+                }
             }
-        }
-    }
-    break;
+            break
         case 'promote':
             text = (chat.sPromote || this.spromote || conn.spromote || '@user agora é um administrador')
         case 'demote':
