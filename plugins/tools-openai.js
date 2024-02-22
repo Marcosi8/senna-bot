@@ -15,7 +15,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     m.react(rwait)
     const { key } = await conn.sendMessage(m.chat, {
       image: pp,
-      caption: '_*Buscando uma resposta..._*'
+      caption: '_*Buscando uma resposta*_...'
     }, {quoted: m})
     conn.sendPresenceUpdate('composing', m.chat);
     const prompt = encodeURIComponent(text);
