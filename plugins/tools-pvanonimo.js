@@ -11,16 +11,13 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let fixedNumber = nomor.replace(/[-+<>@]/g, '').replace(/ +/g, '').replace(/^[0]/g, '62') + '@s.whatsapp.net'
     
     await delay(10000)
-    conn.reply(fixedNumber, `📩 Você recebeu uma mensagem anônima. Esta mensagem não foi enviada pelo bot.`, m)
-    
-    await delay(10000)
-    conn.reply(fixedNumber, pesan.trim(), m)
+    conn.reply(fixedNumber, `📩 Você recebeu uma mensagem anônima. Esta mensagem não foi enviada pelo bot.\n\n${pesan.trim()}`, m)
     
     global.db.data.users[m.sender].lastrob = new Date * 1
 }
 
 handler.help = ['correio']
-handler.tags = ['prime', 'anonimo']
+handler.tags = ['prime', 'chat']
 handler.command = ['pvanonimo', 'correio', 'correioanonimo'] 
 
 export default handler 
