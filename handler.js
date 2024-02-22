@@ -499,6 +499,8 @@ export async function participantsUpdate({ id, participants, action }) {
     switch (action) {
         case 'add':
 case 'remove':
+    if (chat.welccase 'add':
+case 'remove':
     if (chat.welcome) {
         let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata;
         for (let user of participants) {
@@ -508,15 +510,9 @@ case 'remove':
                 pp = await this.profilePictureUrl(user, 'image');
                 ppgp = await this.profilePictureUrl(id, 'image');
             } finally {
-                const messageContent = {
-                    extendedTextMessage: {
-                        text: `Bem-vindo, ${user}!\n`,
-                        previewType: 'PHOTO',
-                        contextInfo: { mentionedJid: [user] }
-                    },
-                    jpegThumbnail: await fetch(pp).then(r => r.arrayBuffer()).then(b => Buffer.from(b, 'binary').toString('base64'))
-                };
-                await this.sendMessage(id, messageContent, MessageType.extendedText); // Envie a mensagem de boas-vindas com a foto
+                const messageContent = `Bem-vindo, ${user}!\n`; // Mensagem de boas-vindas
+                const mediaContent = { url: pp }; // Conteúdo de mídia (foto do usuário)
+                await this.sendMessage(id, messageContent, MessageType.text, { media: mediaContent }); // Envie a mensagem de boas-vindas com a foto
             }
         }
     }
