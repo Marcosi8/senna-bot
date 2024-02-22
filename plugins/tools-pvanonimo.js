@@ -11,7 +11,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let fixedNumber = nomor.replace(/[-+<>@]/g, '').replace(/ +/g, '').replace(/^[0]/g, '62') + '@s.whatsapp.net'
     
     await delay(10000)
-    conn.reply(fixedNumber, `📩 Você recebeu uma mensagem anônima. Esta mensagem não foi enviada pelo bot.\n\n${pesan.trim()}`, m)
+    conn.reply(fixedNumber, `📩 𝙑𝙤𝙘ê 𝙧𝙚𝙘𝙚𝙗𝙚𝙪 𝙪𝙢𝙖 𝙢𝙚𝙣𝙨𝙖𝙜𝙚𝙢 𝙖𝙣ô𝙣𝙞𝙢𝙖 𝙙𝙚 𝙤𝙪𝙩𝙧𝙤 𝙪𝙨𝙪á𝙧𝙞𝙤. 𝙀𝙨𝙩𝙖 𝙢𝙚𝙣𝙨𝙖𝙜𝙚𝙢 𝙣ã𝙤 𝙛𝙤𝙞 𝙚𝙣𝙫𝙞𝙖𝙙𝙖 𝙥𝙚𝙡𝙤 𝙗𝙤𝙩.`,
+    > m)
     
     global.db.data.users[m.sender].lastrob = new Date * 1
 }
