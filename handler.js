@@ -509,11 +509,10 @@ export async function participantsUpdate({ id, participants, action }) {
 
                 // Envia a foto do perfil como mensagem de boas-vindas
                 await this.sendFile(id, pp, 'pp.jpg', `Bem-vindo, ${username}!`, null, false, { mentions: [user] });
+                break
              
-                    }
-                }
-            }
-            break
+    }             
+}
         case 'promote':
             text = (chat.sPromote || this.spromote || conn.spromote || '@user agora é um administrador')
         case 'demote':
