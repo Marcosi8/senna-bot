@@ -498,21 +498,46 @@ export async function participantsUpdate({ id, participants, action }) {
     switch (action) {
         case 'add':
         case 'remove':
-            if (cswitch (action) {
-    case 'add':
-    case 'remove':
-        if (chat.welcome) {
-            let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata;
-            for (let user of participants) {
-                let pp = await this.profilePictureUrl(user, 'image'); // Obtém a foto do perfil do usuário
-                let username = await this.getName(user); // Obtém o nome do usuário
+            if (chat.welcome) {
+                let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
+                for (let user of participants) {
+                    let pp = 'https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg'
+                    let ppgp = 'https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg'
+                    try {
+                        pp = await this.profilePictureUrl(user, 'image')
+                        ppgp = await this.profilePictureUrl(id, 'image')
+                        } finally {
+                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Bem-vindo, @user').replace('@group', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'Desconhecido') :
+                            (chat.sBye || this.bye || conn.bye || 'Adeus, @user')).replace('@user', '@' + user.split('@')[0])
+                         
+                            let wel = API('fgmods', '/api/welcome', {
+                                username: await this.getName(user),
+                                groupname: await this.getName(id),
+                                groupicon: ppgp,
+                                membercount: groupMetadata.participants.length,
+                                profile: pp,
+                                background: 'https://i.ibb.co/3hmKcPH/IMG-20240207-WA0379.jpg'
+                            }, 'apikey')
 
-                // Envia a foto do perfil como mensagem de boas-vindas
-                await this.sendFile(id, pp, 'pp.jpg', `Bem-vindo, ${username}!`, null, false, { mentions: [user] });
-                break
-             
-    }             
-}
+                            let lea = API('fgmods', '/api/goodbye2', {
+                                username: await this.getName(user),
+                                groupname: await this.getName(id),
+                                groupicon: ppgp,
+                                membercount: groupMetadata.participants.length,
+                                profile: pp,
+                                background: 'https://i.ibb.co/5KcdMpy/baixados.jpg'
+                            }, 'apikey')
+
+                            this.sendFile(id, action === 'add' ? wel : lea, 'pp.jpg', text, null, false, { mentions: [user] })
+                            //this.sendFile(id, pp, 'pp.jpg', text, null, false, { mentions: [user] })
+                            /*this.sendButton(id, text, mssg.ig, action === 'add' ? wel : lea, [
+                             [(action == 'add' ? '⦙☰ MENU' : 'BYE'), (action == 'add' ? '/help' : 'khajs')], 
+                             [(action == 'add' ? '⏍ RULES' : 'ッ'), (action == 'add' ? '/rules' : ' ')] ], null, {mentions: [user]})*/
+                          
+                    }
+                }
+            }
+            break
         case 'promote':
             text = (chat.sPromote || this.spromote || conn.spromote || '@user agora é um administrador')
         case 'demote':
@@ -559,12 +584,11 @@ export async function deleteUpdate(message) {
         let chat = global.db.data.chats[msg.chat] || {}
         if (chat.delete)
             return
-        await this.reply(msg.chat, `
-≡ [❗️] *Você não pode excluir mensagens neste grupo.*
+        await this.reply(msg.chat, `        
+ [❗️] *Você não pode excluir mensagens neste grupo.*
 
-┌─⊷  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀 
-▢ *Nome :* @${participant.split`@`[0]} 
-└─────────────
+𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀:
+*Nome:* @${participant.split`@`[0]} 
 
 Para desativar esta função, escreva 
 */off antidelete*
