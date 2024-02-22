@@ -509,10 +509,10 @@ export async function participantsUpdate({ id, participants, action }) {
             } finally {
                 const botTt2 = groupMetadata.participants.find(u => this.decodeJid(u.id) == this.user.jid) || {};
                 const isBotAdminNn = botTt2?.admin === "admin" || false;
-                const welcomeMessage = chat.sWelcome || this.welcome || conn.welcome || `Bem-vindo, @${user.split('@')[0]}! ${groupMetadata.desc ? groupMetadata.desc.toString() : '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 😻'}`;
+                const welcomeMessage = chat.sWelcome || this.welcome || conn.welcome || `Bem-vindo, ao grupo @${user.split('@')[0]}! ${groupMetadata.desc ? groupMetadata.desc.toString() : 'SoyuzBot'}`;
                 const byeMessage = chat.sBye || this.bye || conn.bye || `Adeus, @${user.split('@')[0]}!`;
 
-                const messageContent = action === 'add' ? welcomeMessage.replace('@subject', await this.getName(id)) : byeMessage.replace('@subject', await this.getName(id));
+                const messageContent = action === 'add' ? welcomeMessage.replace('@subject', `@${await this.getName(id)}`).replace('@desc', `@group`).replace('@user', `@${user.split('@')[0]}`) : byeMessage.replace('@subject', `@${await this.getName(id)}`).replace('@desc', `@group`).replace('@user', `@${user.split('@')[0]}`);
                 
                 await this.sendFile(id, pp, 'prefil.jpg', messageContent, null, false, { mentions: [user] });
             }
