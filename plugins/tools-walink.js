@@ -14,11 +14,11 @@ let handler = async (m, { conn, usedPrefix, text, command }) => {
 
   conn.sendMessage(m.chat, { text: message, quoted: m, contextInfo: { mentionedJid: [m.sender] } });
 
-  m.react('✅');
+  m.react('🗃');
 }
 
 handler.help = ['wa'];
-handler.tags = ['tools'];
+handler.tags = ['tools', 'prime'];
 handler.command = ['wa'];
 
 export default handler;
