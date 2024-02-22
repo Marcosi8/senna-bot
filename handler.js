@@ -497,26 +497,22 @@ export async function participantsUpdate({ id, participants, action }) {
     let text = ''
     switch (action) {
         case 'add':
-        case 'remswitch (action) {
-    case 'add':
-    case 'remove':
-        if (chat.welcome) {
-            let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata;
-            for (let user of participants) {
-                let pp = 'https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg';
-                let ppgp = 'https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg';
-                try {
-                    pp = await this.profilePictureUrl(user, 'image');
-                    ppgp = await this.profilePictureUrl(id, 'image');
-                } finally {
-                    text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Bem-vindo, @user').replace('@group', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'Desconhecido') :
-                        (chat.sBye || this.bye || conn.bye || 'Adeus, @user')).replace('@user', '@' + user.split('@')[0]);
-
-                    let infobt = (action === 'add' ? 'Bem-vindo ao grupo!' : 'Até logo!');
-
-                    // Envie a imagem de perfil como boas-vindas ou adeus
-                    this.sendFile(id, pp, 'prefil.jpg', text, null, false, { mentions: [user] });
-                   
+case 'ban':
+    if (chat.welcome) {
+        let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata;
+        for (let user of participants) {
+            let pp = gataMenu.getRandom();
+            try {
+                pp = await this.profilePictureUrl(user, 'image');
+            } catch (e) {
+            } finally {
+                const botTt2 = groupMetadata.participants.find(u => this.decodeJid(u.id) == this.user.jid) || {};
+                const isBotAdminNn = botTt2?.admin === "admin" || false;
+                const messageContent = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 😻') :
+                (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0]);
+                
+                await this.sendFile(id, pp, 'prefil.jpg', messageContent, null, false, { mentions: [user] });
+  
                 }
             }
         }
