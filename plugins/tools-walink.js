@@ -10,7 +10,7 @@ let handler = async (m, { conn, usedPrefix, text, command }) => {
     throw `❗️ *Digite um número, marque um usuário ou mencione um usuário*`;
   }
   const waLink = `https://wa.me/${waLin}`;
-  const message = `🔗 *WhatsApp Link:* ${waLink}\n📱 *Número de telefone:* ${waLin}`; // Concatenando o link e o número de telefone
+  const message = `🔗 *WhatsApp Link:* ${waLin}\n📱 *Número de telefone:* ${waLin}`; // Concatenando o link e o número de telefone
 
   conn.sendMessage(m.chat, { text: message, quoted: m, contextInfo: { mentionedJid: [m.sender] } });
 
