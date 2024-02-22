@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { text, conn, usedPrefix, command }) => {
   if (!text && !(m.quoted && m.quoted.text)) {
-    throw `*Exemplo: ${usedPrefix + command} 𝘸𝘩𝘢𝘵 𝘪𝘴 𝘪𝘴𝘭𝘢𝘮?`;
+    throw `*Exemplo:* ${usedPrefix + command} *como funciona o linux?*`;
   }
 
   if (!text && m.quoted && m.quoted.text) {
@@ -15,12 +15,12 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     m.react(rwait)
     const { key } = await conn.sendMessage(m.chat, {
       image: pp,
-      caption: '𝙃𝙤𝙡𝙙 𝙤𝙣 𝙜𝙚𝙩𝙩𝙞𝙣𝙜 𝙮𝙤𝙪𝙧 𝙖𝙣𝙨𝙬𝙚𝙧...'
+      caption: '*Buscando uma resposta...*'
     }, {quoted: m})
     conn.sendPresenceUpdate('composing', m.chat);
     const prompt = encodeURIComponent(text);
 
-    const guru1 = `https://api.vihangayt.me/tools/chatgpt4?q=Hi`;
+    const guru1 = `https://api.vihangayt.me/tools/chatgpt2?q=Hi`;
     
     try {
       let response = await fetch(guru1);
@@ -49,7 +49,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
       const model = 'llama';
       const senderNumber = m.sender.replace(/[^0-9]/g, ''); 
       const session = `GURU_BOT_${senderNumber}`;
-      const guru2 = `https://api.vihangayt.me/tools/chatgpt3?q=Hi`;
+      const guru2 = `https://api.vihangayt.me/tools/chatgpt2?q=Hi`;
       
       let response = await fetch(guru2);
       let data = await response.json();
