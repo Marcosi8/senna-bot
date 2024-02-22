@@ -49,22 +49,22 @@ let infobt = `
 *INFO BOT*
   
 > *STADO*
-▢ *${groupsIn.length}* GROUP CHATS
-▢ *${groupsIn.length}* united groups
-▢ *${groupsIn.length - groupsIn.length}* abandoned groups
-▢ *${chats.length - groupsIn.length}* private chats
-▢ *${chats.length}* Total Chats
+▢ *GRUPOS* *${groupsIn.length}*
+▢ *GRUPOS EM QUE ESTOU* *${groupsIn.length}*
+▢ *GRUPOS ABANDONADOS* *${groupsIn.length - groupsIn.length}* 
+▢ *PRIVADOS* *${chats.length - groupsIn.length}*
+▢ *CHATS TOTAIS* *${chats.length}*
 
 > *OWNER🧑‍💻*
  _Marcoskz__
-▢ https://whatsapp.com/channel/0029VaKNbWkKbYMLb61S1v11
+▢ https://wa.me/558881647724
   
-▢ MY BOT GC LINK.
-  https://chat.whatsapp.com/Jo5bmHMAlZpEIp75mKbwxP
+▢ GRUPO OFICIAL.
+  https://chat.whatsapp.com/LPddZ7u0v8G3PxEQ1SR1mZ
 
 > *S E R V E R*
 *🛑 RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}
-*🔵 FreeRAM:* ${format(freemem())}
+*🔵 RAM-Livre:* ${format(freemem())}
 
 > *NodeJS memory *
 ${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(used[key])}`).join('\n') + '```'}
