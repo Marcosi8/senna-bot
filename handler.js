@@ -507,9 +507,15 @@ case 'remove':
                 pp = await this.profilePictureUrl(user, 'image');
                 ppgp = await this.profilePictureUrl(id, 'image');
             } finally {
-                let welcomeMessage = `Bem-vindo, ${user}!\n`; // Mensagem de boas-vindas
-                welcomeMessage += `![Foto do Usuário](${pp})`; // Adiciona a foto do usuário à mensagem
-                await this.sendMessage(id, welcomeMessage); // Envie a mensagem de boas-vindas com a foto
+                const messageContent = {
+                    extendedTextMessage: {
+                        text: `Bem-vindo, ${user}!\n`,
+                        previewType: 'PHOTO',
+                        contextInfo: { mentionedJid: [user] }
+                    },
+                    jpegThumbnail: await fetch(pp).then(r => r.arrayBuffer()).then(b => Buffer.from(b, 'binary').toString('base64'))
+                };
+                await this.sendMessage(id, messageContent, MessageType.extendedText); // Envie a mensagem de boas-vindas com a foto
             }
         }
     }
