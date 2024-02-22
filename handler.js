@@ -501,7 +501,7 @@ export async function participantsUpdate({ id, participants, action }) {
     if (chat.welcome) {
         let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata;
         for (let user of participants) {
-            let pp = 'https://i.ibb.co/H2VQcfy/images-5.png'; // URL padrão da imagem de perfil
+            let pp = 'https://i.ibb.co/DCBY4zW/images-2024-02-22-T185539-122.jpg'; // URL padrão da imagem de perfil
             try {
                 pp = await this.profilePictureUrl(user, 'image');
             } catch (e) {
