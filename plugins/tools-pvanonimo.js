@@ -13,9 +13,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     
     let [nomor, pesan] = text.split('|');
     
-    await delay(5000);
     m.reply('📤 Enviando seu correio anônimo...'); // Mensagem de aviso
-    
+
+    await delay(5000);
     let fixedNumber = nomor.replace(/[-+<>@]/g, '').replace(/ +/g, '').replace(/^[0]/g, '62') + '@s.whatsapp.net';
     
     await conn.sendMessage(fixedNumber, {
