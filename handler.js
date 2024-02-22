@@ -512,10 +512,7 @@ export async function participantsUpdate({ id, participants, action }) {
                 (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0]);
                 
                 await this.sendFile(id, pp, 'prefil.jpg', messageContent, null, false, { mentions: [user] });
-            }
-        }
-    }
-    break;
+            
                 }
             }
         }
