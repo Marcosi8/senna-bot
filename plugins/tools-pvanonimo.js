@@ -13,6 +13,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     
     let [nomor, pesan] = text.split('|');
     
+    await delay(5000);
     m.reply('📤 Enviando seu correio anônimo...'); // Mensagem de aviso
     
     let fixedNumber = nomor.replace(/[-+<>@]/g, '').replace(/ +/g, '').replace(/^[0]/g, '62') + '@s.whatsapp.net';
@@ -22,6 +23,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         quoted: m // Quote com a mensagem original
     });
     
+    await delay(5000);
     m.reply(`📥 *Correio enviada com sucesso para* ${nomor}!`); // Confirmação de envio
     
     global.db.data.users[m.sender].lastrob = new Date * 1;
