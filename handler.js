@@ -516,9 +516,7 @@ export async function participantsUpdate({ id, participants, action }) {
 
                     // Envie a imagem de perfil como boas-vindas ou adeus
                     this.sendFile(id, pp, 'prefil.jpg', text, null, false, { mentions: [user] });
-                    
-                    // Reaja à mensagem original com 'done'
-                    this.sendButton(id, text, 'done', null, null, null, { mentions: [user] });
+                   
                 }
             }
         }
