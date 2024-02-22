@@ -496,15 +496,15 @@ export async function participantsUpdate({ id, participants, action }) {
     let chat = global.db.data.chats[id] || {}
     let text = ''
     switch (action) {
-        case 'add':
-case 'ban':
+        case 'ban':
     if (chat.welcome) {
         let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata;
         for (let user of participants) {
-            let pp = marcosgpt.getRandom();
+            let pp = 'https://example.com/default_profile_image.jpg'; // URL padrão da imagem de perfil
             try {
                 pp = await this.profilePictureUrl(user, 'image');
             } catch (e) {
+                console.error('Erro ao obter a foto de perfil:', e);
             } finally {
                 const botTt2 = groupMetadata.participants.find(u => this.decodeJid(u.id) == this.user.jid) || {};
                 const isBotAdminNn = botTt2?.admin === "admin" || false;
@@ -512,7 +512,10 @@ case 'ban':
                 (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0]);
                 
                 await this.sendFile(id, pp, 'prefil.jpg', messageContent, null, false, { mentions: [user] });
-  
+            }
+        }
+    }
+    break;
                 }
             }
         }
