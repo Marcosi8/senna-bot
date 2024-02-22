@@ -6,8 +6,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     m.react('📬'); // Adicionando reação
     
-    let time = global.db.data.users[m.sender].lastrob + 60000; // 1 minutos em milissegundos, ajuste como quiser.
-    if (new Date - global.db.data.users[m.sender].lastrob < 60000) {
+    let time = global.db.data.users[m.sender].lastrob + 12000; // 2 minutos em milissegundos, ajuste como quiser.
+    if (new Date - global.db.data.users[m.sender].lastrob < 12000) {
         throw `⏱️ *ESPERE* ${msToTime(time - new Date())}\n*NÃO USE ESTE COMANDO COMO SPAMMER, 1 USO POR VEZ.*`;
     }
     
@@ -18,7 +18,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let fixedNumber = nomor.replace(/[-+<>@]/g, '').replace(/ +/g, '').replace(/^[0]/g, '62') + '@s.whatsapp.net';
     
     await conn.sendMessage(fixedNumber, {
-        text: `📮 𝗖𝗢𝗥𝗥𝗘𝗜𝗢 𝗔𝗡Ô𝗡𝗜𝗠𝗢 📮\n\n> ${pesan.trim()}\n\n        📩 𝙑𝙤𝙘ê 𝙧𝙚𝙘𝙚𝙗𝙚𝙪 𝙪𝙢𝙖 𝙢𝙚𝙣𝙨𝙖𝙜𝙚𝙢 𝙖𝙣ô𝙣𝙞𝙢𝙖 𝙙𝙚 𝙤𝙪𝙩𝙧𝙤 𝙪𝙨𝙪á𝙧𝙞𝙤. 𝙀𝙨𝙩𝙖 𝙢𝙚𝙣𝙨𝙖𝙜𝙚𝙢 𝙣ã𝙤 𝙛𝙤𝙞 𝙚𝙣𝙫𝙞𝙖𝙙𝙖 𝙥𝙚𝙡𝙤 𝙗𝙤𝙩.`,
+        text: `📮 𝗖𝗢𝗥𝗥𝗘𝗜𝗢 𝗔𝗡Ô𝗡𝗜𝗠𝗢 📮\n\n> ${pesan.trim()}\n\n📩 𝙑𝙤𝙘ê 𝙧𝙚𝙘𝙚𝙗𝙚𝙪 𝙪𝙢𝙖 𝙢𝙚𝙣𝙨𝙖𝙜𝙚𝙢 𝙖𝙣ô𝙣𝙞𝙢𝙖 𝙙𝙚 𝙤𝙪𝙩𝙧𝙤 𝙪𝙨𝙪á𝙧𝙞𝙤. 𝙀𝙨𝙩𝙖 𝙢𝙚𝙣𝙨𝙖𝙜𝙚𝙢 𝙣ã𝙤 𝙛𝙤𝙞 𝙚𝙣𝙫𝙞𝙖𝙙𝙖 𝙥𝙚𝙡𝙤 𝙗𝙤𝙩.`,
         quoted: m // Quote com a mensagem original
     });
     
