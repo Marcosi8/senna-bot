@@ -24,15 +24,15 @@ const rl = createInterface(process.stdin, process.stdout)
 const app = express()
 const port = process.env.PORT || 8080;
 
-say('Soyuz-bot', {
+say('SoyuzBOT', {
   font: 'pallet',
   align: 'center',
-  gradient: ['darkred', 'darkmagenta']
+  gradient: ['red', 'red']
 })
 say(`SoyuzBOT-Marcoskz`, {
   font: 'console',
   align: 'center',
-  gradient: ['darkcyan', 'darkmagenta']
+  gradient: ['red', 'red']
 })
 
 app.listen(port, () => {
