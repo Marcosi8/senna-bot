@@ -30,7 +30,7 @@ say('SoyuzBOT', {
   color: 'red'
 })
 say(`SoyuzBOT-Marcoskz`, {
-  font: '3d',
+  font: 'console',
   align: 'center',
   color: 'red'
 })
@@ -48,7 +48,7 @@ async function start(file) {
   let args = [join(__dirname, file), ...process.argv.slice(2)]
   say([process.argv[0], ...args].join(' '), {
     font: '3d',
-    align: 'center',
+    align: 'console',
     color: 'red'
   })
   setupMaster({
