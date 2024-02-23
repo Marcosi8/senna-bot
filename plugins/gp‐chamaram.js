@@ -25,6 +25,6 @@ let handler = async (m, { conn, participants, groupMetadata, args }) => {
 }
 handler.help = ['denunciar', 'informar']
 handler.tags = ['group', 'prime']
-handler.command = ['denuncia', 'dununciar', 'ajuda', 'administradores', 'adm'] 
+handler.command = ['denuncia', 'dununciar', 'ajuda', 'informar', 'adm'] 
 handler.group = true
 export default handler
