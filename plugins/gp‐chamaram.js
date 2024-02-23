@@ -9,13 +9,14 @@ let handler = async (m, { conn, participants, groupMetadata, args }) => {
     const owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net'
 
     let text = `
-🚨 *Denúncia/Aviso aos Administradores do Grupo* 🚨
+🚨 *DENÚNCIA/AVISO AOS ADMINISTRADORES* 🚨
 
-*Motivo:*
+┌─⊷ *MOTIVO*
 > ${args.join(' ')}
+└───────────
 
-*Chamada de Administradores:*
-${listAdmin}
+*ADMINISTRADORES:*
+❗️${listAdmin}
 `
 
     text = text.trim()
@@ -24,6 +25,6 @@ ${listAdmin}
 }
 handler.help = ['denuncia']
 handler.tags = ['group', 'prime']
-handler.command = ['denuncia', 'admins', 'administradores', 'adm'] 
+handler.command = ['denuncia', 'admins', 'ajuda', 'administradores', 'adm'] 
 handler.group = true
 export default handler
