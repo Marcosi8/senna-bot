@@ -335,5 +335,5 @@ async function _quickTest() {
 }
 
 _quickTest()
-  .then(() => conn.logger.info('SOYUZ-BOT @marcoskz 🚀')
+  .then(() => conn.logger.info('SOYUZ-BOT @marcoskz 🚀'))
   .catch(console.error)
