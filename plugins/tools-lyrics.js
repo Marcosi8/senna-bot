@@ -9,7 +9,7 @@ if (!teks) throw `🫠 _De que música você quer a letra?_`
  let mes = `> *${res.title}* 
 > *${res.artist}*
 
-✏️ ${res.lyrics}`;
+${res.lyrics}`;
     conn.sendFile(m.chat, res.thumb, 'img.png', mes, m);
 } catch (e) {
 	m.react(error)
