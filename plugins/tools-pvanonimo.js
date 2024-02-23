@@ -22,7 +22,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     });
     
     await delay(5000);
-    m.reply(`📥 *Correio enviada com sucesso para* ${nomor}!`); // Confirmação de envio
+    m.reply(`📥 *Correio enviado com sucesso para* ${nomor}!`); // Confirmação de envio
     
     global.db.data.users[m.sender].lastrob = new Date * 1;
 }
