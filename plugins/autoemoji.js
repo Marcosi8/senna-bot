@@ -24,5 +24,10 @@ export function pickRandomEmoticon() {
 export async function autoReact(m, conn) {
   if (!conn.autoreactEnabled) return; // Verifica se a reação automática está ativada
   const emoticon = pickRandomEmoticon(); // Seleciona um emoji aleatório
-  await m.react(emoticon); // Reage à mensagem com o emoji selecionado
+  try {
+    await conn.chatRead(m.chat); // Marca a mensagem como lida
+    await m.react(emoticon); // Reage à mensagem com o emoji selecionado
+  } catch (error) {
+    console.error('Erro ao reagir à mensagem:', error);
+  }
 }
