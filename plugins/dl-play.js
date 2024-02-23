@@ -15,68 +15,116 @@ const handler = async (m, {
     args,
     usedPrefix
 }) => {
-    if (!text) throw `🤔 Diga o nome da música.\n🎵 Exemplo: ${usedPrefix + command} To Serve Russia`;
+    if (!text) throw `*_give a text to search_* \n*_Example: ${usedPrefix + command} A Subz gumbad waly naat Ahmed Raza Qadri_*`;
     conn.GURUPLAY = conn.GURUPLAY ? conn.GURUPLAY : {};
     await conn.reply(m.chat, wait, m);
     const result = await searchAndDownloadMusic(text);
-    if (!result.allLinks || !result.allLinks.length) {
-        return await conn.reply(m.chat, "Desculpe, nenhum resultado de vídeo encontrado para esta pesquisa.", m);
-    }
+    const infoText = `🎧🎼『 *ᴘʀɪɴᴄᴇ ᴘʟᴀʏᴇʀ* 』🎼🎧
 
-    const selectedUrl = result.allLinks[0].url; // Seleciona o URL do primeiro resultado
-    const thumbnail = result.thumbnail; // Salva a thumbnail do primeiro resultado
-    const title = result.title; // Salva o título do primeiro resultado
-    const author = result.author; // Salva o autor do primeiro resultado
-    const uploadedAt = result.uploadedAt; // Salva a data de upload do primeiro resultado
-    const views = result.views; // Salva o número de visualizações do primeiro resultado
+    
+   
+*🎶ᖇEᑭᒪY ᗯITᕼ ᑎᑌᗰᗷEᖇ TO GET YOᑌᖇ ᗩᑌᗪIO🎵*`;
 
-    const doc = {
-        text: `💿 *${title}*
-        \n👤 *Autor:* ${author}\n📅 *Upload em:* ${uploadedAt}\n👀 *Visualizações:* ${views}\n🔗 ${selectedUrl}\n\n*_Powered by marcoskz_*`, // Mensagem com as informações e créditos
-        thumbnail, // Thumbnail do vídeo
+const orderedLinks = result.allLinks.map((link, index) => {
+    const sectionNumber = index + 1;
+    const {
+        title,
+        url
+    } = link;
+    return `*${sectionNumber}.* ${title}`;
+});
+
+    const orderedLinksText = orderedLinks.join("\n\n");
+    const fullText = `${infoText}\n\n${orderedLinksText}`;
+    const {
+        key
+    } = await conn.reply(m.chat, fullText, m);
+    conn.GURUPLAY[m.sender] = {
+        result,
+        key,
+        timeout: setTimeout(() => {
+            conn.sendMessage(m.chat, {
+                delete: key
+            });
+            delete conn.GURUPLAY[m.sender];
+        }, 150 * 1000),
     };
-
-    await conn.sendMessage(m.chat, doc, {
-        quoted: m
-    });
-
-    let fileName = generateRandomName();
-    const audioStream = ytdl(selectedUrl, {
-        filter: 'audioonly',
-        quality: 'highestaudio',
-    });
-
-    const tmpDir = os.tmpdir();
-    const writableStream = fs.createWriteStream(`${tmpDir}/${fileName}.mp3`);
-    await streamPipeline(audioStream, writableStream);
-
-    const audioDoc = {
-        audio: {
-            url: `${tmpDir}/${fileName}.mp3`
-        },
-        mimetype: 'audio/mpeg',
-        ptt: false,
-        waveform: [100, 0, 0, 0, 0, 0, 100],
-        fileName: `${fileName}`,
-    };
-
-    await conn.sendMessage(m.chat, audioDoc, {
-        quoted: m
-    });
 };
 
-handler.help = ["música"];
+handler.before = async (m, {
+    conn
+}) => {
+    conn.GURUPLAY = conn.GURUPLAY ? conn.GURUPLAY : {};
+    if (m.isBaileys || !(m.sender in conn.GURUPLAY)) return;
+    const {
+        result,
+        key,
+        timeout
+    } = conn.GURUPLAY[m.sender];
+    console.log(conn.GURUPLAY)
+    if (!m.quoted || m.quoted.id !== key.id || !m.text) return;
+    const choice = m.text.trim();
+    const inputNumber = Number(choice);
+    if (inputNumber >= 1 && inputNumber <= result.allLinks.length) {
+        const selectedUrl = result.allLinks[inputNumber - 1].url;
+        console.log("selectedUrl", selectedUrl)
+    let title = generateRandomName();
+        const audioStream = ytdl(selectedUrl, {
+            filter: 'audioonly',
+            quality: 'highestaudio',
+        });
+    
+      
+        
+        const tmpDir = os.tmpdir();
+        
+        
+        const writableStream = fs.createWriteStream(`${tmpDir}/${title}.mp3`);
+    
+        
+        await streamPipeline(audioStream, writableStream);
+
+        const doc = {
+            audio: {
+            url: `${tmpDir}/${title}.mp3`
+            },
+            mimetype: 'audio/mpeg',
+            ptt: false,
+            waveform: [100, 0, 0, 0, 0, 0, 100],
+            fileName: `${title}`,
+        
+        };
+    
+        await conn.sendMessage(m.chat, doc, { quoted: m });
+    
+    
+       
+
+        
+    } else {
+        m.reply("Invalid sequence number. Please select the appropriate number from the list above.\nBetween 1 to " + result.allLinks.length);
+    }
+};
+
+handler.help = ["play"];
 handler.tags = ["prime"];
-handler.command = ['musica', 'música', 'song', 'som'];
+handler.command = /^(play)$/i;
 handler.limit = false;
 export default handler;
 
-// Funções auxiliares abaixo...
+function formatBytes(bytes, decimals = 2) {
+    if (bytes === 0) return "0 B";
+    const k = 1024;
+    const dm = decimals < 0 ? 0 : decimals;
+    const sizes = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
+}
 
 async function searchAndDownloadMusic(query) {
     try {
         const { videos } = await yts(query);
-        if (!videos.length) return "Desculpe, nenhum resultado de vídeo encontrado para esta pesquisa.";
+        if (!videos.length) return "Sorry, no video results were found for this search.";
 
         const allLinks = videos.map(video => ({
             title: video.title,
@@ -91,16 +139,28 @@ async function searchAndDownloadMusic(query) {
             allLinks: allLinks,
             videoUrl: videos[0].url,
             thumbnail: videos[0].thumbnail,
-            uploadedAt: videos[0].uploadedAt, // Adicionando a data de upload
-            views: videos[0].views // Adicionando o número de visualizações
         };
 
         return jsonData;
     } catch (error) {
-        return "Erro: " + error.message;
+        return "Error: " + error.message;
     }
 }
 
+
+async function fetchVideoBuffer() {
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        });
+        return await response.buffer();
+    } catch (error) {
+        return null;
+    }
+}
 
 function generateRandomName() {
     const adjectives = ["happy", "sad", "funny", "brave", "clever", "kind", "silly", "wise", "gentle", "bold"];
@@ -110,4 +170,4 @@ function generateRandomName() {
     const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
     
     return randomAdjective + "-" + randomNoun;
-}
+        }
