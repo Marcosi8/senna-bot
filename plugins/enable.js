@@ -159,7 +159,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     default:
       //if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, listMessage, { quoted: m })
       if (!/[01]/.test(command)) return m.reply(`
-≡ Lista de Opções
+> Lista de Opções
 
 ┌─⊷ *ADMIN*
 ▢ captcha
@@ -179,7 +179,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 ▢ sopv
 ▢ sogp
 └─────────────
-*📌 Exemplo :*
+*📌 Exemplo:*
 *${usedPrefix}on* welcome
 *${usedPrefix}off* welcome
 `)
