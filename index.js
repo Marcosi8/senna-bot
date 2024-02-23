@@ -27,12 +27,12 @@ const port = process.env.PORT || 8080;
 say('SoyuzBOT', {
   font: 'pallet',
   align: 'center',
-  gradient: ['red', 'red']
+  gradient: ['red']
 })
 say(`SoyuzBOT-Marcoskz`, {
   font: 'console',
   align: 'center',
-  gradient: ['red', 'red']
+  gradient: ['red']
 })
 
 app.listen(port, () => {
@@ -49,7 +49,7 @@ async function start(file) {
   say([process.argv[0], ...args].join(' '), {
     font: 'console',
     align: 'center',
-    gradient: ['red', 'magenta']
+    gradient: ['red']
   })
   setupMaster({
     exec: args[0],
