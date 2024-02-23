@@ -25,9 +25,9 @@ const app = express()
 const port = process.env.PORT || 8080;
 
 say('SoyuzBOT', {
-  font: 'pallet',
+  font: '3d',
   align: 'center',
-  color: 'red'
+  gradient: ['red', 'magenta']
 })
 say(`SoyuzBOT-Marcoskz`, {
   font: 'console',
@@ -48,7 +48,7 @@ async function start(file) {
   let args = [join(__dirname, file), ...process.argv.slice(2)]
   say([process.argv[0], ...args].join(' '), {
     font: 'console',
-    align: 'top',
+    align: 'center',
     color: 'red'
   })
   setupMaster({
