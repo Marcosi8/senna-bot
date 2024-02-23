@@ -34,7 +34,7 @@
 - [Implante no Railway](#implante-no-railway)
 - [Implante no Replit](#implante-no-replit)
 - [Implante no Heroku](#implante-no-heroku)
-- [Termos e Condições](#termos--condições)
+- [Termos e Condições](#termos-e-condições)
 - [Agradecimentos ✨](#agradecimentos-)
 
 ---
