@@ -47,8 +47,8 @@ async function start(file) {
   const currentFilePath = new URL(import.meta.url).pathname
   let args = [join(__dirname, file), ...process.argv.slice(2)]
   say([process.argv[0], ...args].join(' '), {
-    font: '3d',
-    align: 'console',
+    font: 'console',
+    align: 'top',
     color: 'red'
   })
   setupMaster({
