@@ -1,64 +1,79 @@
-# Senna Bot - WhatsApp Bot 🤖
+<p align="center">
+    <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png">
+</p>
 
-<p align="center"> 
-  <img src="https://komarev.com/ghpvc/?username=FG98F&color=brightgreen" />
+<h1 align="center">Senna Bot - WhatsApp Bot 🤖</h1>
+
+<p align="center">
+  <a href="https://github.com/FG98F"><img src="https://img.shields.io/badge/Senna%20Bot-Preto?style=for-the-badge&logo=whatsApp"></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/FG98F"><img title="Autor" src="https://img.shields.io/badge/Senna%20Bot-Preto?style=for-the-badge&logo=whatsApp"></a>
+    <a href="#"><img title="Senna Bot" src="https://img.shields.io/badge/WhatsApp%20BOT-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/FG98F?tab=followers"><img title="Seguidores" src="https://img.shields.io/github/followers/FG98F?label=Seguidores&style=social"></a>
-  <a href="https://github.com/FG98F/senna-bot/stargazers/"><img title="Estrelas" src="https://img.shields.io/github/stars/FG98F/senna-bot?&style=social"></a>
-  <a href="https://github.com/FG98F/senna-bot/network/members"><img title="Fork" src="https://img.shields.io/github/forks/FG98F/senna-bot?style=social"></a>
-  <a href="https://github.com/FG98F/senna-bot/watchers"><img title="Visualizando" src="https://img.shields.io/github/watchers/FG98F/senna-bot?label=Visualizando&style=social"></a>
+    <a href="https://github.com/FG98F"><img title="Autor" src="https://img.shields.io/badge/AUTHOR-FG98F-green.svg?style=for-the-badge&logo=github"></a>
 </p>
 
-## Sobre o Projeto
-Este é o Senna Bot, um bot para WhatsApp que oferece uma variedade de recursos úteis para os usuários. Com suporte a vários idiomas, o bot é altamente personalizável e fácil de implantar.
+---
 
-## Funcionalidades
-- Altere o número do proprietário em [Config](https://github.com/FG98F/senna-bot/blob/main/config.js#L6)
-- Atualize para a última versão do Baileys editando o package.json [neste trecho](https://github.com/FG98F/senna-bot/blob/main/package.json#L42)
+## **IMPORTANTE**
 
-## Contatos
-- [![WhatsApp](https://img.shields.io/badge/WhatsApp-30302f?style=flat&logo=whatsapp)](https://whatsapp.com/channel/0029VaCeuZd6mYPQiWqxXj1F)
-- [![Instagram](https://img.shields.io/badge/Instagram-30302f?style=flat&logo=instagram)](http://www.instagram.com/fg98_ff)
-- [![Facebook](https://img.shields.io/badge/Facebook-30302f?style=flat&logo=facebook)](https://m.facebook.com/fg98f)
+> **Aviso**: Este script não é para uso comercial sem permissão.
 
-## API REST
-Explore nossa API REST em [api.fgmods.xyz](https://api.fgmods.xyz)
+---
 
-## Exemplo
-Experimente nosso bot de demonstração [aqui](https://instabio.cc/fg98ff) 
+## Table of Contents
+- [Clique Aqui Para Ajuda ⛩️](#clique-aqui-para-ajuda-%EF%B8%8F)
+- [Escanear QR Aqui](#escanear-qr-aqui)
+- [Implante no Railway](#implante-no-railway)
+- [Implante no Replit](#implante-no-replit)
+- [Implante no Heroku](#implante-no-heroku)
+- [Termos e Condições](#termos--condições)
+- [Agradecimentos ✨](#agradecimentos-)
 
-## Idiomas Suportados
-- Espanhol
-- Indonésio
-- Inglês
-- Português
-- Árabe
-- (Mais idiomas em breve)
+---
 
-## Implantação
-### Heroku
-[![Implante](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FG98F/senna-bot)
+## Clique Aqui Para Ajuda ⛩️
 
-### Buildpacks do Heroku
-- **FFMPEG**: [clique](https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest)
-- **IMAGEMAGICK**: [clique](https://github.com/DuckyTeam/heroku-buildpack-imagemagick)
+- [Entre em contato comigo no WhatsApp Messenger 🎐](https://wa.me/SEUNUMERO?text=Ol%C3%A1%2C%20preciso%20de%20ajuda%20com%20o%20Senna%20Bot)
+- Meu e-mail: [SEUEMAIL@gmail.com](mailto:SEUEMAIL@gmail.com) 🎐
 
-## Configuração no Termux
-1. Execute os seguintes comandos:
+---
 
-```sh
-$ pkg upgrade -y && pkg update -y
-$ pkg install git -y
-$ pkg install nodejs -y
-$ pkg install ffmpeg -y
-$ pkg install imagemagick -y
-$ git clone https://github.com/FG98F/senna-bot
-$ cd senna-bot
-$ npm i 
-$ npm start
+## Escanear QR Aqui
+
+<a href="https://LINKDOQR"><img src="LINKDAIMAGEMDOQR" align="center" width="90" /> </a>
+
+---
+
+## Implante no Railway
+
+[![Implante no Railway](https://railway.app/button.svg)](https://railway.app)
+
+---
+
+## Implante no Replit
+
+[![Execute no Repl.it](https://repl.it/badge/github/FG98F/senna-bot)](https://repl.it/github/FG98F/senna-bot)
+
+---
+
+## Implante no Heroku
+
+[Implante no Heroku](https://heroku.deploy.queenanya.work.gd/)
+
+---
+
+## Termos e Condições
+1. Este repositório não está à venda ou para troca.
+2. Não se esqueça de dar a este repositório uma estrela ⭐️.
+3. Este script não é feito para fins ilegais.
+4. Se você tiver algum problema, [entre em contato comigo](https://wa.me/SEUNUMERO?text=Ol%C3%A1%20*FG98F*%2C%20preciso%20de%20ajuda%20com%20o%20Senna%20Bot) para obter ajuda.
+
+---
+
+## Agradecimentos ✨
+- [OldUser](https://github.com/Teamolduser) - ✅ Pela compatibilidade com web e módulos
+- [AdirajShing](https://github.com/adiwajshing/Baileys) - ✅ Por uma grande biblioteca
