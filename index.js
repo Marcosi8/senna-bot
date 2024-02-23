@@ -30,7 +30,7 @@ say('SoyuzBOT', {
   color: 'red'
 })
 say(`SoyuzBOT-Marcoskz`, {
-  font: 'console',
+  font: '3d',
   align: 'center',
   color: 'red'
 })
@@ -47,7 +47,7 @@ async function start(file) {
   const currentFilePath = new URL(import.meta.url).pathname
   let args = [join(__dirname, file), ...process.argv.slice(2)]
   say([process.argv[0], ...args].join(' '), {
-    font: 'console',
+    font: '3d',
     align: 'center',
     color: 'red'
   })
