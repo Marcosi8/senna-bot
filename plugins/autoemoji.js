@@ -21,8 +21,8 @@ export function pickRandomEmoticon() {
   return emoticons[Math.floor(Math.random() * emoticons.length)];
 }
 
-export function autoReact(m, conn) {
+export async function autoReact(m, conn) {
   if (!conn.autoreactEnabled) return; // Verifica se a reação automática está ativada
   const emoticon = pickRandomEmoticon(); // Seleciona um emoji aleatório
-  conn.sendMessage(m.chat, { text: emoticon, contextInfo: { mentionedJid: [m.sender] } }); // Envia a reação
+  await m.react(emoticon); // Reage à mensagem com o emoji selecionado
 }
