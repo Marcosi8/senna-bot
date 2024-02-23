@@ -16,6 +16,10 @@
     <a href="https://github.com/FG98F"><img title="Autor" src="https://img.shields.io/badge/AUTHOR-FG98F-green.svg?style=for-the-badge&logo=github"></a>
 </p>
 
+<p align="center">
+    Um bot multifuncional para WhatsApp, capaz de oferecer uma ampla variedade de recursos e personalizações para os usuários. Experimente agora e veja o que o Senna Bot pode fazer por você!
+</p>
+
 ---
 
 ## **IMPORTANTE**
