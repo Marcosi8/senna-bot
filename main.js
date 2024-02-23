@@ -1,7 +1,5 @@
    
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
-console.log('🤖 Bot iniciado com sucesso!');
-import './config.js'; 
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0'; import './config.js';
 import { createRequire } from "module"; // Bring in the ability to create the 'require' method
 import path, { join } from 'path'
 import { fileURLToPath, pathToFileURL } from 'url'
@@ -337,5 +335,5 @@ async function _quickTest() {
 }
 
 _quickTest()
-  .then(() => conn.logger.info('✅ Prova rápida realizado!'))
+  .then(() => conn.logger.info('SOYUZ-BOT @marcoskz 🚀')
   .catch(console.error)
