@@ -10,10 +10,10 @@ export function handler(m, { conn, args }) {
   }
 }
 
-handler.help = ['autoreact on/off'];
-handler.tags = ['prime'];
-handler.command = /^(autoreact)$/i;
-handler.group = true;
+handler.help = ['autoreact on/off']
+handler.tags = ['prime']
+handler.command = /^(autoreact)$/i
+handler.group = true
 
 export function pickRandomEmoticon() { 
   const emoticons = ["😺", "🪨", "🚀", "🏂", "😼", "🐀", "🙀", "🚦", "🥳", "🇧🇷", "😏", "😳", "🥵", "🤯", "😱", "😨", "🤫", "🥴", "🇧🇷", "🤑", "🤠", "🤖", "🤝", "💪", "👑", "😚", "👨‍💻", "🐈", "🐆", "🐅", "⚡️", "🌈", "☃️", "🍦", "🌝", "🌛", "🌜", "🍓", "🍎", "🎈", "🪄", "❤️", "👨‍💻", "🚪", "💉", "🥸", "🔌", "💡", "🕴", "🥇", "📂", "🍕", "👰", "😎", "🔥", "🖕", "🫂"];
