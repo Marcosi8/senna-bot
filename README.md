@@ -1,67 +1,57 @@
-<div align="center">
-  <img src="https://komarev.com/ghpvc/?username=FG98F&color=brightgreen" alt="Profile Views Counter">
-</div>
+# Senna Bot - WhatsApp Bot 🤖
 
-<div align="center">
-  <a href="https://github.com/FG98F">
-    <img src="https://img.shields.io/badge/Senna Bot-preto?style=for-the-badge&logo=whatsApp" alt="Author">
-  </a>
-</div>
+<p align="center"> 
+  <img src="https://komarev.com/ghpvc/?username=FG98F&color=brightgreen" />
+</p>
 
-<div align="center">
-  <a href="https://github.com/FG98F?tab=followers"><img src="https://img.shields.io/github/followers/FG98F?label=Seguidores&style=social" alt="Followers"></a>
-  <a href="https://github.com/FG98F/senna-bot/stargazers/"><img src="https://img.shields.io/github/stars/FG98F/senna-bot?&style=social" alt="Stars"></a>
-  <a href="https://github.com/FG98F/senna-bot/network/members"><img src="https://img.shields.io/github/forks/FG98F/senna-bot?style=social" alt="Fork"></a>
-  <a href="https://github.com/FG98F/senna-bot/watchers"><img src="https://img.shields.io/github/watchers/FG98F/senna-bot?label=Visualizando&style=social" alt="Watching"></a>
-</div>
+<p align="center">
+  <a href="https://github.com/FG98F"><img title="Autor" src="https://img.shields.io/badge/Senna%20Bot-Preto?style=for-the-badge&logo=whatsApp"></a>
+</p>
 
-<h1 align="center" style="color:red;">SENNA BOT</h1>
+<p align="center">
+  <a href="https://github.com/FG98F?tab=followers"><img title="Seguidores" src="https://img.shields.io/github/followers/FG98F?label=Seguidores&style=social"></a>
+  <a href="https://github.com/FG98F/senna-bot/stargazers/"><img title="Estrelas" src="https://img.shields.io/github/stars/FG98F/senna-bot?&style=social"></a>
+  <a href="https://github.com/FG98F/senna-bot/network/members"><img title="Fork" src="https://img.shields.io/github/forks/FG98F/senna-bot?style=social"></a>
+  <a href="https://github.com/FG98F/senna-bot/watchers"><img title="Visualizando" src="https://img.shields.io/github/watchers/FG98F/senna-bot?label=Visualizando&style=social"></a>
+</p>
 
----
+## Sobre o Projeto
+Este é o Senna Bot, um bot para WhatsApp que oferece uma variedade de recursos úteis para os usuários. Com suporte a vários idiomas, o bot é altamente personalizável e fácil de implantar.
 
-### Informações Importantes
-- **ATENÇÃO:** Altere o número do proprietário em [Config](https://github.com/FG98F/senna-bot/blob/main/config.js#L6)
-- **URGENTE:** Você pode mudar para a última versão do Baileys editando o package.json [neste trecho](https://github.com/FG98F/senna-bot/blob/main/package.json#L42)
+## Funcionalidades
+- Altere o número do proprietário em [Config](https://github.com/FG98F/senna-bot/blob/main/config.js#L6)
+- Atualize para a última versão do Baileys editando o package.json [neste trecho](https://github.com/FG98F/senna-bot/blob/main/package.json#L42)
 
-### CONTATOS EXPLOSIVOS
-<div align="center">
-  <a href="https://whatsapp.com/channel/0029VaCeuZd6mYPQiWqxXj1F" target="blank" style="background-color:red; color:white; padding: 10px 20px; border-radius: 5px; text-decoration:none;"><b>WHATSAPP</b></a>
-  <a href="http://www.instagram.com/fg98_ff" target="blank" style="background-color:red; color:white; padding: 10px 20px; border-radius: 5px; text-decoration:none;"><b>INSTAGRAM</b></a>
-  <a href="https://m.facebook.com/fg98f" target="blank" style="background-color:red; color:white; padding: 10px 20px; border-radius: 5px; text-decoration:none;"><b>FACEBOOK</b></a>
-</div>
+## Contatos
+- [![WhatsApp](https://img.shields.io/badge/WhatsApp-30302f?style=flat&logo=whatsapp)](https://whatsapp.com/channel/0029VaCeuZd6mYPQiWqxXj1F)
+- [![Instagram](https://img.shields.io/badge/Instagram-30302f?style=flat&logo=instagram)](http://www.instagram.com/fg98_ff)
+- [![Facebook](https://img.shields.io/badge/Facebook-30302f?style=flat&logo=facebook)](https://m.facebook.com/fg98f)
 
-### API REST SUPERPODEROSA
-- [clique aqui](https://api.fgmods.xyz)
+## API REST
+Explore nossa API REST em [api.fgmods.xyz](https://api.fgmods.xyz)
 
-### Exemplo de Bomba 💣💥
-Em caso de dúvida, antes de instalar o bot do Senna, experimente o bot aqui
+## Exemplo
+Experimente nosso bot de demonstração [aqui](https://instabio.cc/fg98ff) 
 
-[![WhatsApp](https://img.shields.io/badge/DyLux-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://instabio.cc/fg98ff) 
+## Idiomas Suportados
+- Espanhol
+- Indonésio
+- Inglês
+- Português
+- Árabe
+- (Mais idiomas em breve)
 
-Multi-idioma para cada usuário, o que significa que o usuário pode escolher o idioma que deseja usar
+## Implantação
+### Heroku
+[![Implante](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FG98F/senna-bot)
 
-- [x] Espanhol
-- [x] Indonésio
-- [x] Inglês
-- [x] Português
-- [x] Árabe
-- [ ] Idiomas que virão depois
+### Buildpacks do Heroku
+- **FFMPEG**: [clique](https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest)
+- **IMAGEMAGICK**: [clique](https://github.com/DuckyTeam/heroku-buildpack-imagemagick)
 
----
+## Configuração no Termux
+1. Execute os seguintes comandos:
 
-#### EXPLODA no Heroku
-<div align="center">
-  <a href="https://heroku.com/deploy?template=https://github.com/FG98F/senna-bot" style="background-color:red; color:white; padding: 10px 20px; border-radius: 5px; text-decoration:none;"><b>DEPLOY AGORA</b></a>
-</div>
-
-#### Buildpacks de DESTRUIÇÃO
-| BuildPack | LINK |
-|--------|--------|
-| **FFMPEG** |[clique](https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest) |
-| **IMAGEMAGICK** | [clique](https://github.com/DuckyTeam/heroku-buildpack-imagemagick) |
-
-### EXPLOSÃO NO TERMUX
-1. 
 ```sh
 $ pkg upgrade -y && pkg update -y
 $ pkg install git -y
