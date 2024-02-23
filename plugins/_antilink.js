@@ -16,11 +16,11 @@ export async function before(m, {conn, isAdmin, isBotAdmin }) {
         }
         await conn.reply(m.chat, `> *[❗️] LINK DETECTED 🔗*
             
-*We do not allow unknown links in our group*\n\n_Não permitimos links desconhecidos em nosso grupo,_ @${m.sender.split('@')[0]}. _O banimento é automático, contate um administrador se acha que foi um erro._ ${isBotAdmin ? '' : '\n\n⚠️ *Eu não sou um administrador do grupo, então eu não posso expulsá-lo!*'}`, null, { mentions: [m.sender] } )
+*We do not allow unknown links in our group.*\n\n_Não permitimos links desconhecidos em nosso grupo,_ @${m.sender.split('@')[0]}. _O banimento é automático, contate um administrador se acha que foi um erro._ ${isBotAdmin ? '' : '\n\n⚠️ *Eu não sou um administrador do grupo, então eu não posso expulsá-lo!*'}`, null, { mentions: [m.sender] } )
         if (isBotAdmin && chat.antiLink) {
         	await conn.sendMessage(m.chat, { delete: m.key })
             await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-        } else if (!chat.antiLink) return m.reply('🚫')
+        } else if (!chat.antiLink) return //m.reply('🚫')
     }
     return !0
 }
