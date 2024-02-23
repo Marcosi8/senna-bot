@@ -95,9 +95,9 @@ async function start(file) {
     const packageJsonData = await fsPromises.readFile(packageJsonPath, 'utf-8');
     const packageJsonObj = JSON.parse(packageJsonData);
     console.log(chalk.blue.bold(`\n📦 Info Package.json`));
-    console.log(chalk.cyan(`Nombre: ${packageJsonObj.name}`));
-    console.log(chalk.cyan(`Versión: ${packageJsonObj.version}`));
-    console.log(chalk.cyan(`Descripción: ${packageJsonObj.description}`));
+    console.log(chalk.cyan(`Nome: ${packageJsonObj.name}`));
+    console.log(chalk.cyan(`Versão: ${packageJsonObj.version}`));
+    console.log(chalk.cyan(`Descrição: ${packageJsonObj.description}`));
     console.log(chalk.cyan(`Autor: ${packageJsonObj.author.name}`));
   } catch (err) {
     console.error(chalk.red(`❌ Erro ao tentar ler arquivo package.json: ${err}`));
