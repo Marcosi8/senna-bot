@@ -7,7 +7,7 @@ export async function before(m, { conn, isAdmin, isBotAdmin }) {
     let chat = global.db.data.chats[m.chat];
     let bot = global.db.data.settings[this.user.jid] || {};
     const isGroupLink = linkRegex.exec(m.text);
-    const listAdmin = Object.keys(chat.admins).map((v, i) => `${i + 1}. @${v.split('@')[0]}`).join('\n❗️');
+    const listAdmin = chat.admins ? Object.keys(chat.admins).map((v, i) => `${i + 1}. @${v.split('@')[0]}`).join('\n❗️') : '';
 
     if (chat.antiLink && isGroupLink && !isAdmin) {
         if (isBotAdmin) {
