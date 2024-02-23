@@ -16,13 +16,9 @@ handler.command = /^(autoreact)$/i;
 handler.group = true;
 export default handler;
 
-export function pickRandomEmoticon() { 
-  const emoticons = ["😺", "🪨", "🚀", "🏂", "😼", "🐀", "🙀", "🚦", "🥳", "🇧🇷", "😏", "😳", "🥵", "🤯", "😱", "😨", "🤫", "🥴", "🇧🇷", "🤑", "🤠", "🤖", "🤝", "💪", "👑", "😚", "👨‍💻", "🐈", "🐆", "🐅", "⚡️", "🌈", "☃️", "🍦", "🌝", "🌛", "🌜", "🍓", "🍎", "🎈", "🪄", "❤️", "👨‍💻", "🚪", "💉", "🥸", "🔌", "💡", "🕴", "🥇", "📂", "🍕", "👰", "😎", "🔥", "🖕", "🫂"];
-  return emoticons[Math.floor(Math.random() * emoticons.length)];
-}
-
 export async function autoReact(m, conn) {
   if (!conn.autoreactEnabled) return; // Verifica se a reação automática está ativada
+  
   const emoticon = pickRandomEmoticon(); // Seleciona um emoji aleatório
   try {
     await conn.chatRead(m.chat); // Marca a mensagem como lida
@@ -30,4 +26,9 @@ export async function autoReact(m, conn) {
   } catch (error) {
     console.error('Erro ao reagir à mensagem:', error);
   }
+}
+
+function pickRandomEmoticon() { 
+  const emoticons = ["😺", "🪨", "🚀", "🏂", "😼", "🐀", "🙀", "🚦", "🥳", "🇧🇷", "😏", "😳", "🥵", "🤯", "😱", "😨", "🤫", "🥴", "🇧🇷", "🤑", "🤠", "🤖", "🤝", "💪", "👑", "😚", "👨‍💻", "🐈", "🐆", "🐅", "⚡️", "🌈", "☃️", "🍦", "🌝", "🌛", "🌜", "🍓", "🍎", "🎈", "🪄", "❤️", "👨‍💻", "🚪", "💉", "🥸", "🔌", "💡", "🕴", "🥇", "📂", "🍕", "👰", "😎", "🔥", "🖕", "🫂"];
+  return emoticons[Math.floor(Math.random() * emoticons.length)];
 }
