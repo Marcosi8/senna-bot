@@ -9,7 +9,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       m.react(done)
 
   }
-  handler.help = ['txt']
+  handler.help = ['escrever']
   handler.tags = ['fun']
   handler.command = ['txt', 'escrever']
   
