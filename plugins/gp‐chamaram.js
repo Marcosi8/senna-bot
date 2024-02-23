@@ -25,6 +25,5 @@ ${listAdmin}
 handler.help = ['denuncia']
 handler.tags = ['group', 'prime']
 handler.command = ['denuncia', 'admins', 'administradores', 'adm'] 
-handler.customPrefix = /@.*\b(adm|admin|staff)\b/i
 handler.group = true
 export default handler
