@@ -50,8 +50,6 @@
 
 ## Instalar no Termux
 
-Aqui está a implementação para Termux:
-
 ```markdown
 ## Implementação no Termux
 
@@ -69,7 +67,6 @@ $ git clone https://github.com/FG98F/senna-bot
 $ cd senna-bot
 $ npm i 
 $ npm start
-```
 
 3. Aguarde até que todos os pacotes e dependências sejam instalados.
 
@@ -77,6 +74,8 @@ $ npm start
 ```
 
 Certifique-se de executar esses comandos em sequência e aguarde até que cada comando seja concluído antes de prosseguir para o próximo.
+Escaneie o Qrcode usando dois celulares.
+
 
 ---
 
