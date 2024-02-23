@@ -5,7 +5,7 @@ import { youtubedl } from '@bochilteam/scraper';
 const limit = 320;
 
 const handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
-    if (!text) throw `🤔 Você quer ouvir que música? ${mssg.example}: *${usedPrefix + command}* don't stop me now, queen`;
+    if (!text) throw `🤔 Você quer ouvir que música? *${usedPrefix + command}* don't stop me now, queen`;
 
     const res = await yts(text);
     const vid = res.videos[0];
@@ -44,14 +44,14 @@ const handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comm
 
             await conn.sendMessage(m.chat, doc, { quoted: m });
         } else {
-            throw `${mssg.errorLimit} ${limit} MB`;
+            throw `Limite de ${limit} MB excedido`;
         }
     } catch (error) {
-        m.reply(`🚫 ${mssg.error}`);
+        m.reply(`🚫 Ocorreu um erro`);
     }
 };
 
-handler.help = ['song'];
+handler.help = ['playmp3'];
 handler.tags = ['prime', 'dl'];
 handler.command = ['song', 'song2', 'mp3', 'playmp3'];
 
