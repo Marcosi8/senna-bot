@@ -22,7 +22,7 @@ ${mssg.afkdel}
         let reason = user.afkReason || ''
         
         let afkt = `
-≡ ${mssg.afktag} 
+> ${mssg.afktag} 
 
 ▢ *${mssg.name} :* ${this.getName(jid)}
 ${reason ? `▢ *${mssg.with}* : ${reason}` : ''}
