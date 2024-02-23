@@ -23,8 +23,8 @@ let handler = async (m, { conn, participants, groupMetadata, args }) => {
 
     conn.sendFile(m.chat, pp, 'staff.png', text, m, false, { mentions: [...groupAdmins.map(v => v.id), owner] })
 }
-handler.help = ['denuncia']
+handler.help = ['denunciar', 'informar']
 handler.tags = ['group', 'prime']
-handler.command = ['denuncia', 'admins', 'ajuda', 'administradores', 'adm'] 
+handler.command = ['denuncia', 'dununciar', 'ajuda', 'administradores', 'adm'] 
 handler.group = true
 export default handler
