@@ -36,7 +36,7 @@ try {
      
 	  if(!isLimit) conn.sendFile(m.chat, dl_url, title + '.mp' + (3 + /vid$/.test(command)), `
 > 💿 *MP3*
- Responda com _/audio para ouvir a música diretamente no WhatsApp!_
+_Responda com /audio para ouvir a música diretamente no WhatsApp!_
  
 ▢ *🎞️Qualidade* : ${quality}
 ▢ *⚖️Tamanho* : ${size}
@@ -65,8 +65,8 @@ try {
 }
 
 }
-handler.help = ['playmp3']
+handler.help = ['play']
 handler.tags = ['prime', 'dl']
-handler.command = ['play', 'song2', 'mp3', 'playmp3']
+handler.command = ['play', 'song2', 'song', 'playmp3']
 
 export default handler
