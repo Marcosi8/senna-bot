@@ -1,6 +1,6 @@
 let handler = async (message, { conn, participants, groupMetadata, args, usedPrefix, text, command }) => {
   if (!text) return message.reply(`Por favor, inclua uma mensagem para enviar para todos os moderadores do grupo.`)
-  const pp = await conn.getProfilePicture(message.chat).catch(_ => null)
+  const pp = groupMetadata?.profilePicThumbObj?.eurl || './src/admins.jpg'
   const groupModerators = participants.filter(p => p.isAdmin)
   const listModerators = groupModerators.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]}*`).join('\n')
   const owner = groupMetadata.owner || groupModerators.find(p => p.isAdmin === 'superadmin')?.id || message.chat.split`-`[0] + '@s.whatsapp.net'
