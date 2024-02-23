@@ -1,4 +1,8 @@
 let handler = async (m, { conn, participants, groupMetadata, args }) => {
+    if (args.length === 0) {
+        return conn.reply(m.chat, 'Por favor, forneça uma mensagem para que os administradores possam ajudar.', m)
+    }
+
     const pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || './src/avatar_contact.png'
     const groupAdmins = participants.filter(p => p.admin)
     const listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.id.split('@')[0]}`).join('\n▢ ')
@@ -10,21 +14,16 @@ let handler = async (m, { conn, participants, groupMetadata, args }) => {
 *Lista de Administradores:*
 ${listAdmin}
 
-_Envie sua mensagem com confiança, os administradores estão aqui para ajudar!_ 🤝
+*Mensagem Adicional:*
+${args.join(' ')}
 `
-
-    if (args.length > 0) {
-        text += `\n\n*Mensagem Adicional:*\n${args.join(' ')}`
-    } else {
-        text += `\n\n*Nenhuma mensagem adicional fornecida.*\nPor favor, forneça uma mensagem para que os administradores possam ajudar.`
-    }
 
     text = text.trim()
 
     conn.sendFile(m.chat, pp, 'staff.png', text, m, false, { mentions: [...groupAdmins.map(v => v.id), owner] })
 }
-handler.help = ['denunciar']
+handler.help = ['denuncia']
 handler.tags = ['group', 'prime']
-handler.command = ['denunciar', 'admins', 'listadmin', 'adm'] 
+handler.command = ['denuncia', 'admins', 'listadmin', 'adm'] 
 handler.group = true
 export default handler
