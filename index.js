@@ -24,7 +24,7 @@ const rl = createInterface(process.stdin, process.stdout)
 const app = express()
 const port = process.env.PORT || 8080;
 
-say('SoyuzBOT', {
+say('SOYUZ', {
   font: '3d',
   align: 'center',
   gradient: ['red', 'magenta']
