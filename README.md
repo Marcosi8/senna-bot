@@ -54,14 +54,13 @@
 
 ## Instalar no Termux
 
-```markdown
+
 ## Implementação no Termux
 
 1. Abra o aplicativo Termux no seu dispositivo Android.
 
 2. Execute os seguintes comandos:
-
-```sh
+```markdown
 $ pkg upgrade -y && pkg update -y
 $ pkg install git -y
 $ pkg install nodejs -y
@@ -71,11 +70,10 @@ $ git clone https://github.com/FG98F/senna-bot
 $ cd senna-bot
 $ npm i 
 $ npm start
-
+```
 3. Aguarde até que todos os pacotes e dependências sejam instalados.
 
 4. Após a instalação, o bot estará pronto para ser iniciado. Aproveite!
-```
 
 Certifique-se de executar esses comandos em sequência e aguarde até que cada comando seja concluído antes de prosseguir para o próximo.
 Escaneie o Qrcode usando dois celulares.
