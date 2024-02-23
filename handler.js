@@ -120,7 +120,7 @@ export async function handler(chatUpdate) {
                 if (!('isBanned' in chat))
                     chat.isBanned = false
                 if (!('welcome' in chat))
-                    chat.welcome = false
+                    chat.welcome = true
                 if (!('detect' in chat))
                     chat.detect = false
                 if (!('sWelcome' in chat))
@@ -134,7 +134,7 @@ export async function handler(chatUpdate) {
                 if (!('delete' in chat))
                     chat.delete = true
                 if (!('antiLink' in chat))
-                    chat.antiLink = true
+                    chat.antiLink = false
                 if (!('viewonce' in chat))
                     chat.viewonce = false
                 if (!('captcha' in chat))
@@ -566,13 +566,13 @@ export async function deleteUpdate(message) {
         let chat = global.db.data.chats[msg.chat] || {}
         if (chat.delete)
             return
-        await this.reply(msg.chat, `        
- [❗️] *Você não pode excluir mensagens neste grupo.*
+        await this.reply(msg.chat, `
+> VOCÊ NÃO PODE APAGAR MENSAGENS 
+> 𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀 
+  
+> *Nome:* @${participant.split`@`[0]} 
 
-𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀:
-*Nome:* @${participant.split`@`[0]} 
-
-Para desativar esta função, escreva 
+Desative está função usando: 
 */off antidelete*
 `.trim(), msg, {
             mentions: [participant]
