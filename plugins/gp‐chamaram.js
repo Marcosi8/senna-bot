@@ -15,7 +15,7 @@ let handler = async (message, { conn, participants, groupMetadata, args, usedPre
   }
 }
 
-handler.tags = ['admin'] // Tags para identificar o comando
+handler.tags = ['prime'] // Tags para identificar o comando
 handler.help = ['admins', '@admins', 'dmins'] // Comandos de ajuda
 
 handler.command = /^(admins|@admins|dmins)$/i
