@@ -20,6 +20,10 @@
     Um bot multifuncional para WhatsApp, capaz de oferecer uma ampla variedade de recursos e personalizações para os usuários. Experimente agora e veja o que o Senna Bot pode fazer por você!
 </p>
 
+<p align="center">
+    <img src="URL_DA_SUA_ANIMACAO.gif" />
+</p>
+
 ---
 
 ## **IMPORTANTE**
