@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-    <img src="https://media2.giphy.com/media/y7iEfV8xgCLpp8iGe9/giphy.gif?cid=6c09b952b809gf8muel41tih65l6of93e246vfvya03p8buu&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=ghy.gif&ct=g" />
+    <img src="https://i.ibb.co/fqDHJt8/text.giff&ct=ghy.gif&ct=g" />
 </p>
 
 ---
