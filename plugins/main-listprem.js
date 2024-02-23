@@ -11,12 +11,12 @@ let handler = async (m, { conn, args }) => {
     let b = premGlo.map(v => `▢ *${mssg.name}:* @` + v.replace(/@.+/, '')).join('\n')
     
     let text = `
-  ≡ *PREMIUM PERMANENTE*
+> *PREMIUM PERMANENTE*
 ┌─⊷
 ${b}
 └───────────
 
-   ≡ *USUARIOS PREMIUM*
+> *USUARIOS PREMIUM*
    
 ▢ *${mssg.total}:* ${sortedP.length} 
   ${sortedP.slice(0, len).map(({ jid, name, premiumTime, registered }, i) => `
