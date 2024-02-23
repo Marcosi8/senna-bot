@@ -5,13 +5,13 @@ let handler = async (m, { conn, participants, groupMetadata, args }) => {
     const owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net'
 
     let text = `
-    *Denúncia ou Aviso aos Administradores do Grupo* 🚨
+*Denúncia ou Aviso aos Administradores do Grupo* 🚨
 
-    *Lista de Administradores:*
-    ${listAdmin}
+*Lista de Administradores:*
+${listAdmin}
 
-    _Envie sua mensagem com confiança, os administradores estão aqui para ajudar!_ 🤝
-    `
+_Envie sua mensagem com confiança, os administradores estão aqui para ajudar!_ 🤝
+`
 
     if (args.length > 0) {
         text += `\n\n*Mensagem Adicional:*\n${args.join(' ')}`
@@ -23,8 +23,8 @@ let handler = async (m, { conn, participants, groupMetadata, args }) => {
 
     conn.sendFile(m.chat, pp, 'staff.png', text, m, false, { mentions: [...groupAdmins.map(v => v.id), owner] })
 }
-handler.help = ['denunciar]
-handler.tags = ['group']
-handler.command = ['staff', 'admins', 'denunciar, 'adm'] 
+handler.help = ['denunciar']
+handler.tags = ['group', 'prime']
+handler.command = ['denunciar', 'admins', 'listadmin', 'adm'] 
 handler.group = true
 export default handler
