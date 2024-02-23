@@ -27,12 +27,12 @@ const port = process.env.PORT || 8080;
 say('Soyuz-bot', {
   font: 'pallet',
   align: 'center',
-  gradient: ['red', 'magenta']
+  gradient: ['darkred', 'darkmagenta']
 })
 say(`SoyuzBOT-Marcoskz`, {
   font: 'console',
   align: 'center',
-  gradient: ['cyan', 'magenta']
+  gradient: ['darkcyan', 'darkmagenta']
 })
 
 app.listen(port, () => {
