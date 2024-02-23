@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-    <img src="URL_DA_SUA_ANIMACAO.gif" />
+    <img src="https://media1.giphy.com/media/iFCQhoTjoOgms/giphy.gif?cid=6c09b9524wjoslck3y08o4uryoxs4c8b5zd8c3mng3ttzomf&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" />
 </p>
 
 ---
