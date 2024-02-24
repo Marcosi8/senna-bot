@@ -172,9 +172,9 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     default:
       //if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, listMessage, { quoted: m })
       if (!/[01]/.test(command)) return m.reply(`
-▢ Lista de Opções
+> Lista de Opções
 
->*ADMIN*
+> *ADMIN*
 
 captcha
 welcome
@@ -185,19 +185,20 @@ document
 nsfw
 autosticker
 └───────────── 
->*USERS*
+> *USERS*
 
 autolevelup
 chatbot 
 └─────────────
->*OWNER*
+> *OWNER*
+
 public
 sopv
 sogp
 └─────────────
 *📌 Exemplo:*
-*${usedPrefix}on* welcome
-*${usedPrefix}off* welcome
+*${usedPrefix}on* antilink2
+*${usedPrefix}off* antilink2
 `)
       throw false
 }
