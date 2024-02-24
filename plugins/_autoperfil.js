@@ -1,3 +1,4 @@
+import fs from 'fs';
 let handler = async (m, { conn }) => {
     let setting = global.db.data.settings[this.user.jid];
     
