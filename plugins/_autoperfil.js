@@ -19,4 +19,6 @@ let handler = async ({ conn }) => {
     }
 };
 
+handler.connect = true;
+
 export default handler;
