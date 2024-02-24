@@ -24,17 +24,17 @@ let handler = async (m, { conn, text, usedPrefix, command, args, participants, i
   let now = new Date() * 1
   if (now < global.db.data.chats[res].expired) global.db.data.chats[res].expired += nDays
   else global.db.data.chats[res].expired = now + nDays
-  if (e.length) await m.reply(`✅ Me uni ao grupo \n\n≡ Info do grupo \n\n *Nome :* ${await conn.getName(res)}\n\nO bot sairá automáticamente depois de \n\n${msToDate(global.db.data.chats[res].expired - now)}`)
+  if (e.length) await m.reply(`✅ Entrei no grupo \n\n> Info do grupo \n\n *Nome:* ${await conn.getName(res)}\n\nO bot sairá automáticamente depois de \n\n${msToDate(global.db.data.chats[res].expired - now)}`)
  
  if (e.length) await conn.reply(res, `🤠 Olá camaradas
 
-@${owbot} é meu administrador.  fale com ele em caso de duvidas.
+@${owbot} é meu administrador. fale com ele em caso de duvidas.
 fui enviado por *${m.name}*`, m, {
     mentions: d
      }).then(async () => {
      await delay(7000)
      }).then( async () => {
-     await conn.reply(res, `agora vamos todos relaxar, use /menu para ver os comandos.🌹`, 0)
+     await conn.reply(res, `agora vamos todos relaxar... use /menu para ver os comandos.🌹`, 0)
      await conn.reply(global.owner[1]+'@s.whatsapp.net', `≡ *CONVITE AO GRUPO*\n\n@${m.sender.split('@')[0]} Foi convidado por *${conn.user.name}* ao grupo\n\n*${await conn.getName(res)}*\n\n*ID* : ${res}\n\n📌 Link : ${args[0]}\n\nE o bot sairá automáticamente depois de \n\n${msToDate(global.db.data.chats[res].expired - now)}`, null, {mentions: [m.sender]})
      })
      if (!e.length) await conn.reply(global.owner[1]+'@s.whatsapp.net', `≡ *CONVITE AO GRUPO*\n\n@${m.sender.split('@')[0]} Foi convidado por *${conn.user.name}* ao grupo\n\n*${await conn.getName(res)}*\n\n*ID* : ${res}\n\n📌 Link : ${args[0]}\n\nE o bot sairá automáticamente depois de\n\n ${msToDate(global.db.data.chats[res].expired - now)}`, null, {mentions: [m.sender]})
@@ -54,7 +54,7 @@ para ver os comandos do bot escreva
      })
     } catch (e) {
       conn.reply(global.owner[1]+'@s.whatsapp.net', e)
-      throw `🚫 Desculpe, o bot não pode entrar em grupos`
+      throw `🚫 Desculpe, o bot não conseguiu entrar, veja se algo deu errado.`
       }
 }
 handler.help = ['entrar <chat.whatsapp.com> <dias>']
