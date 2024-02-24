@@ -4,25 +4,28 @@ let handler = async function (m, { conn, text, usedPrefix }) {
 let m2 = `
 > Lista de comandos
 
-┌─⊷ *ADMIN*
-▢ captcha
-▢ welcome
-▢ antilink
-▢ detect 
-▢ document
-▢ nsfw
-▢ autosticker
+>*ADMIN*
+
+captcha
+welcome
+antilink (com kick user)
+antilink2 (sem kick user)
+detect 
+document
+nsfw
+autosticker
 └───────────── 
-┌─⊷ *USERS*
-▢ autolevelup
-▢ chatbot 
+>*USERS*
+
+autolevelup
+chatbot 
 └─────────────
-┌─⊷ *OWNER*
-▢ public
-▢ sopv
-▢ sogp
+>*OWNER*
+public
+sopv
+sogp
 └─────────────
-*📌 Exemplo :*
+*📌 Exemplo:*
 *${usedPrefix}on* welcome
 *${usedPrefix}off* welcome
 `
