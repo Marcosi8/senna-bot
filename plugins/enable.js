@@ -177,7 +177,8 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 ┌─⊷ *ADMIN*
 ▢ captcha
 ▢ welcome
-▢ antilink
+▢ antilink (com kick user)
+> antilink2 (sem kick user)
 ▢ detect 
 ▢ document
 ▢ nsfw
