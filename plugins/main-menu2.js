@@ -4,7 +4,7 @@ let handler = async function (m, { conn, text, usedPrefix }) {
 let m2 = `
 > Lista de comandos
 
->*ADMIN*
+> *ADMIN*
 
 captcha
 welcome
@@ -15,12 +15,13 @@ document
 nsfw
 autosticker
 └───────────── 
->*USERS*
+> *USERS*
 
 autolevelup
 chatbot 
 └─────────────
->*OWNER*
+> *OWNER*
+
 public
 sopv
 sogp
