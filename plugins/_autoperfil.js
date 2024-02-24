@@ -2,10 +2,10 @@ import fs from 'fs';
 
 let handler = m => m;
 handler.all = async function (m, { conn }) {
-    if (!conn) return; // Verifica se o objeto 'conn' está definido
-    
+    if (!conn) return;
+
     let setting = global.db.data.settings[this.user.jid];
-	
+
     let _uptime = process.uptime() * 1000;
     let _muptime;
     if (process.send) {
@@ -19,7 +19,7 @@ handler.all = async function (m, { conn }) {
     
     try {
         let imgBuffer = fs.readFileSync('./src/GPT/gpt1.jpeg');
-        await conn.updateProfilePicture(conn.user.jid, imgBuffer);
+        await conn.updateProfilePicture(conn.user.me.user);
         console.log('Foto de perfil atualizada com sucesso.');
     } catch (error) {
         console.error('Erro ao atualizar a foto de perfil:', error);
