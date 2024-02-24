@@ -135,6 +135,8 @@ export async function handler(chatUpdate) {
                     chat.delete = true
                 if (!('antiLink' in chat))
                     chat.antiLink = false
+                if (!('antiLink2' in chat))
+                    chat.antiLink = false
                 if (!('viewonce' in chat))
                     chat.viewonce = false
                 if (!('captcha' in chat))
@@ -156,6 +158,7 @@ export async function handler(chatUpdate) {
                     sDemote: '',
                     delete: true,
                     antiLink: true,
+                    antiLink2: true,
                     viewonce: false,
                     useDocument: true,
                     captcha: false,
