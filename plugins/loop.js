@@ -1,6 +1,6 @@
 const typingLoop = async (conn, chatId) => {
     while (true) {
-        await conn.updatePresence(chatId, Presence.composing)
+        await conn.chatUpdate(chatId, 'typing')
         await new Promise(resolve => setTimeout(resolve, 5000)) // Aguarda 5 segundos antes de enviar novamente
     }
 }
