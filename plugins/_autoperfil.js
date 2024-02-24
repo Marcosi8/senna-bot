@@ -1,4 +1,4 @@
-import fs from 'fs';
+/*import fs from 'fs';
 import { create } from '@open-wa/wa-automate';
 
 create().then(async conn => {
