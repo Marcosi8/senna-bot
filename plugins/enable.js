@@ -174,26 +174,28 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       if (!/[01]/.test(command)) return m.reply(`
 ▢ Lista de Opções
 
-┌─⊷ *ADMIN*
-> captcha
-> welcome
-> antilink (com kick user)
-> antilink2 (sem kick user)
-> detect 
-> document
-> nsfw
-> autosticker
+>*ADMIN*
+
+captcha
+welcome
+antilink (com kick user)
+antilink2 (sem kick user)
+detect 
+document
+nsfw
+autosticker
 └───────────── 
-┌─⊷ *USERS*
-> autolevelup
-> chatbot 
+>*USERS*
+
+autolevelup
+chatbot 
 └─────────────
-┌─⊷ *OWNER*
-> public
-> sopv
-> sogp
+>*OWNER*
+public
+sopv
+sogp
 └─────────────
-*📌 Exemplo :*
+*📌 Exemplo:*
 *${usedPrefix}on* welcome
 *${usedPrefix}off* welcome
 `)
