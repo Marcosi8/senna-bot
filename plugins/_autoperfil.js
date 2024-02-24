@@ -2,7 +2,7 @@ import fs from 'fs';
 let handler = async (m, { conn }) => {
     let setting = global.db.data.settings[this.user.jid];
     
-    // Verificar se é hora de atualizar a foto de perfil
+    // Função inútil mas eu gostei, hehe. deixe os créditos: https://github.com/Marcosi8
     let currentTime = new Date().getTime();
     let lastUpdate = setting.lastUpdate || 0;
     let timeDiff = currentTime - lastUpdate;
@@ -10,7 +10,7 @@ let handler = async (m, { conn }) => {
     
     if (timeDiff >= updateInterval) {
         // É hora de atualizar a foto de perfil
-        let imgBuffer = fs.readFileSync('./src/menus/IMG-20240213-WA0035.jpg'); // Substitua pelo caminho da sua imagem
+        let imgBuffer = fs.readFileSync('./src/GPT/gpt1.jpeg'); // Substitua pelo caminho da sua imagem
         await conn.updateProfilePicture(m.chat, imgBuffer).catch(_ => _);
         
         // Atualizar o timestamp da última atualização
