@@ -10,7 +10,7 @@ export async function before(m, { conn, isAdmin, isBotAdmin }) {
 
     if (m.text.startsWith('antilink2') && isAdmin) {
         chat.antiLink2 = !chat.antiLink2;
-        conn.reply(m.chat, `Anti-link 2 agora está ${chat.antiLink2 ? 'ativado' : 'desativado'}.`, m)
+        conn.reply(m.chat, `Antilink 2 (apenas apaga mensagens) agora está ${chat.antiLink2 ? 'ativado' : 'desativado'}.`, m)
         return !0;
     }
 
