@@ -27,7 +27,7 @@ let handler = async (m) => {
             let genre = genres !== undefined ? genres.map(v => v.name).join(', ') : 'NOT FOUND';
 
             txt = `
-•𝘙𝘌𝘚𝘜𝘓𝘛𝘈𝘋𝘖 𝘋𝘖 𝘉𝘈𝘕𝘊𝘖 𝘋𝘌 𝘋𝘈𝘋𝘖𝘚 📥
+> 𝘙𝘌𝘚𝘜𝘓𝘛𝘈𝘋𝘖 𝘋𝘖 𝘉𝘈𝘕𝘊𝘖 𝘋𝘌 𝘋𝘈𝘋𝘖𝘚 📥
 
 📀 *MÚSICA:* ${title}
 
