@@ -1,4 +1,6 @@
-let handler = m => m
+import fs from 'fs';
+
+let handler = m => m;
 handler.all = async function (m) {
     let setting = global.db.data.settings[this.user.jid];
 	
@@ -15,13 +17,14 @@ handler.all = async function (m) {
     
     try {
         let imgBuffer = fs.readFileSync('./src/GPT/gpt1.jpeg');
-        await this.updateProfilePicture(imgBuffer);
+        await this.updateProfilePicture(m.chat, imgBuffer);
         console.log('Foto de perfil atualizada com sucesso.');
     } catch (error) {
         console.error('Erro ao atualizar a foto de perfil:', error);
     }
     
     setting.status = new Date() * 1;
+    return m;
 };
 
 export default handler;
