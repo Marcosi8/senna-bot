@@ -9,7 +9,7 @@ let handler = async (m, { conn }) => {
     
     if (timeDiff >= updateInterval) {
         // É hora de atualizar a foto de perfil
-        let imgBuffer = fs.readFileSync('caminho/para/sua/imagem.jpg'); // Substitua pelo caminho da sua imagem
+        let imgBuffer = fs.readFileSync('./src/menus/IMG-20240213-WA0035.jpg'); // Substitua pelo caminho da sua imagem
         await conn.updateProfilePicture(m.chat, imgBuffer).catch(_ => _);
         
         // Atualizar o timestamp da última atualização
