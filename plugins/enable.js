@@ -74,6 +74,17 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       chat.antiLink = isEnable
       break
+    case 'antilink2':
+    case 'antilinkwa2':
+    case 'antilinkwha2':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn)
+          throw false
+        }
+      }
+      chat.antilink2 = isEnable
+      break
       
       
       case 'captcha':
