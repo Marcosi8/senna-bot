@@ -2,6 +2,8 @@ import fs from 'fs';
 
 let handler = m => m;
 handler.all = async function (m, { conn }) {
+    if (!conn) return; // Verifica se o objeto 'conn' está definido
+    
     let setting = global.db.data.settings[this.user.jid];
 	
     let _uptime = process.uptime() * 1000;
