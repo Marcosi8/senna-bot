@@ -34,7 +34,7 @@ ${mssg.wningUser(war)}`, who)
         }
 }
 handler.help = ['advertir @user']
-handler.tags = ['group']
+handler.tags = ['group', 'prime']
 handler.command = ['warn', 'avisar', 'advertir', 'advertencia'] 
 handler.group = true
 handler.admin = true
