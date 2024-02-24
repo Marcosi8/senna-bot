@@ -8,6 +8,8 @@ let handler = async ({ conn }) => {
     let lastUpdate = setting.lastUpdate || 0;
     let updateInterval = 24 * 60 * 60 * 1000; // 24 horas em milissegundos
     
+    console.log('Última atualização:', new Date(lastUpdate).toLocaleString());
+    
     if (currentTime - lastUpdate >= updateInterval || lastUpdate === 0) {
         console.log('Atualizando a foto de perfil...');
         await updateProfilePhoto(conn);
@@ -22,7 +24,7 @@ export default handler;
 
 async function updateProfilePhoto(conn) {
     try {
-        let imgBuffer = fs.readFileSync('./src/GPT/gpt1.jpeg'); // Substitua pelo caminho da sua imagem
+        let imgBuffer = fs.readFileSync('./src/GPT/gpt1.jpeg');
         await conn.updateProfilePicture(conn.user.jid, imgBuffer);
         console.log('Foto de perfil atualizada com sucesso.');
     } catch (error) {
