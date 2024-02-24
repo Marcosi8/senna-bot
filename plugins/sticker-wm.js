@@ -17,11 +17,11 @@ let handler = async (m, { conn, text, args }) => {
     if (Buffer.isBuffer(e)) stiker = e
   } finally {
     if (stiker) conn.sendFile(m.chat, stiker, 'wm.webp', '', m, null, rpl)
-     else throw 'La conversión falló'
+     else throw 'Falha na conversão'
   }
 }
-handler.help = ['take <nombre>|<autor>']
+handler.help = ['pegar <nome>|<autor>']
 handler.tags = ['sticker']
-handler.command = ['take', 'wm'] 
+handler.command = ['take', 'pegar'] 
 
 export default handler
