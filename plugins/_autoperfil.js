@@ -1,7 +1,7 @@
 import fs from 'fs';
 
 let handler = m => m;
-handler.all = async function (m) {
+handler.all = async function (m, { conn }) {
     let setting = global.db.data.settings[this.user.jid];
 	
     let _uptime = process.uptime() * 1000;
@@ -17,7 +17,7 @@ handler.all = async function (m) {
     
     try {
         let imgBuffer = fs.readFileSync('./src/GPT/gpt1.jpeg');
-        await this.updateProfilePicture(m.chat, imgBuffer);
+        await conn.updateProfilePicture(conn.user.jid, imgBuffer);
         console.log('Foto de perfil atualizada com sucesso.');
     } catch (error) {
         console.error('Erro ao atualizar a foto de perfil:', error);
