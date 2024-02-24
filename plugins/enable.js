@@ -1,3 +1,4 @@
+
 let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner }) => {
 
   let isEnable = /true|enable|(turn)?on|1/i.test(command)
@@ -74,7 +75,8 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       chat.antiLink = isEnable
       break
-    case 'antilink2':
+
+      case 'antilink2':
     case 'antilinkwa2':
     case 'antilinkwha2':
       if (m.isGroup) {
@@ -83,7 +85,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
           throw false
         }
       }
-      chat.antilink2 = isEnable
+      chat.antiLink2 = isEnable
       break
       
       
@@ -170,7 +172,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     default:
       //if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, listMessage, { quoted: m })
       if (!/[01]/.test(command)) return m.reply(`
-> Lista de Opções
+≡ Lista de Opções
 
 ┌─⊷ *ADMIN*
 ▢ captcha
@@ -190,7 +192,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 ▢ sopv
 ▢ sogp
 └─────────────
-*📌 Exemplo:*
+*📌 Exemplo :*
 *${usedPrefix}on* welcome
 *${usedPrefix}off* welcome
 `)
