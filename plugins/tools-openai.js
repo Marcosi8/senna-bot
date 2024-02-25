@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { text, conn, usedPrefix, command }) => {
   if (!text && !(m.quoted && m.quoted.text)) {
-    throw `*Exemplo:* ${usedPrefix + command} *Fale sobre a música Mr blue sky!*`;
+    throw `🤔 *Exemplo:* ${usedPrefix + command} Fale sobre a música Mr blue sky!`;
   }
 
   if (!text && m.quoted && m.quoted.text) {
