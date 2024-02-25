@@ -9,7 +9,6 @@ let tags = {
   'prime': 'MAIS USADOS 🥳',
   'chat': 'CHAT ANÔNIMO 👻',
   'ia': 'IA/CHATGPT 🤖',
-  'bebot': 'BEBOT',
   'group': 'GRUPO 👮‍',
   'econ': '%readmore NIVEL & ECONOMIA 💵',
   'rg': 'REGISTRO 🗂',
@@ -25,10 +24,11 @@ let tags = {
   'tools': 'TOOLS/UTILITARIOS ⚒️',
   'fun': 'FUN 🤡',
   'cmd': 'DATABASE 💾',
-  'nsfw': 'NSFW +18 🔞',
-  'ansfw': 'NSFW ANIME 🔞', 
+  //'nsfw': 'NSFW +18 🔞',
+  //'ansfw': 'NSFW ANIME 🔞', 
   'owner': 'OWNER 👑', 
   'advanced': 'AVANÇADO 💻',
+  'bebot': 'BEBOT',
 }
 const defaultMenu = {
   before: `
