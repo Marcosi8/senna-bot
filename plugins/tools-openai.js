@@ -23,7 +23,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     conn.sendPresenceUpdate('composing', m.chat);
     const prompt = encodeURIComponent(text);
 
-    const guru1 = `https://vihangayt.me/tools/chatgpt?2q=${prompt}`;
+    const guru1 = `https://vihangayt.me/tools/chatgpt2?q=${prompt}`;
     
     try {
       let response = await fetch(guru1);
@@ -50,7 +50,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
       const model = 'llama';
       const senderNumber = m.sender.replace(/[^0-9]/g, ''); 
       const session = `GURU_BOT_${senderNumber}`;
-      const guru2 = `https://vihangayt.me/tools/chatgpt?2q=${prompt}`;
+      const guru2 = `https://vihangayt.me/tools/chatgpt2?q=${prompt}`;
       
       let response = await fetch(guru2);
       let data = await response.json();
