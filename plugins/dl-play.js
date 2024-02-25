@@ -22,14 +22,14 @@ const handler = async (m, {
     if (!result.allLinks || !result.allLinks.length) {
         return await conn.reply(m.chat, "Desculpe, nenhum resultado de vídeo encontrado para esta pesquisa.", m);
     }
-
+    m.react('📀')
     const selectedUrl = result.allLinks[0].url; // Seleciona o URL do primeiro resultado
     const thumbnail = result.thumbnail; // Salva a thumbnail do primeiro resultado
     const title = result.title; // Salva o título do primeiro resultado
     const author = result.author; // Salva o autor do primeiro resultado
     const uploadedAt = result.uploadedAt; // Salva a data de upload do primeiro resultado
     const views = result.views; // Salva o número de visualizações do primeiro resultado
-    m.react('📀')
+    
     const doc = {
     text: `> *YT MUSIC*
 ┌──────────────
