@@ -13,7 +13,8 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
   const done = '💬'; // Defina done conforme necessário
 
   let pp = marcosgpt.getRandom();
-  
+  let success = false; // Variável para rastrear se alguma API teve sucesso
+
   try {
     m.react(rwait);
     const { key } = await conn.sendMessage(m.chat, {
@@ -42,6 +43,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
           }
         }, {});
         m.react(done);
+        success = true; // Marcamos como sucesso se guru1 funcionar
       } else {
         throw new Error('No valid data in the API response');
       }
@@ -68,21 +70,24 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
             }
           }, {});
           m.react(done);
+          success = true; // Marcamos como sucesso se guru2 funcionar
         } else {
           throw new Error('No valid data in the second API response');
         }
       } catch (error2) {
         console.error('Error from the second API:', error2);
-        throw `*ERROR*: ${error2.message}`; // Retorna a mensagem de erro específica
+        // Se ambas as APIs falharem, não definimos success como true
       }
+    }
+
+    // Se nenhuma das chamadas da API tiver sucesso, envie a mensagem de erro
+    if (!success) {
+      throw `Nenhuma resposta válida recebida. Tente usar o comando ${usedPrefix}chatgpt2 para outra abordagem.`;
     }
   } catch (error) {
     console.error('Error:', error);
     throw `*ERROR*: ${error.message}`; // Retorna a mensagem de erro específica
   }
-
-  // Mensagem caso nenhuma API funcione
-  throw `Nenhuma resposta válida recebida da API. Tente usar o comando ${usedPrefix}chatgpt2.`;
 };
 
 handler.help = ['chatgpt'];
