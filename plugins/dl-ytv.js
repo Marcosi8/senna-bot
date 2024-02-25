@@ -6,7 +6,7 @@ import axios from 'axios';
 import {bestFormat, getUrlDl} from '../lib/y2dl.js';
 let enviando;
 const handler = async (m, {conn, args, usedPrefix, command}) => {
-  if (!args[0]) throw '*🪩 Por favor, mande-me o link / YouTube link! Você pode obter um link usando o comando /song 🎸*';
+  if (!args[0]) throw '*🪩 Por favor, mande-me o link! Você pode obter um link usando o comando /song 🎸*';
   if (enviando) return  
       enviando = true    
   let youtubeLink = '';
@@ -86,7 +86,6 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
         enviando = false
       } catch {
         await conn.sendMessage(m.chat, {text: `*[ ❌ ] Não foi possível baixar ou enviar o vídeo. Tente novamente.*`, edit: key}, {quoted: m});
-        throw '*[❗] Não foi possível baixar ou enviar o vídeo. Tente novamente.*';
       }
     }
   }
