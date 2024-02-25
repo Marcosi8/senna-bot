@@ -8,14 +8,14 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     return m.reply(`
 🛡️ ${mssg.gpSetting}
 
-*▢ ${usedPrefix + command} fechar*
-*▢ ${usedPrefix + command} abrir*
+*${usedPrefix + command} fechar/close*
+*${usedPrefix + command} abrir/open*
 `)
     await conn.groupSettingUpdate(m.chat, isClose)
 }
-handler.help = ['grupo']
+handler.help = ['abrir/fechar']
 handler.tags = ['group']
-handler.command = ['group', 'grupo'] 
+handler.command = ['group', 'abrir', 'grupo', 'fechar', 'open', 'close'] 
 handler.admin = true
 handler.botAdmin = true
 handler.group = true
