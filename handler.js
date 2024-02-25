@@ -513,7 +513,7 @@ export async function participantsUpdate({ id, participants, action }) {
                 const botTt2 = groupMetadata.participants.find(u => this.decodeJid(u.id) == this.user.jid) || {};
                 const isBotAdminNn = botTt2?.admin === "admin" || false;
                 const welcomeMessage = chat.sWelcome || this.welcome || conn.welcome || `Bem-vindo, ao grupo @user! leia nossa @desc`;
-                const byeMessage = this.bye || conn.bye || 'Adiós, @user')).replace('@user', '@' + user.split('@')[0]);
+                const byeMessage = chat.sBye || this.bye || conn.bye || 'Adiós, @user')).replace('@user', '@' + user.split('@')[0];
 
                 const messageContent = action === 'add' ? welcomeMessage.replace('@user', `@${user.split('@')[0]}`).replace('@desc', groupMetadata.desc?.toString() || 'Desconocido').replace('@grupo', await this.getName(id)) : byeMessage.replace('@subject', `@${await this.getName(id)}`).replace('@desc', groupMetadata.desc?.toString() || 'Desconhecido').replace('@group', await this.getName(id));
                 
