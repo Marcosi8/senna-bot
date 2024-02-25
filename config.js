@@ -8,7 +8,7 @@ global.owner = [
   ['558881647724']
 ] //Numeros dos donos
 
-global.mods = [''] 
+global.mods = ['558881647724'] 
 global.prems = ['558881647724', '558881647724']
 global.APIs = { // API Prefix
   // name: 'https://website' 
@@ -54,7 +54,7 @@ global.marcosgpt = [gpt1, gpt2, gpt3, gpt4, gpt5, gpt6, gpt7]
 
 // Sticker PackName
 global.packname = '🤖 𝚂𝙾𝚈𝚄𝚉-𝙱𝙾𝚃-𝙼𝙳' 
-global.author = '@user' 
+global.author = 'user' 
 
 //--info
 global.botName = 'Vladivostok'
