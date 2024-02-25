@@ -3,24 +3,21 @@ import fetch from 'node-fetch';
 // Mensagem de introdução
 const introductionPrompt = "Olá! Eu sou o Soyuz, um bot de WhatsApp criado para ajudar você. Se precisar de alguma coisa, é só me chamar!";
 
-// Variável para controlar se a introdução já foi enviada
-let introductionSent = false;
-
-let handler = async (m, { text, conn, usedPrefix, command }) => {
-  // Verificar se a introdução já foi enviada
-  if (!introductionSent) {
+// Função para lidar com todas as mensagens recebidas
+const handleMessage = async (m, conn) => {
+  // Verificar se é uma nova conversa e enviar a introdução
+  if (m.isNewUser) {
     await conn.sendMessage(m.chat, introductionPrompt, MessageType.text);
-    introductionSent = true; // Atualizar o estado para indicar que a introdução foi enviada
+    return;
   }
 
-  if (!text && !(m.quoted && m.quoted.text)) {
-    throw `*Exemplo:* ${usedPrefix + command} *como funciona o linux?*`;
-  }
+  // Verificar se há texto na mensagem ou se há texto em uma mensagem citada
+  let text = m.text || (m.quoted && m.quoted.text);
 
-  if (!text && m.quoted && m.quoted.text) {
-    text = m.quoted.text;
-  }
+  // Se não houver texto, não fazer nada
+  if (!text) return;
 
+  // Realizar o processamento da mensagem conforme o exemplo que você forneceu
   const rwait = '⏳'; // Defina rwait conforme necessário
   const done = '✅'; // Defina done conforme necessário
 
@@ -67,8 +64,17 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
   }
 };
 
-handler.help = ['chatgpt'];
-handler.tags = ['ia'];
-handler.command = ['ai', 'gpt', 'chatgpt'];
-
-export default handler
+// Evento de ouvinte para lidar com todas as mensagens recebidas
+conn.on('chat-update', async (chatUpdate) => {
+  // Verificar se a atualização é uma mensagem e se é uma mensagem recebida
+  if (chatUpdate.messages && chatUpdate.messages.length && chatUpdate.count) {
+    // Iterar sobre todas as mensagens recebidas
+    for (let message of chatUpdate.messages) {
+      // Verificar se a mensagem é recebida
+      if (message.key && message.key.remoteJid == conn.user.jid && message.messageStubType === 32) {
+        // Lidar com a mensagem
+        await handleMessage(message, conn);
+      }
+    }
+  }
+});
