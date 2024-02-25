@@ -90,7 +90,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
   }
 };
 
-handler.help = ['chatgpt'];
+handler.help = ['chatgpt <text>'];
 handler.tags = ['ia'];
 handler.command = ['ai', 'gpt', 'chatgpt'];
 
