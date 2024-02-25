@@ -3,12 +3,12 @@
 let handler = async (m, { conn, text, isROwner, isOwner }) => {
   if (text) {
     global.db.data.chats[m.chat].sWelcome = text
-    m.reply(`✅ ${mssg.welMsgOn}`)
-  } else throw `✳️ ${mssg.welMsg}`
+    m.reply(`✏️ ${mssg.welMsgOn}`)
+  } else throw `🏷 ${mssg.welMsg}`
 }
-handler.help = ['setwelcome']
+handler.help = ['setwelcome', 'bemvindo']
 handler.tags = ['group']
-handler.command = ['setwelcome', 'setbv'] 
+handler.command = ['setwelcome', 'bemvindo', 'setbv'] 
 handler.admin = true
 handler.owner = false
 
