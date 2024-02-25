@@ -15,6 +15,7 @@ const handler = async (m, {
     args,
     usedPrefix
 }) => {
+    m.react('📀')
     if (!text) throw `🤔 *Diga o nome da música.*\n🎵 Exemplo: ${usedPrefix + command} Mr blue sky`;
     conn.GURUPLAY = conn.GURUPLAY ? conn.GURUPLAY : {};
     await conn.reply(m.chat, wait, m);
@@ -22,7 +23,7 @@ const handler = async (m, {
     if (!result.allLinks || !result.allLinks.length) {
         return await conn.reply(m.chat, "Desculpe, nenhum resultado de vídeo encontrado para esta pesquisa.", m);
     }
-    m.react('📀')
+    
     const selectedUrl = result.allLinks[0].url; // Seleciona o URL do primeiro resultado
     const thumbnail = result.thumbnail; // Salva a thumbnail do primeiro resultado
     const title = result.title; // Salva o título do primeiro resultado
