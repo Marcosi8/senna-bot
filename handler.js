@@ -572,7 +572,7 @@ export async function deleteUpdate(message) {
         if (chat.delete)
             return
         await this.reply(msg.chat, `
-🗑️ *Mensagem Deletada*  
+> 🗑️ *ANTIDELETE DETECTED*  
 ╭──────────────────╮  
 │ *Nome:* @${participant.split`@`[0]} │  
 ╰──────────────────╯  
