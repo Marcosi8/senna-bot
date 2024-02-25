@@ -1,15 +1,17 @@
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     let isClose = { // Switch Case Like :v
-        'abrir': 'not_announcement',
-        'fechar': 'announcement',
+        'aberto': 'not_announcement',
+        'fechado': 'announcement',
+        'open': 'not_announcement',
+        'close': 'announcement',
     }[(args[0] || '')]
     if (isClose === undefined)
 
     return m.reply(`
 🛡️ ${mssg.gpSetting}
 
-*${usedPrefix + command} fechar*
-*${usedPrefix + command} abrir*
+*${usedPrefix + command} fechado*
+*${usedPrefix + command} aberto*
 *${usedPrefix + command} close*
 *${usedPrefix + command} open*
 `)
@@ -17,7 +19,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 }
 handler.help = ['abrir/fechar']
 handler.tags = ['group']
-handler.command = ['group', 'abrir', 'grupo', 'fechar', 'open', 'close'] 
+handler.command = ['group', 'grupo'] 
 handler.admin = true
 handler.botAdmin = true
 handler.group = true
