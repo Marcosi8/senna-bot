@@ -32,7 +32,7 @@ let m2 = `
 *${usedPrefix}off* antilink2
 `
     let pp = './src/WhatsApp Video 2024-02-08 at 16.59.44.mp4' 
-    /*conn.sendButton(m.chat, m2, mssg.ig, pp, [
+    conn.sendButton(m.chat, m2, mssg.ig, pp, [
       ['⏍ Info', `${usedPrefix}botinfo`],
       ['⌬ Grupos', `${usedPrefix}gpdylux`]
     ],m, rpyt)*/
