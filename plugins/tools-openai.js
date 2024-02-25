@@ -24,7 +24,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     conn.sendPresenceUpdate('composing', m.chat);
     const prompt = encodeURIComponent(text);
 
-    const guru1 = `https://vihangayt.me/tools/chatgpt?q=${prompt}`;
+    const guru1 = `https://vihangayt.me/tools/chatgptq=${prompt}`;
     
     try {
       let response = await fetch(guru1);
@@ -51,7 +51,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
       console.error('Error from the first API:', error);
 
       // URL da segunda API (guru2) usando a mesma base da primeira API
-      const guru2 = `https://vihangayt.me/tools/chatgpt2?q=${prompt}`;
+      const guru2 = `https://vihangayt.me/tools/chatgpt2q=${prompt}`;
 
       try {
         let response2 = await fetch(guru2);
