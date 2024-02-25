@@ -217,7 +217,6 @@ const translations = {
   leaMsgOn: 'A mensagem de despedida foi estabelecida',
   welMsg: 'Digite a mensagem de boas-vindas\n\n@user (menção)\n@grupo (nome do grupo)\n@desc (descrição do grupo)',
   leaMsg: 'Digite a mensagem de despedida\n\n@user (menção)\n@grupo (nome do grupo)',
- 
   gpSetting: 'Configurações do grupo\n\nAbrir e fechar o grupo',
   user: 'Usuário',
   userWarn: 'Usuário advertido',
