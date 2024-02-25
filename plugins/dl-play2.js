@@ -36,7 +36,7 @@ try {
      
 	  if(!isLimit) conn.sendFile(m.chat, dl_url, title + '.mp' + (3 + /vid$/.test(command)), `
 > 💿 *MP3*
-_Responda com /audio para ouvir a música diretamente no WhatsApp!_
+_Use /song para ouvir a música diretamente no WhatsApp!_
  
 ▢ *🎞️Qualidade* : ${quality}
 ▢ *⚖️Tamanho* : ${size}
