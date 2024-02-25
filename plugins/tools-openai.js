@@ -1,6 +1,15 @@
 import fetch from 'node-fetch';
 
+// Mensagem de introdução
+const introductionPrompt = "Olá! Eu sou o Soyuz, um bot de WhatsApp criado para ajudar você. Se precisar de alguma coisa, é só me chamar!";
+
 let handler = async (m, { text, conn, usedPrefix, command }) => {
+  // Enviar introdução quando o bot for iniciado
+  if (m.isNewUser) {
+    await conn.sendMessage(m.chat, introductionPrompt, MessageType.text);
+    return;
+  }
+
   if (!text && !(m.quoted && m.quoted.text)) {
     throw `*Exemplo:* ${usedPrefix + command} *como funciona o linux?*`;
   }
@@ -23,7 +32,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     conn.sendPresenceUpdate('composing', m.chat);
     const prompt = encodeURIComponent(text);
 
-    const guru1 = `https://vihangayt.me/tools/chatgpt?q=${prompt}`;
+    const guru1 = `https://vihangayt.me/tools/chatgpt2?q=${prompt}`;
     
     try {
       let response = await fetch(guru1);
