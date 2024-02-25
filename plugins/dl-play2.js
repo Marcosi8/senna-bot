@@ -33,13 +33,13 @@ _Enviando..._`;
 
         await conn.loadingMsg(m.chat, '📥 Baixando', ` ${isLimit ? `≡  *YTDL*\n\n▢ *⚖️${mssg.size}*: ${size}\n▢ *🎞️${mssg.quality}*: ${quality}\n\n▢ _${mssg.limitdl}_ *+${limit} MB*` : '🎉 Download Completo!' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m);
      
-        if (!isLimit) conn.sendFile(m.chat, dl_url, title + '.mp3', `
+        if (!isLimit) conn.sendFile(m.chat, dl_url, `${title}.mp3`, `
 > 💿 *MP3*
 _Use /song para ouvir a música diretamente no WhatsApp!_
  
 ▢ *🎞️Qualidade* : ${quality}
 ▢ *⚖️Tamanho* : ${size}
-`.trim(), m, false, { mimetype: 'audio/mpeg', asDocument: true });
+`.trim(), m, false, { mimetype: 'audio/mpeg', asDocument: false });
         
         m.react(done);
     } catch (error) {
