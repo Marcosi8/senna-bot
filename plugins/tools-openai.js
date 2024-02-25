@@ -2,19 +2,18 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { text, conn, usedPrefix, command }) => {
   if (!text && !(m.quoted && m.quoted.text)) {
-    throw `*Exemplo:* ${usedPrefix + command} *como funciona o linux?*`;
+    throw `*Exemplo:* ${usedPrefix + command} *Fale sobre a música Mr blue sky!*`;
   }
 
   if (!text && m.quoted && m.quoted.text) {
     text = m.quoted.text;
   }
 
-  const rwait = '🤖'; // Defina rwait conforme necessário
+  const rwait = '⏱️'; // Defina rwait conforme necessário
   const done = '💬'; // Defina done conforme necessário
 
   let pp = marcosgpt.getRandom();
-  let success = false; // Variável para rastrear se alguma API teve sucesso
-
+  
   try {
     m.react(rwait);
     const { key } = await conn.sendMessage(m.chat, {
@@ -43,7 +42,6 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
           }
         }, {});
         m.react(done);
-        success = true; // Marcamos como sucesso se guru1 funcionar
       } else {
         throw new Error('No valid data in the API response');
       }
@@ -51,7 +49,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
       console.error('Error from the first API:', error);
 
       // URL da segunda API (guru2) usando a mesma base da primeira API
-      const guru2 = `https://vihangayt.me/tools/chatgpt?q=${prompt}`;
+      const guru2 = `https://vihangayt.me/tools/chatgpt2?q=${prompt}`;
 
       try {
         let response2 = await fetch(guru2);
@@ -70,28 +68,22 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
             }
           }, {});
           m.react(done);
-          success = true; // Marcamos como sucesso se guru2 funcionar
         } else {
           throw new Error('No valid data in the second API response');
         }
       } catch (error2) {
         console.error('Error from the second API:', error2);
-        // Se ambas as APIs falharem, não definimos success como true
+        throw `*ERROR*: ${error2.message}`; // Retorna a mensagem de erro específica
       }
-    }
-
-    // Se nenhuma das chamadas da API tiver sucesso, envie a mensagem de erro
-    if (!success) {
-      throw `Nenhuma resposta válida recebida da API. Tente usar o comando ${usedPrefix}chatgpt2.`;
     }
   } catch (error) {
     console.error('Error:', error);
-    throw `*ERROR*: ${error.message} *try the chatgpt2 command*`; // Retorna a mensagem de erro específica
+    throw `*ERROR*: ${error.message} *try the chatgpt2 command`; // Retorna a mensagem de erro específica
   }
 };
 
-handler.help = ['chatgpt <text>'];
-handler.tags = ['ia', 'prime'];
-handler.command = ['ai', 'gpt', 'chatgpt'];
+handler.help = ['chatgpt <text>']
+handler.tags = ['ia', 'prime']
+handler.command = ['ai', 'gpt', 'chatgpt']
 
-export default handler
+export default handler;
