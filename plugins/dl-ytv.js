@@ -6,7 +6,7 @@ import axios from 'axios';
 import {bestFormat, getUrlDl} from '../lib/y2dl.js';
 let enviando;
 const handler = async (m, {conn, args, usedPrefix, command}) => {
-  if (!args[0]) throw '*🪩Por favor, mande-me o link / YouTube link.*';
+  if (!args[0]) throw '*🪩 Por favor, mande-me o link / YouTube link.*';
   if (enviando) return  
       enviando = true    
   let youtubeLink = '';
@@ -91,7 +91,8 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
     }
   }
 }};
-handler.command = /^(dlvideo|dlmp4|ytvideo|yt(v|mp4)?)$/i;
+handler.help = ['playvid']
+handler.command = /^(dlvideo|dlmp4|playvid|yt(v|vid)?)$/i;
 handler. tags = ['prime'];
 export default handler;
 
