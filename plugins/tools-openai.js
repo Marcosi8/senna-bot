@@ -1,23 +1,14 @@
 import fetch from 'node-fetch';
 
-// Mensagem de introdução
-const introductionPrompt = "Olá! Eu sou o Soyuz, um bot de WhatsApp criado para ajudar você. Se precisar de alguma coisa, é só me chamar!";
-
-// Função para lidar com todas as mensagens recebidas
-const handleMessage = async (m, conn) => {
-  // Verificar se é uma nova conversa e enviar a introdução
-  if (m.isNewUser) {
-    await conn.sendMessage(m.chat, introductionPrompt, MessageType.text);
-    return;
+let handler = async (m, { text, conn, usedPrefix, command }) => {
+  if (!text && !(m.quoted && m.quoted.text)) {
+    throw `*Exemplo:* ${usedPrefix + command} *como funciona o linux?*`;
   }
 
-  // Verificar se há texto na mensagem ou se há texto em uma mensagem citada
-  let text = m.text || (m.quoted && m.quoted.text);
+  if (!text && m.quoted && m.quoted.text) {
+    text = m.quoted.text;
+  }
 
-  // Se não houver texto, não fazer nada
-  if (!text) return;
-
-  // Realizar o processamento da mensagem conforme o exemplo que você forneceu
   const rwait = '⏳'; // Defina rwait conforme necessário
   const done = '✅'; // Defina done conforme necessário
 
@@ -56,7 +47,33 @@ const handleMessage = async (m, conn) => {
       }
     } catch (error) {
       console.error('Error from the first API:', error);
-      throw `*ERROR*: ${error.message}`; // Retorna a mensagem de erro específica
+
+      const guru2 = `https://vihangayt.me/tools/chatgpt?2q=${encodeURIComponent(text)}`;
+
+      try {
+        let response2 = await fetch(guru2);
+        let data2 = await response2.json();
+
+        if (data2.status === true && data2.data) {
+          let result2 = data2.data;
+
+          await conn.relayMessage(m.chat, {
+            protocolMessage: {
+              key,
+              type: 14,
+              editedMessage: {
+                imageMessage: { caption: result2 }
+              }
+            }
+          }, {});
+          m.react(done);
+        } else {
+          throw new Error('No valid data in the second API response');
+        }
+      } catch (error2) {
+        console.error('Error from the second API:', error2);
+        throw `*ERROR*: ${error2.message}`; // Retorna a mensagem de erro específica
+      }
     }
   } catch (error) {
     console.error('Error:', error);
@@ -64,17 +81,8 @@ const handleMessage = async (m, conn) => {
   }
 };
 
-// Evento de ouvinte para lidar com todas as mensagens recebidas
-conn.on('chat-update', async (chatUpdate) => {
-  // Verificar se a atualização é uma mensagem e se é uma mensagem recebida
-  if (chatUpdate.messages && chatUpdate.messages.length && chatUpdate.count) {
-    // Iterar sobre todas as mensagens recebidas
-    for (let message of chatUpdate.messages) {
-      // Verificar se a mensagem é recebida
-      if (message.key && message.key.remoteJid == conn.user.jid && message.messageStubType === 32) {
-        // Lidar com a mensagem
-        await handleMessage(message, conn);
-      }
-    }
-  }
-});
+handler.help = ['chatgpt'];
+handler.tags = ['ia'];
+handler.command = ['ai', 'gpt', 'chatgpt'];
+
+export default handler;
