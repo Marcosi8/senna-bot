@@ -24,7 +24,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     conn.sendPresenceUpdate('composing', m.chat);
     const prompt = encodeURIComponent(text);
 
-    const guru1 = `https://vihangayt.me/tools/chatgpt3?q=${prompt}`;
+    const guru1 = `https://vihangayt.me/tools/chatgpt?q=${prompt}`;
     
     try {
       let response = await fetch(guru1);
