@@ -7,11 +7,11 @@ let handler = async (m, { conn, usedPrefix, command, args: [event], text }) => {
   ┌─⊷ *EVENTOS*
   ▢ welcome
   ▢ bye
-  ▢ promote
-  ▢ demote
+  ▢ promover
+  ▢ rebaixar
   └───────────
   
-  📌 Ejemplo :
+  📌 Exemplo:
   
   *${usedPrefix + command}* welcome @user`
 
@@ -24,7 +24,7 @@ let act = false
 m.reply(`✅ Simulando ${event}...`)
 switch (event.toLowerCase()) {
         case 'add':
-        case 'bienvenida':
+        case 'bemvindo':
         case 'invite':
         case 'welcome':
            act = 'add'
@@ -42,7 +42,7 @@ switch (event.toLowerCase()) {
         break
 
         case 'demote':
-        case 'degradar':
+        case 'rebaixar':
          act = 'demote'
         break
 
