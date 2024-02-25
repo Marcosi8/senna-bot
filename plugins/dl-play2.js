@@ -1,77 +1,79 @@
-import yts from 'yt-search'
-import fg from 'api-dylux'
-import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
+import ytdl from 'youtubedl-core';
+import yts from 'yt-search';
+import fs from 'fs';
+import { promisify } from 'util';
+import os from 'os';
 
-let limit = 320
+const handler = async (m, {
+    conn,
+    text,
+    usedPrefix,
+    command
+}) => {
+    if (!text) throw `🤔 Você quer ouvir que música? Exemplo: ${usedPrefix + command} don't stop me now, queen`;
 
-let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
-    if (!text) throw `🤔 Você quer ouvir que música? ${mssg.example}: *${usedPrefix + command}* don't stop me now, queen`
-  
-    let chat = global.db.data.chats[m.chat]
-    let res = await yts(text)
-    let vid = res.videos[0]
+    await conn.reply(m.chat, '🎵 Aguarde enquanto procuro e preparo sua música...', m);
 
-    if (!vid) throw `🚫 Vídeo/Audio não encontrado`
-    
-    let isVideo = /vid$/.test(command)
-    m.react('💿') 
+    let res = await yts(text);
+    let vid = res.videos[0];
 
-    let play = `
+    if (!vid) throw `🚫 Vídeo/Audio não encontrado`;
+
+    await conn.sendFile(m.chat, vid.thumbnail, 'play', `
 > *YT MUSIC*
 ┌──────────────
-▢ 🎧 *${mssg.title}:* ${vid.title}
-▢ 📆 *${mssg.aploud}:* ${vid.ago}
-▢ ⏱️ *${mssg.duration}:* ${vid.timestamp}
-▢ ♻️ *${mssg.views}:* ${vid.views.toLocaleString()}
+▢ 🎧 *Título:* ${vid.title}
+▢ 📆 *Upload:* ${vid.ago}
+▢ ⏱️ *Duração:* ${vid.timestamp}
+▢ ♻️ *Visualizações:* ${vid.views.toLocaleString()}
 └──────────────
 
-_Enviando..._` 
-    
-    conn.sendFile(m.chat, vid.thumbnail, 'play', play, m, null, rcanal)
+_Enviando..._
+`, m);
 
-    let q = isVideo ? '360p' : '128kbps' 
-    
     try {
-        let yt = await (isVideo ? fg.ytv : fg.yta)(vid.url, q)
-        let { title, dl_url, quality, size, sizeB } = yt
-        let isLimit = limit * 1024 < sizeB 
-        
-        await conn.loadingMsg(m.chat, '📥 Baixando', ` ${isLimit ? `≡  *YTDL*\n\n▢ *⚖️${mssg.size}*: ${size}\n▢ *🎞️${mssg.quality}*: ${quality}\n\n▢ _${mssg.limitdl}_ *+${limit} MB*` : '🎉 Download Completo!' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
-     
-        if(!isLimit) conn.sendFile(m.chat, dl_url, title + '.mp' + (3 + /vid$/.test(command)), `
-> 💿 *MP3*
-_Use /song para ouvir a música diretamente no WhatsApp!_
- 
-▢ *🎞️Qualidade* : ${quality}
-▢ *⚖️Tamanho* : ${size}
-`.trim(), m, false, { mimetype: isVideo ? '' : 'audio/mpeg', asDocument: chat.useDocument })
+        let fileName = generateRandomName();
+        const audioStream = ytdl(vid.url, {
+            filter: 'audioonly',
+            quality: 'highestaudio',
+        });
 
-        m.react(done) 
-    } catch {
-        try {
-            let yt = await (isVideo ? fg.ytmp4 : fg.ytmp3)(vid.url, q)
-            let { title, dl_url, quality, size, sizeB } = yt
-            let isLimit = limit * 1024 < sizeB 
+        const tmpDir = os.tmpdir();
+        const writableStream = fs.createWriteStream(`${tmpDir}/${fileName}.mp3`);
+        await promisify(streamPipeline)(audioStream, writableStream);
 
-            await conn.loadingMsg(m.chat, '📥 baixando', ` ${isLimit ? `≡  *YTDL*\n\n▢ *⚖️${mssg.size}*: ${size}\n▢ *🎞️${mssg.quality}*: ${quality}\n\n▢ _${mssg.limitdl}_ *+${limit} MB*` : '🎉 Download Completo!' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
-	        
-            if(!isLimit) conn.sendFile(m.chat, dl_url, title + '.mp' + (3 + /2$/.test(command)), `
- ≡  *FG YTDL 2*
-  
-*📌${mssg.title}* : ${title}
-*🎞️${mssg.quality}* : ${quality}
-*⚖️${mssg.size}* : ${size}
-`.trim(), m, false, { mimetype: isVideo ? '' : 'audio/mpeg', asDocument: chat.useDocument })
+        const audioDoc = {
+            audio: {
+                url: `${tmpDir}/${fileName}.mp3`
+            },
+            mimetype: 'audio/mpeg',
+            ptt: false,
+            waveform: [100, 0, 0, 0, 0, 0, 100],
+            fileName: `${fileName}`,
+        };
 
-            m.react(done) 
-        } catch (error) {
-            m.reply(`🚫 ${mssg.error}`)
-        }
+        await conn.sendMessage(m.chat, audioDoc, {
+            quoted: m
+        });
+    } catch (error) {
+        console.error(error);
+        await conn.reply(m.chat, "Ocorreu um erro ao processar a música.", m);
     }
+};
+
+handler.help = ["play"];
+handler.tags = ["prime", "dl"];
+handler.command = ["play", "song2", "mp3", "playmp3"];
+export default handler;
+
+// Funções auxiliares abaixo...
+
+function generateRandomName() {
+    const adjectives = ["happy", "sad", "funny", "brave", "clever", "kind", "silly", "wise", "gentle", "bold"];
+    const nouns = ["cat", "dog", "bird", "tree", "river", "mountain", "sun", "moon", "star", "cloud"];
+    
+    const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+    const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+    
+    return randomAdjective + "-" + randomNoun;
 }
-
-handler.help = ['play']
-handler.tags = ['prime', 'dl']
-handler.command = ['play', 'song2', 'mp3', 'playmp3']
-
-export default handler
