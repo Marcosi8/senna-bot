@@ -13,7 +13,7 @@ let teks = tes.map(v => `
 `.trim()).join('\n________________________\n\n')
 	conn.sendFile(m.chat, tes[0].image, 'yts.jpeg', teks, m)
 }
-handler.help = ['yts] 
+handler.help = ['yts'] 
 handler.tags = ['dl', 'prime']
 handler.command = ['ytsearch', 'yts', 'pesquisayt'] 
 
