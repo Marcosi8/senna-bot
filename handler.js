@@ -516,8 +516,9 @@ export async function participantsUpdate({ id, participants, action }) {
                 const byeMessage = chat.sBye || this.bye || conn.bye || `Adiós, @user`;
 
                 const messageContent = action === 'add' ? welcomeMessage.replace('@user', `@${user.split('@')[0]}`).replace('@desc', groupMetadata.desc?.toString() || 'Desconocido').replace('@grupo', await this.getName(id)) : byeMessage.replace('@subject', `@${await this.getName(id)}`).replace('@desc', groupMetadata.desc?.toString() || 'Desconhecido').replace('@group', await this.getName(id));
-                const messageContentbye = action === 'remove' ? welcomeMessage.replace('@user', `@${user.split('@')[0]}`);
-                
+                const messageContentbye = action === 'remove' ? byeMessage.replace('@user', `@${user.split('@')[0]}`).replace('@desc', groupMetadata.desc?.toString() || 'Desconocido').replace('@grupo', await this.getName(id)) : '';
+
+await this.sendFile(id, pp, 'prefil.jpg', messageContentbye, null, false, { mentions: [user] });
                 await this.sendFile(id, pp, 'prefil.jpg', messageContent, null, false, { mentions: [user] });
             }
         }
