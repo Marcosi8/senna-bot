@@ -6,6 +6,7 @@ import axios from 'axios';
 import {bestFormat, getUrlDl} from '../lib/y2dl.js';
 let enviando;
 const handler = async (m, {conn, args, usedPrefix, command}) => {
+  m.react('📥')
   if (!args[0]) throw '*🪩 Por favor, mande-me o link! Você pode obter um link usando o comando /song 🎸*';
   if (enviando) return  
       enviando = true    
@@ -64,7 +65,7 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
     const ttl = yt.title;
     const size = yt.video[q].fileSizeH;
     await conn.sendMessage(m.chat, {video: {url: dl_url}, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `*🪩Title:* ${ttl}\n*🪩Size:* ${size}`, thumbnail: await fetch(yt.thumbnail)}, {quoted: m});
-    await conn.sendMessage(m.chat, {text: '*[ ✅ ] Vídeo baixado com sucesso!.*', edit: key}, {quoted: m});
+    await conn.sendMessage(m.chat, {text: '*[ ✅ ] Vídeo baixado com sucesso!*', edit: key}, {quoted: m});
     enviando = false
   } catch (ee2) {
     console.log(ee2)
