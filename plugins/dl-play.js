@@ -15,7 +15,7 @@ const handler = async (m, {
     args,
     usedPrefix
 }) => {
-    if (!text) throw `🤔 Diga o nome da música.\n🎵 Exemplo: ${usedPrefix + command} Mr blue sky`;
+    if (!text) throw `🤔 *Diga o nome da música.*\n🎵 Exemplo: ${usedPrefix + command} Mr blue sky`;
     conn.GURUPLAY = conn.GURUPLAY ? conn.GURUPLAY : {};
     await conn.reply(m.chat, wait, m);
     const result = await searchAndDownloadMusic(text);
@@ -35,7 +35,6 @@ const handler = async (m, {
 ┌──────────────
 📀 ${title}
 📆 *Upload:* ${uploadedAt}
-⏱️ *Duração:* ${duration}
 ♻️ *Visualizações:* ${views}
 ┢━━━━━━━━━━━━
 🔗 ${selectedUrl}
