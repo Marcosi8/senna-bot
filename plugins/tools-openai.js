@@ -9,8 +9,8 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     text = m.quoted.text;
   }
 
-  const rwait = '⏳'; // Defina rwait conforme necessário
-  const done = '✅'; // Defina done conforme necessário
+  const rwait = '🤖'; // Defina rwait conforme necessário
+  const done = '💬'; // Defina done conforme necessário
 
   let pp = marcosgpt.getRandom();
   
@@ -48,7 +48,8 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     } catch (error) {
       console.error('Error from the first API:', error);
 
-      const guru2 = `https://vihangayt.me/tools/chatgpt?2q=${encodeURIComponent(text)}`;
+      // URL da segunda API (guru2) usando a mesma base da primeira API
+      const guru2 = `https://vihangayt.me/tools/chatgpt2?q=${prompt}`;
 
       try {
         let response2 = await fetch(guru2);
@@ -79,10 +80,13 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     console.error('Error:', error);
     throw `*ERROR*: ${error.message}`; // Retorna a mensagem de erro específica
   }
+
+  // Mensagem caso nenhuma API funcione
+  throw `Nenhuma resposta válida recebida da API. Tente usar o comando ${usedPrefix}chatgpt2.`;
 };
 
 handler.help = ['chatgpt'];
 handler.tags = ['ia'];
 handler.command = ['ai', 'gpt', 'chatgpt'];
 
-export default handler;
+export default handler
