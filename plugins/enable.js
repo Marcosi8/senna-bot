@@ -176,25 +176,25 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 
 > *ADMIN*
 
-captcha
-welcome
-antilink (com kick user)
-antilink2 (sem kick user)
-detect 
-document
-nsfw
-autosticker
+${usedPrefix}captcha
+${usedPrefix}welcome/bemvindo
+${usedPrefix}antilink (com kick user)
+${usedPrefix}antilink2 (sem kick user)
+${usedPrefix}detect 
+${usedPrefix}document
+${usedPrefix}nsfw
+${usedPrefix}autosticker
 └───────────── 
 > *USERS*
 
-autolevelup
-chatbot 
+${usedPrefix}autolevelup
+${usedPrefix}chatbot 
 └─────────────
 > *OWNER*
 
-public
-sopv
-sogp
+${usedPrefix}public
+${usedPrefix}sopv
+${usedPrefix}sogp
 └─────────────
 *📌 Exemplo:*
 *${usedPrefix}on* antilink2
