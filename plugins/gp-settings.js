@@ -8,8 +8,10 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     return m.reply(`
 🛡️ ${mssg.gpSetting}
 
-*${usedPrefix + command} fechar/close*
-*${usedPrefix + command} abrir/open*
+*${usedPrefix + command} fechar*
+*${usedPrefix + command} abrir*
+*${usedPrefix + command} close*
+*${usedPrefix + command} open*
 `)
     await conn.groupSettingUpdate(m.chat, isClose)
 }
