@@ -29,7 +29,7 @@ const handler = async (m, {
     const author = result.author; // Salva o autor do primeiro resultado
     const uploadedAt = result.uploadedAt; // Salva a data de upload do primeiro resultado
     const views = result.views; // Salva o número de visualizações do primeiro resultado
-
+    m.react('📀')
     const doc = {
     text: `> *YT MUSIC*
 ┌──────────────
