@@ -67,6 +67,6 @@ _Responda com /audio para ouvir a música diretamente no WhatsApp!_
 }
 handler.help = ['play']
 handler.tags = ['prime', 'dl']
-handler.command = ['play', 'song2', 'song', 'playmp3']
+handler.command = ['play', 'song2', 'mp3', 'playmp3']
 
 export default handler
