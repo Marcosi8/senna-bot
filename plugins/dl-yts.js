@@ -15,6 +15,6 @@ let teks = tes.map(v => `
 }
 handler.help = ['yts'] 
 handler.tags = ['dl', 'prime']
-handler.command = ['ytsearch', 'yts', 'pesquisayt'] 
+handler.command = ['ytsearch', 'yts', 'youtube', 'pesquisayt'] 
 
 export default handler
