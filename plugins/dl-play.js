@@ -33,13 +33,12 @@ const handler = async (m, {
     const doc = {
     text: `> *YT MUSIC*
 ┌──────────────
-📀 ${title}
-
-👤 *Autor:* ${author}
-📆 *Upload:* ${uploadedAt}
-♻️ *Visualizações:* ${views}
+ 📀 *Título:* ${title}
+ 👤 *Autor:* ${author}
+ 📆 *Upload:* ${uploadedAt}
+ ♻️ *Visualizações:* ${views}
 ┢━━━━━━━━━━━━
-🔗 ${selectedUrl}
+ 🔗 ${selectedUrl}
 └──────────────
 _Powered by marcoskz_`,
     thumbnail,
