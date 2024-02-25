@@ -5,8 +5,8 @@ import ytdl from 'youtubedl-core';
 import axios from 'axios';
 import {bestFormat, getUrlDl} from '../lib/y2dl.js';
 let enviando;
-m.react('📥')
 const handler = async (m, {conn, args, usedPrefix, command}) => {
+  m.react('📥')
   if (!args[0]) throw '*🪩 Por favor, mande-me o link! Você pode obter um link usando o comando /yts 🎸*';
   if (enviando) return  
       enviando = true    
