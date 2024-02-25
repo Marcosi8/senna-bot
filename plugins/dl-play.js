@@ -15,7 +15,7 @@ const handler = async (m, {
     args,
     usedPrefix
 }) => {
-    if (!text) throw `🤔 Diga o nome da música.\n🎵 Exemplo: ${usedPrefix + command} To Serve Russia`;
+    if (!text) throw `🤔 Diga o nome da música.\n🎵 Exemplo: ${usedPrefix + command} Mr blue sky`;
     conn.GURUPLAY = conn.GURUPLAY ? conn.GURUPLAY : {};
     await conn.reply(m.chat, wait, m);
     const result = await searchAndDownloadMusic(text);
@@ -31,10 +31,18 @@ const handler = async (m, {
     const views = result.views; // Salva o número de visualizações do primeiro resultado
 
     const doc = {
-        text: `💿 *${title}*
-        \n👤 *Autor:* ${author}\n📅 *Upload em:* ${uploadedAt}\n👀 *Visualizações:* ${views}\n🔗 ${selectedUrl}\n\n*_Powered by marcoskz_*`, // Mensagem com as informações e créditos
-        thumbnail, // Thumbnail do vídeo
-    };
+    text: `> *YT MUSIC*
+┌──────────────
+📀 ${title}
+📆 *Upload:* ${uploadedAt}
+⏱️ *Duração:* ${duration}
+♻️ *Visualizações:* ${views}
+┢━━━━━━━━━━━━
+🔗 ${selectedUrl}
+└──────────────
+_Powered by marcoskz_`,
+    thumbnail,
+};
 
     await conn.sendMessage(m.chat, doc, {
         quoted: m
@@ -65,9 +73,9 @@ const handler = async (m, {
     });
 };
 
-handler.help = ["song"];
+handler.help = ["play"];
 handler.tags = ["prime"];
-handler.command = ['musica', 'song2', 'música', 'song', 'som'];
+handler.command = ['musica', 'song2', 'música', 'play', 'som'];
 handler.limit = false;
 export default handler;
 
