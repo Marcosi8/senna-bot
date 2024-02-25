@@ -1,6 +1,3 @@
-você pode modificar este código para enviar arquivo de áudio invés de áudio mp3 usando youtubedl-core?
-
-
 import yts from 'yt-search'
 import fg from 'api-dylux'
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
