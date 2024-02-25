@@ -41,7 +41,7 @@ const handler = async (m, {
 ┢━━━━━━━━━━━━
  🔗 ${selectedUrl}
 └──────────────
-_Powered by marcoskz_`,
+_*Powered by marcoskz*_`,
     thumbnail,
 };
 
