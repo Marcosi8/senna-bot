@@ -67,7 +67,7 @@ const handler = async (m, {
 
 handler.help = ["song"];
 handler.tags = ["prime"];
-handler.command = ['musica', 'música', 'song', 'som'];
+handler.command = ['musica', 'song2', 'música', 'song', 'som'];
 handler.limit = false;
 export default handler;
 
