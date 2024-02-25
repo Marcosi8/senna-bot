@@ -36,7 +36,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
     }
 }
 handler.help = ['xnxx'] 
-handler.tags = ['group', 'prem']
+handler.tags = ['group', 'dl']
 handler.command = ['xnxxsearch', 'xnxxdl', 'xnxx'] 
 handler.premium = false
 handler.register = true
