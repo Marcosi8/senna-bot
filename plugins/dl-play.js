@@ -6,7 +6,9 @@ import fs from 'fs';
 import { pipeline } from 'stream';
 import { promisify } from 'util';
 import os from 'os';
-
+let limit = 320
+let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
+  
 const streamPipeline = promisify(pipeline);
 
 const handler = async (m, {
@@ -16,7 +18,6 @@ const handler = async (m, {
     args,
     usedPrefix
 }) => {
-    let isLimit = limit * 1024 < sizeB;
     if (!text) throw `🤔 *Diga o nome da música.*\n🎵 Exemplo: ${usedPrefix + command} Mr blue sky`;
     conn.GURUPLAY = conn.GURUPLAY ? conn.GURUPLAY : {};
     await conn.reply(m.chat, wait, m);
@@ -49,6 +50,15 @@ _Powered by marcoskz_`,
     await conn.sendMessage(m.chat, doc, {
         quoted: m
     });
+let q = isVideo ? '360p' : '128kbps' 
+try {
+  let yt = await (isVideo ? fg.ytv : fg.yta)(vid.url, q)
+  let { title, dl_url, quality, size, sizeB } = yt
+  let isLimit = limit * 1024 < sizeB 
+
+     await conn.loadingMsg(m.chat, '📥 Baixando', ` ${isLimit ? `≡  *YTDL*\n\n▢ *⚖️${mssg.size}*: ${size}\n▢ *🎞️${mssg.quality}*: ${quality}\n\n▢ _${mssg.limitdl}_ *+${limit} MB*` : '🎉 Download Completo!' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
+     
+	  if(!isLimit) conn.sendFile(m.chat, dl_url, title + '.mp' + (3 + /vid$/.test(command))
 
     let fileName = generateRandomName();
     const audioStream = ytdl(selectedUrl, {
