@@ -570,12 +570,14 @@ export async function deleteUpdate(message) {
         if (chat.delete)
             return
         await this.reply(msg.chat, `
-> VOCÊ NÃO PODE APAGAR MENSAGENS 
-> 𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀 
-  
-> *Nome:* @${participant.split`@`[0]} 
+🗑️ *Mensagem Deletada*  
+╭──────────────────╮  
+│ *Nome:* @${participant.split`@`[0]} │  
+╰──────────────────╯  
 
-Desative está função usando: 
+*[❗️] Desculpe, mas não é permitido deletar mensagens neste grupo.*
+
+Para desativar esta função, digite:  
 */off antidelete*
 `.trim(), msg, {
             mentions: [participant]
