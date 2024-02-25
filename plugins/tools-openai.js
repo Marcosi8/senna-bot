@@ -23,62 +23,40 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     conn.sendPresenceUpdate('composing', m.chat);
     const prompt = encodeURIComponent(text);
 
-    const guru1 = `https://vihangayt.me/tools/chatgpt2?q=${prompt}`;
+    const guru1 = `https://vihangayt.me/tools/chatgpt?q=${prompt}`;
     
     try {
       let response = await fetch(guru1);
       let data = await response.json();
-      let result = data.result;
 
-      if (!result) {
-        throw new Error('No valid JSON response from the first API');
-      }
+      if (data.status === true && data.data) {
+        let result = data.data;
 
-      await conn.relayMessage(m.chat, {
-        protocolMessage: {
-          key,
-          type: 14,
-          editedMessage: {
-            imageMessage: { caption: result }
+        await conn.relayMessage(m.chat, {
+          protocolMessage: {
+            key,
+            type: 14,
+            editedMessage: {
+              imageMessage: { caption: result }
+            }
           }
-        }
-      }, {});
-      m.react(done);
+        }, {});
+        m.react(done);
+      } else {
+        throw new Error('No valid data in the API response');
+      }
     } catch (error) {
       console.error('Error from the first API:', error);
-
-      const model = 'llama';
-      const senderNumber = m.sender.replace(/[^0-9]/g, ''); 
-      const session = `GURU_BOT_${senderNumber}`;
-      const guru2 = `https://vihangayt.me/tools/chatgpt2?q=${prompt}`;
-      
-      let response = await fetch(guru2);
-      let data = await response.json();
-      let result = data.completion;
-
-      if (!result) {
-        throw new Error('No valid completion from the second API');
-      }
-
-      await conn.relayMessage(m.chat, {
-        protocolMessage: {
-          key,
-          type: 14,
-          editedMessage: {
-            imageMessage: { caption: result }
-          }
-        }
-      }, {});
-      m.react(done);
+      throw `*ERROR*: ${error.message}`; // Retorna a mensagem de erro específica
     }
-
   } catch (error) {
     console.error('Error:', error);
-    throw `*ERROR*`;
+    throw `*ERROR*: ${error.message}`; // Retorna a mensagem de erro específica
   }
 };
-handler.help = ['chatgpt']
-handler.tags = ['ia']
+
+handler.help = ['chatgpt'];
+handler.tags = ['ia'];
 handler.command = ['ai', 'gpt', 'chatgpt'];
 
 export default handler
