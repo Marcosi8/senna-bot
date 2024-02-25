@@ -42,14 +42,15 @@ global.img4 = fs.readFileSync("./src/menus/dave1.mp4")
 
 //Chatgpt
 global.gpt1 = fs.readFileSync("./src/GPT/menuia.jpeg")
-global.gpt2 = fs.readFileSync("./src/GPT/")
-global.gpt3 = fs.readFileSync("./src/GPT/")
+global.gpt2 = fs.readFileSync("./src/GPT/chatgptprincipal.jpg")
+global.gpt3 = fs.readFileSync("./src/GPT/chatgptprincipal.jpg")
 global.gpt4 = fs.readFileSync("./src/GPT/gpt1.jpeg")
 global.gpt5 = fs.readFileSync("./src/GPT/gpt3.jpeg")
-global.gpt6 = fs.readFileSync("./src/GPT/")
+global.gpt6 = fs.readFileSync("./src/GPT/chatgpt8.jpeg")
+global.gpt7 = fs.readFileSync("./src/GPT/chatgpt7.jpeg")
 
 global.marcosMenu = [img, img2, img3, img4] //img6, img7, img8, img9, img13, img14, img15, img16, img17]
-global.marcosgpt = [gpt1, gpt2, gpt3, gpt4, gpt5, gpt6]
+global.marcosgpt = [gpt1, gpt2, gpt3, gpt4, gpt5, gpt6, gpt7]
 
 // Sticker PackName
 global.packname = '🤖 𝚂𝙾𝚈𝚄𝚉-𝙱𝙾𝚃-𝙼𝙳' 
