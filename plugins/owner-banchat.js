@@ -8,6 +8,7 @@ handler.help = ['offbot']
 handler.tags = ['owner', 'group']
 handler.command = ['banchat', 'offbot', 'botoff'] 
 handler.group = true
+handler.admin = true
 
 export default handler
  
