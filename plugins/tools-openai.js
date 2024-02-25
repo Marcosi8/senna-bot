@@ -3,11 +3,14 @@ import fetch from 'node-fetch';
 // Mensagem de introdução
 const introductionPrompt = "Olá! Eu sou o Soyuz, um bot de WhatsApp criado para ajudar você. Se precisar de alguma coisa, é só me chamar!";
 
+// Variável para controlar se a introdução já foi enviada
+let introductionSent = false;
+
 let handler = async (m, { text, conn, usedPrefix, command }) => {
-  // Enviar introdução quando o bot for iniciado
-  if (m.isNewUser) {
+  // Verificar se a introdução já foi enviada
+  if (!introductionSent) {
     await conn.sendMessage(m.chat, introductionPrompt, MessageType.text);
-    return;
+    introductionSent = true; // Atualizar o estado para indicar que a introdução foi enviada
   }
 
   if (!text && !(m.quoted && m.quoted.text)) {
@@ -32,7 +35,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     conn.sendPresenceUpdate('composing', m.chat);
     const prompt = encodeURIComponent(text);
 
-    const guru1 = `https://vihangayt.me/tools/chatgpt2?q=${prompt}`;
+    const guru1 = `https://vihangayt.me/tools/chatgpt?q=${prompt}`;
     
     try {
       let response = await fetch(guru1);
