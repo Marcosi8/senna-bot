@@ -24,7 +24,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     conn.sendPresenceUpdate('composing', m.chat);
     const prompt = encodeURIComponent(text);
 
-    const guru1 = `https://vihangayt.me/tools/chatgptq=${prompt}`;
+    const guru1 = `https://vihangayt.me/tools/chatgpt2?q=${prompt}`;
     
     try {
       let response = await fetch(guru1);
@@ -51,7 +51,7 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
       console.error('Error from the first API:', error);
 
       // URL da segunda API (guru2) usando a mesma base da primeira API
-      const guru2 = `https://vihangayt.me/tools/chatgpt2q=${prompt}`;
+      const guru2 = `https://vihangayt.me/tools/chatgpt?q=${prompt}`;
 
       try {
         let response2 = await fetch(guru2);
@@ -82,11 +82,11 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
 
     // Se nenhuma das chamadas da API tiver sucesso, envie a mensagem de erro
     if (!success) {
-      throw `Nenhuma resposta válida recebida. Tente usar o comando ${usedPrefix}chatgpt2 para outra abordagem.`;
+      throw `Nenhuma resposta válida recebida da API. Tente usar o comando ${usedPrefix}chatgpt2.`;
     }
   } catch (error) {
     console.error('Error:', error);
-    throw `*ERROR*: ${error.message}`; // Retorna a mensagem de erro específica
+    throw `*ERROR*: ${error.message} *try the chatgpt2 command*`; // Retorna a mensagem de erro específica
   }
 };
 
