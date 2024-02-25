@@ -34,6 +34,8 @@ const handler = async (m, {
     text: `> *YT MUSIC*
 ┌──────────────
 📀 ${title}
+
+👤 *Autor:* ${author}
 📆 *Upload:* ${uploadedAt}
 ♻️ *Visualizações:* ${views}
 ┢━━━━━━━━━━━━
