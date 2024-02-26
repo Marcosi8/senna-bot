@@ -1,7 +1,7 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     // Criado por: https://github.com/Marcosi8
-    if (!text || !text.includes('|')) {
-        throw `❗️ *Por favor, use o comando corretamente.* \n\n*Formato:* \n*> ${usedPrefix + command} numero|mensagem*\n\n*Exemplo:* \n*> ${usedPrefix + command} 999999999999|Esta é uma mensagem anônima.*`
+    if (!text || !text.includes('+')) {
+        throw `❗️ *Por favor, use o comando corretamente.* \n\n*Formato:* \n*> ${usedPrefix + command} numero+mensagem*\n\n*Exemplo:* \n*> ${usedPrefix + command} 999999999999+Esta é uma mensagem anônima.*`
     }
 
     m.react('📬'); // Adicionando reação
@@ -10,7 +10,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (new Date - global.db.data.users[m.sender].lastrob < 120000) {
         throw `⏱️ *ESPERE* ${msToTime(time - new Date())}\n*NÃO USE ESTE COMANDO COMO SPAMMER, 1 USO POR VEZ.*`;
     }
-    let [nomor, pesan] = text.split('|');
+    let [nomor, pesan] = text.split('+');
     
     m.reply('📤 *Enviando seu correio anônimo...*'); // Mensagem de aviso
 
