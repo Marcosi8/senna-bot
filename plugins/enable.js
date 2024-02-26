@@ -88,11 +88,11 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       chat.antiLink2 = isEnable
       break
 
-      case 'autosticker':
-    case 'autosticker':
+      case 'antifake':
+    case 'antifake':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
-          global.dfail('group', m, conn)
+          global.dfail('admin', m, conn)
           throw false
         }
       }
