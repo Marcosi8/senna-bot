@@ -590,7 +590,7 @@ Para desativar esta função, digite:
     }
 }
 
-if (usedPrefix && command) { reply('mensagem do erro exemplo: comando não existe') }
+if (usedPrefix && command) { m.reply('mensagem do erro exemplo: comando não existe') }
 global.dfail = (type, m, conn) => {
     let msg = {
         rowner: `👑 ${mssg.rownerH}`,
