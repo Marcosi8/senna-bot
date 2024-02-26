@@ -606,6 +606,7 @@ global.dfail = (type, m, conn) => {
     //if (msg) return conn.sendButton(m.chat, msg, mssg.ig, null, [['🔖 OK', 'khajs'], ['⦙☰ MENU', '/menu'] ], m)
     if (msg) return m.reply(msg)
 }
+if (isCmd && command) { reply('mensagem do erro exemplo: comando não existe') }
 
 let file = global.__filename(import.meta.url, true)
 watchFile(file, async () => {
