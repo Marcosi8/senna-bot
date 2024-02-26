@@ -6,8 +6,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     m.react('📬'); // Adicionando reação
     
-    let time = global.db.data.users[m.sender].lastrob + 720000; // 12 minutos em milissegundos, ajuste como quiser.
-    if (new Date - global.db.data.users[m.sender].lastrob < 120000) {
+    let time = global.db.data.users[m.sender].lastrob + 60000; // 12 minutos em milissegundos, ajuste como quiser.
+    if (new Date - global.db.data.users[m.sender].lastrob < 60000) {
         throw `⏱️ *ESPERE* ${msToTime(time - new Date())}\n*NÃO USE ESTE COMANDO COMO SPAMMER, 1 USO POR VEZ.*`;
     }
     let [nomor, pesan] = text.split('+');
