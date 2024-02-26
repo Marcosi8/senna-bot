@@ -117,7 +117,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
      case 'chatbot':
      case 'autosimi':
      case 'autosimsimi':
-      isUser = true
+      isUser = false
       user.chatbot = isEnable
      break
      
