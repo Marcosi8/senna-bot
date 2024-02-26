@@ -87,7 +87,17 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       chat.antiLink2 = isEnable
       break
-      
+
+      case 'autosticker':
+    case 'autostick':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn)
+          throw false
+        }
+      }
+      chat.autosticker = isEnable
+      break
       
       case 'captcha':
       if (m.isGroup) {
@@ -156,17 +166,6 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       //global.opts['sologp'] = isEnable
       bot.sologp = isEnable
-      break
-
-    case 'autosticker':
-    case 'autostick':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
-        }
-      }
-      chat.autosticker = isEnable
       break
 
     default:
