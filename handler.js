@@ -147,8 +147,8 @@ export async function handler(chatUpdate) {
                     chat.expired = 0
                  if (!('rules' in chat))
                      chat.rules = ''
-                 if (!('autosticker' in chat))
-                     chat.autosticker = true // ou false, dependendo do padrão que você quer definir
+                 if (!('antifake' in chat))
+                     chat.antifake = true // ou false, dependendo do padrão que você quer definir
             } else
                 global.db.data.chats[m.chat] = {
                     isBanned: false,
@@ -167,7 +167,7 @@ export async function handler(chatUpdate) {
                     nsfw: false, 
                     expired: 0,
                     rules: '',
-                    autosticker: true,
+                    antifake: true,
                     
                 }
             var settings = global.db.data.settings[this.user.jid]
@@ -528,7 +528,20 @@ export async function participantsUpdate({ id, participants, action }) {
         }
     }
     break
-      
+
+         if (chat.antifake && isBotAdminNn && action === 'add') {
+         const numerosPermitidos = ["1", "2", "4", "5", "7", "8", "9"] //PUEDES EDITAR LOS USUARIOS QUE SE ELIMINARÁN SI EMPIEZA POR CUALQUIER DE ESOS NÚMEROS	
+         if (numerosPermitidos.some(num => user.startsWith(num))) {	
+         this.sendMessage(id, { text:`*isso @${user.split("@")[0]} não permitios*`, mentions: [user] }, { quoted: null });          
+         let responseb = await this.groupParticipantsUpdate(id, [user], 'remove')
+         if (responseb[0].status === "404") return      
+         return    
+          }
+        }
+    }
+    break
+
+
         case 'promote':
             text = (chat.sPromote || this.spromote || conn.spromote || '@user agora é um administrador')
         case 'demote':
