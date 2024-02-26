@@ -536,10 +536,7 @@ export async function participantsUpdate({ id, participants, action }) {
          let responseb = await this.groupParticipantsUpdate(id, [user], 'remove')
          if (responseb[0].status === "404") return      
          return    
-          }
-        }
-    }
-    break
+         }}
 
 
         case 'promote':
