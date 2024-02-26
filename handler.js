@@ -530,7 +530,7 @@ export async function participantsUpdate({ id, participants, action }) {
     break
 
          if (chat.antifake && isBotAdminNn && action === 'add') {
-         const numerosPermitidos = ["1", "2", "4", "5", "7", "8", "9"] //PUEDES EDITAR LOS USUARIOS QUE SE ELIMINARÁN SI EMPIEZA POR CUALQUIER DE ESOS NÚMEROS	
+         const numerosPermitidos = ["1", "2", "4", "5", "7", "8", "9"] //O número que começar com algum DDD desses será banido.
          if (numerosPermitidos.some(num => user.startsWith(num))) {	
          this.sendMessage(id, { text:`*isso @${user.split("@")[0]} não permitios*`, mentions: [user] }, { quoted: null });          
          let responseb = await this.groupParticipantsUpdate(id, [user], 'remove')
