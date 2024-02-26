@@ -26,8 +26,7 @@ export async function handler(chatUpdate) {
         return
     this.pushMessage(chatUpdate.messages).catch(console.error)
     let m = chatUpdate.messages[chatUpdate.messages.length - 1]
-   // Defina o prefixo padrão, substitua '!'' pelo prefixo real se for diferente
-   if (!m)
+    if (!m)
         return
     if (global.db.data == null)
         await global.loadDatabase()
@@ -590,6 +589,7 @@ Para desativar esta função, digite:
         console.error(e)
     }
 }
+
 global.dfail = (type, m, conn) => {
     let msg = {
         rowner: `👑 ${mssg.rownerH}`,
@@ -612,4 +612,4 @@ watchFile(file, async () => {
     unwatchFile(file)
     console.log(chalk.magenta("✅  Atualizado 'handler.js'"))
     if (global.reloadHandler) console.log(await global.reloadHandler())
-}) 
+  }) 
