@@ -26,7 +26,8 @@ export async function handler(chatUpdate) {
         return
     this.pushMessage(chatUpdate.messages).catch(console.error)
     let m = chatUpdate.messages[chatUpdate.messages.length - 1]
-    if (!m)
+   let usedPrefix = '/'; // Defina o prefixo padrão, substitua '!'' pelo prefixo real se for diferente
+   if (!m)
         return
     if (global.db.data == null)
         await global.loadDatabase()
