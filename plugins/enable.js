@@ -87,18 +87,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       chat.antiLink2 = isEnable
       break
-
-      case 'chatbot':
-    case 'autosimi':
-    case 'autosimsimi':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
-        }
-      }
-      chat.chatbot = isEnable
-      break
+      
       
       case 'captcha':
       if (m.isGroup) {
@@ -124,7 +113,13 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     isUser = true
      user.autolevelup = isEnable
      break
-         
+     
+     case 'chatbot':
+     case 'autosimi':
+     case 'autosimsimi':
+      isUser = true
+      user.chatbot = isEnable
+     break
      
     case 'restrict':
     case 'restringir':
