@@ -6,7 +6,7 @@ const fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "stat
 if (!m.isGroup) return !1
 let chat = global.db.data.chats[m.chat]
 if (isBotAdmin && chat.antifake) {
-let texto = `${lenguajeGB['smsAvisoAG']()}${lenguajeGB['smsInt1']()} *@${m.sender.split`@`[0]}* ${lenguajeGB['smsInt2']()}`
+let texto = `*@${m.sender.split`@`[0]}*`
 
 if (m.sender.startsWith('55' || '55')) {
 global.db.data.users[m.sender].block = true
