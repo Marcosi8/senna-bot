@@ -147,6 +147,8 @@ export async function handler(chatUpdate) {
                     chat.expired = 0
                  if (!('rules' in chat))
                      chat.rules = ''
+                 if (!('autosticker' in chat))
+                     chat.autosticker = true // ou false, dependendo do padrão que você quer definir
             } else
                 global.db.data.chats[m.chat] = {
                     isBanned: false,
@@ -165,6 +167,8 @@ export async function handler(chatUpdate) {
                     nsfw: false, 
                     expired: 0,
                     rules: '',
+                    autosticker: true,
+                    
                 }
             var settings = global.db.data.settings[this.user.jid]
             if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
