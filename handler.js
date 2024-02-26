@@ -590,8 +590,6 @@ Para desativar esta função, digite:
         console.error(e)
     }
 }
-
-if (command) { m.reply('mensagem do erro exemplo: comando não existe') }
 global.dfail = (type, m, conn) => {
     let msg = {
         rowner: `👑 ${mssg.rownerH}`,
