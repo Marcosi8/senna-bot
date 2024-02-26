@@ -79,6 +79,8 @@ export async function handler(chatUpdate) {
                     user.role = 'Novato'
                 if (!('autolevelup' in user))
                     user.autolevelup = false
+                if (!('chatbot' in user))
+                    user.chatbot = false
                 if (!('genero' in user))
                     user.genero = 'Indeciso'
                 if (!('language' in user))
@@ -105,6 +107,7 @@ export async function handler(chatUpdate) {
                     level: 0,
                     role: 'Novato',
                     autolevelup: false,
+                    chatbot: false,
                     genero: 'Indeciso',
                     language: 'pt',
                     prem: false,
@@ -129,7 +132,7 @@ export async function handler(chatUpdate) {
                 if (!('sDemote' in chat))
                     chat.sDemote = ''
                 if (!('delete' in chat))
-                    chat.delete = false
+                    chat.delete = true
                 if (!('antiLink' in chat))
                     chat.antiLink = false
                 if (!('antiLink2' in chat))
@@ -140,8 +143,6 @@ export async function handler(chatUpdate) {
                     chat.captcha = false
                 if (!('nsfw' in chat))
                     chat.nsfw = false
-                if (!('chatbot' in chat))
-                    chat.chatbot = false
                 if (!isNumber(chat.expired))
                     chat.expired = 0
                  if (!('rules' in chat))
@@ -159,7 +160,6 @@ export async function handler(chatUpdate) {
                     antiLink: false,
                     antiLink2: true,
                     viewonce: false,
-                    chatbot: false,
                     useDocument: true,
                     captcha: false,
                     nsfw: false, 
