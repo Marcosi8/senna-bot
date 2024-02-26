@@ -26,7 +26,7 @@ export async function handler(chatUpdate) {
         return
     this.pushMessage(chatUpdate.messages).catch(console.error)
     let m = chatUpdate.messages[chatUpdate.messages.length - 1]
-   let usedPrefix = '/'; // Defina o prefixo padrão, substitua '!'' pelo prefixo real se for diferente
+   // Defina o prefixo padrão, substitua '!'' pelo prefixo real se for diferente
    if (!m)
         return
     if (global.db.data == null)
@@ -591,7 +591,7 @@ Para desativar esta função, digite:
     }
 }
 
-if (usedPrefix && command) { m.reply('mensagem do erro exemplo: comando não existe') }
+if (command) { m.reply('mensagem do erro exemplo: comando não existe') }
 global.dfail = (type, m, conn) => {
     let msg = {
         rowner: `👑 ${mssg.rownerH}`,
