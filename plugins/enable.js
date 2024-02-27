@@ -220,7 +220,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
  ${usedPrefix}anticall
  ${usedPrefix}public
  ${usedPrefix}sopv
- ${usedPrefix}sogp
+ ${usedPrefix}sogrupo
 └─────────────
 *📌 Exemplo:*
 *${usedPrefix}on* antilink2
