@@ -575,16 +575,12 @@ export async function groupsUpdate(groupsUpdate) {
     }
 }
 
-export async function chatUpdate(chatUpdate) {
-let isAnticall = global.db.data.settings[this.user.jid].chatUpdate;
-if (!isAnticall) return;
-for (let nk of callUpdate) { 
-if (nk.isGroup == false) {
-if (nk.status == "offer") {
-let callmsg = await this.reply(nk.from, `*OLÁ* *@${nk.from.split('@')[0]}*, *AS CHAMADAS ${nk.isVideo ? 'DE VÍDEO' : 'DE ÁUDIO'}* ${nk.isVideo ? '📲' : '📞'} *NÃO ESTÃO AUTORIZADAS, VOCÊ SERÁ BLOQUEADO*\n\n*SE LIGOU POR ACIDENTE, ENTRE EM CONTATO COM O CRIADOR DO BOT*`, false, { mentions: [nk.from] });
-await this.updateBlockStatus(nk.from, 'block');
-}}}}
-
+//Antispam		
+if (user.antispam2) return
+let time = global.db.data.users[m.sender].spam + 5000
+if (new Date - global.db.data.users[m.sender].spam < 5000) throw console.log(`[ SPAM ]`) 
+global.db.data.users[m.sender].spam = new Date * 1
+}
 
 export async function deleteUpdate(message) {
     try {
