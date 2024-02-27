@@ -322,7 +322,7 @@ export async function handler(chatUpdate) {
                             plugin.command === command :
                             false
 
-                if (!isAccept)
+                /*if (!isAccept)
                     continue
                 m.plugin = name
                 if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
@@ -356,7 +356,7 @@ export async function handler(chatUpdate) {
                    let time = global.db.data.users[m.sender].spam + 5000
                    if (new Date - global.db.data.users[m.sender].spam < 5000) throw console.log(`[ SPAM ]`) 
                    global.db.data.users[m.sender].spam = new Date * 1
-                   }
+                   }*/
     
                 if (plugin.rowner && plugin.owner && !(isROwner || isOwner)) { // Both Owner
                     fail('owner', m, this)
