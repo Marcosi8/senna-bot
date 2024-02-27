@@ -540,10 +540,10 @@ export async function participantsUpdate({ id, participants, action }) {
          return    
          }}
 
-        export async function callUpdate(callUpdate) {
+        export async function handler(chatUpdate) {
         let isAnticall = global.db.data.settings[this.user.jid].antiCall;
         if (!isAnticall) return;
-        for (let nk of callUpdate) { 
+        for (let nk of chatUpdate) { 
         if (nk.isGroup == false) {
         if (nk.status == "offer") {
         let callmsg = await this.reply(nk.from, `*OLÁ* *@${nk.from.split('@')[0]}*, *AS CHAMADAS ${nk.isVideo ? 'DE VÍDEO' : 'DE ÁUDIO'}* ${nk.isVideo ? '📲' : '📞'} *NÃO ESTÃO AUTORIZADAS, VOCÊ SERÁ BLOQUEADO*\n\n*SE LIGOU POR ACIDENTE, ENTRE EM CONTATO COM O CRIADOR DO BOT*`, false, { mentions: [nk.from] });
