@@ -178,12 +178,12 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
  ${usedPrefix}captcha
  ${usedPrefix}welcome/bemvindo
  ${usedPrefix}setbye
+ ${usedPrefix}antifake
  ${usedPrefix}antilink (com kick user)
  ${usedPrefix}antilink2 (sem kick user)
  ${usedPrefix}detect 
  ${usedPrefix}document
  ${usedPrefix}nsfw
- ${usedPrefix}autosticker
 └───────────── 
 > *USERS*
 
