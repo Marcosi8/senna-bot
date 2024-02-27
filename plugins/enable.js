@@ -182,6 +182,18 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       bot.sologp = isEnable
       break
 
+      case 'antispam':
+      case 'semspam':
+      case 'antiflood':
+      case 'semflood':
+      isAll = true
+      if (!isOwner) {
+        global.dfail('owner', m, conn)
+        throw false
+      }
+      bot.antispam = isEnable
+      break
+
     default:
       //if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, listMessage, { quoted: m })
       if (!/[01]/.test(command)) return m.reply(`
