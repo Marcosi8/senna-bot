@@ -96,7 +96,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
           throw false
         }
       }
-      chat.antifake = isEnable
+      chat.antiFake = isEnable
       break
       
       case 'captcha':
@@ -191,7 +191,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         global.dfail('owner', m, conn)
         throw false
       }
-      bot.antispam = isEnable
+      bot.antiSpam = isEnable
       break
 
     default:
