@@ -541,7 +541,7 @@ export async function participantsUpdate({ id, participants, action }) {
          }}
 
         export async function handler(chatUpdate) {
-        let isAnticall = global.db.data.settings[this.user.jid].antiCall;
+        let isAnticall = global.db.data.settings[this.user.jid].chatUpdate;
         if (!isAnticall) return;
         for (let nk of chatUpdate) { 
         if (nk.isGroup == false) {
