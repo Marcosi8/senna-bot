@@ -33,21 +33,21 @@ const timeDifference = currentTime - userData.lastMessageTime
 if (userData.antiBan === 1) {
 if (userData.message < 1) {
 userData.message++  
-motive = `${mid.smsNoSpam}`
+motive = `🤨 NÃO FAÇA SPAM, VOCÊ NÃO PODERÁ USAR ${global.packname} POR ${60000 / 1000 - 59} MINUTO`
 //mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COMMANDOS DURANTE 30 SEGUNDOS*\n\n*MOTIVO: ${motive}*`  
 await conn.reply(m.chat, mid.smsNoSpam1(sender, motive), m, { mentions: [m.sender] })  
 user.messageSpam = motive
 }} else if (userData.antiBan === 2) {
 if (userData.message2 < 1) {
 userData.message2++  
-motive =  `${mid.smsNoSpam2}`
+motive =  `FOI BANIDO DEPOIS ${60000 / 1000 - 59} MINUTO. POR FAVOR NÃO SPAM!!`
 //mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COMMANDOS DURANTE 1 MINUTO*\n\n*MOTIVO: ${motive}*`
 await conn.reply(m.chat, mid.smsNoSpam3(sender, motive), m, { mentions: [m.sender] })  
 user.messageSpam = motive
 }} else if (userData.antiBan === 3) {
 if (userData.message3 < 1) {
 userData.message3++  
-motive = `${mid.smsNoSpam4}`
+motive = `FOI BANIDO DEPOIS ${60000 / 1000 - 59} MINUTO. POR FAVOR NÃO SPAM!!`
 //mensaje = `*@${m.sender.split`@`[0]} NO PUEDE USAR COMMANDOS DURANTE 2 MINUTOS*\n\n*MOTIVO: ${motive}*`
 await conn.reply(m.chat, mid.smsNoSpam5(sender, motive), m, { mentions: [m.sender] }) 
 user.messageSpam = motive
@@ -59,7 +59,7 @@ userData.messageCount += 1
 
 if (userData.messageCount >= messageLimit) {
 const mention = `@${sender.split("@")[0]}`
-const warningMessage = `${mid.smsNoSpam6(mention)}`
+const warningMessage = `🤨 NÃO FAÇA SPAM, VOCÊ NÃO PODERÁ USAR ${global.packname} POR ${60000 / 1000 - 59} MINUTO`
 if (userData.antiBan > 2) return
 await conn.reply(m.chat, warningMessage, m, { mentions: [m.sender] })  
 user.banned = true
