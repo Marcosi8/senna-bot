@@ -334,6 +334,23 @@ export async function handler(chatUpdate) {
                         return
                     }
 
+                if (!isAccept)
+                continue
+                m.plugin = name
+               if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
+              let chat = global.db.data.chats[m.chat]
+              let user = global.db.data.users[m.sender]
+              if (!['owner-unbanchat.js'].includes(name) && chat && chat.isBanned && !isROwner) return // Except this
+              if (name != 'owner-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-exec2.js' && name != 'tool-delete.js' && chat?.isBanned && !isROwner) return 
+              if (m.text && user.banned && !isROwner) {
+              if (user.antispam > 2) return
+              m.reply(`🚫 *ESTÁ BANIDO(A), NÃO PODE USAR COMANDOS*\n📑 *MOTIVO: ${user.messageSpam === 0 ? 'NÃO ESPECIFICADO' : user.messageSpam}*\n⚠️ _SE ACHA QUE PODE SER UM ERRO, ENTRAR EM CONTATO_`)
+              user.antispam++	
+              return
+              }
+
+
+             
                    //Antispam		
                    if (user.antispam2) return
                    let time = global.db.data.users[m.sender].spam + 5000
