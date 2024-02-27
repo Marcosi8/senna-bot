@@ -332,7 +332,15 @@ export async function handler(chatUpdate) {
                         return // Except this
                     if (name != 'owner-unbanuser.js' && user?.banned)
                         return
-                }
+                    }
+
+                   //Antispam		
+                   if (user.antispam2) return
+                   let time = global.db.data.users[m.sender].spam + 5000
+                   if (new Date - global.db.data.users[m.sender].spam < 5000) throw console.log(`[ SPAM ]`) 
+                   global.db.data.users[m.sender].spam = new Date * 1
+                   }
+    
                 if (plugin.rowner && plugin.owner && !(isROwner || isOwner)) { // Both Owner
                     fail('owner', m, this)
                     continue
@@ -575,13 +583,6 @@ export async function groupsUpdate(groupsUpdate) {
         if (!text) continue
         await this.sendMessage(id, { text, mentions: this.parseMention(text) })
     }
-}
-
-//Antispam		
-if (user.antispam2) return
-let time = global.db.data.users[m.sender].spam + 5000
-if (new Date - global.db.data.users[m.sender].spam < 5000) throw console.log(`[ SPAM ]`) 
-global.db.data.users[m.sender].spam = new Date * 1
 }
 
 export async function deleteUpdate(message) {
