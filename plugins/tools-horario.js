@@ -26,13 +26,25 @@ const fechareino = moment().tz('Europe/London').format('DD/MM HH:mm');
 const fechajapao = moment().tz('Asia/Tokyo').format('DD/MM HH:mm');
 const fechaaus = moment().tz('Australia/Sydney').format('DD/MM HH:mm');
 const fechanz = moment().tz('Pacific/Auckland').format('DD/MM HH:mm');
-
+const fechapyongyang = moment().tz('Asia/Pyongyang').format('DD/MM HH:mm'); // Coreia do Norte
+const fechachernobyl = moment().tz('Europe/Kiev').format('DD/MM HH:mm'); // Local de Chernobyl
+const fechakerguelen = moment().tz('Indian/Kerguelen').format('DD/MM HH:mm'); // Ilhas Kerguelen
+const fechalord = moment().tz('Antarctica/McMurdo').format('DD/MM HH:mm'); // Estação Scott Base, Antártica
+const fechamarie = moment().tz('Pacific/Marquesas').format('DD/MM HH:mm'); // Ilhas Marquesas
+const fechapitcairn = moment().tz('Pacific/Pitcairn').format('DD/MM HH:mm'); // Ilhas Pitcairn
+const fechagalapagos = moment().tz('Pacific/Galapagos').format('DD/MM HH:mm'); // Ilhas Galápagos
+const fehacook = moment().tz('Pacific/Rarotonga').format('DD/MM HH:mm'); // Ilhas Cook
+const fechamalvinas = moment().tz('Atlantic/Stanley').format('DD/MM HH:mm'); // Ilhas Malvinas
+  
 await conn.sendMessage(m.chat, { text: `\`\`\`
 「 Fuso-Horário 🗺️ 」
+⏱️Antártica: ${fechalord}
 ⏱️Brasil: ${fechabra}
+⏱️Chernobyl: ${fechachernobyl}
 ⏱️Peru: ${fechaperu}
+⏱️Coreia do Norte: ${fechapyongyang}
 ⏱️México: ${fechamexico}
-⏱️Bolívia : ${fechabolivia}
+⏱️Bolívia: ${fechabolivia}
 ⏱️Chile: ${fechachile}
 ⏱️Costa Rica: ${fechacosta}
 ⏱️Porto Rico: ${fechapuerto}
@@ -40,7 +52,7 @@ await conn.sendMessage(m.chat, { text: `\`\`\`
 ⏱️Paraguai: ${fechaparaguai}
 ⏱️Uruguai: ${fechauruguai}
 ⏱️Venezuela: ${fechavenezuela}
-⏱️Papua Nova Guiné : ${fechapar}
+⏱️Papua Nova Guiné: ${fechapar}
 ⏱️Tailândia: ${fechabang}
 ⏱️Hong Kong: ${fechahong}
 ⏱️Singapura: ${fechasing}
@@ -54,13 +66,19 @@ await conn.sendMessage(m.chat, { text: `\`\`\`
 ⏱️Japão: ${fechajapao}
 ⏱️Austrália: ${fechaaus}
 ⏱️Nova Zelândia: ${fechanz}
+⏱️Ilhas Marquesas: ${fechamarie}
+⏱️Ilhas Kerguelen: ${fechakerguelen}
+⏱️Ilhas Pitcairn: ${fechapitcairn}
+⏱️Ilhas Galápagos: ${fechagalapagos}
+⏱️Ilhas Cook: ${fehacook}
+⏱️Ilhas Malvinas: ${fechamalvinas}
 \`\`\`
 ${String.fromCharCode(8206).repeat(850)}
 💻 *Horario do servidor*\n*[ ${Intl.DateTimeFormat().resolvedOptions().timeZone} ]*\n*${moment().tz(Intl.DateTimeFormat().resolvedOptions().timeZone).format('DD/MM/YY HH:mm:ss')}*` }, {quoted: m })
 }
 
 handler.help = ['horario']
-handler.tags = ['info', 'prime']
+handler.tags = ['info']
 handler.command = ['hora', 'horario', 'time']
 
 export default handler
