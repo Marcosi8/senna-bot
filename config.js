@@ -4,12 +4,12 @@ import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 
 global.owner = [
-  ['61488873561', 'marcoskz_', true],
-  ['']
+  ['558881647724', 'marcoskz_', true],
+  ['61488873561']
 ] //Numeros dos donos
 
-global.mods = [''] 
-global.prems = ['', '']
+global.mods = ['558881647724'] 
+global.prems = ['558881647724', '558881647724']
 global.APIs = { // API Prefix
   // name: 'https://website' 
   nrtm: 'https://fg-nrtm.ddns.net',
