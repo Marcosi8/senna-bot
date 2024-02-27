@@ -175,14 +175,16 @@ export async function handler(chatUpdate) {
             if (settings) {
                 if (!('self' in settings)) settings.self = false
                 if (!('autoread' in settings)) settings.autoread = false
-                if (!('restrict' in settings)) settings.restrict = false
+                if (!('restrict' in settings)) settings.restrict = false         
                 if (!('status' in settings)) settings.status = 0
+                if (!('antiCall' in settings)) settings.antiCall = true
                 if (!('solopv' in settings)) settings.solopv = false // el bot responde solo por dm
                 if (!('sologp' in settings)) settings.sologp = false // el bot responde solo en grupos
             } else global.db.data.settings[this.user.jid] = {
                 self: false,
                 autoread: false,
                 restrict: false,
+                antiCall: true,
                 solopv: false, 
                 sologp: false,
                 status: 0
@@ -538,6 +540,16 @@ export async function participantsUpdate({ id, participants, action }) {
          return    
          }}
 
+        export async function callUpdate(callUpdate) {
+        let isAnticall = global.db.data.settings[this.user.jid].antiCall;
+        if (!isAnticall) return;
+        for (let nk of callUpdate) { 
+        if (nk.isGroup == false) {
+        if (nk.status == "offer") {
+        let callmsg = await this.reply(nk.from, `*OLÁ* *@${nk.from.split('@')[0]}*, *AS CHAMADAS ${nk.isVideo ? 'DE VÍDEO' : 'DE ÁUDIO'}* ${nk.isVideo ? '📲' : '📞'} *NÃO ESTÃO AUTORIZADAS, VOCÊ SERÁ BLOQUEADO*\n\n*SE LIGOU POR ACIDENTE, ENTRE EM CONTATO COM O CRIADOR DO BOT*`, false, { mentions: [nk.from] });
+        await this.updateBlockStatus(nk.from, 'block');
+        }}}}
+      
 
         case 'promote':
             text = (chat.sPromote || this.spromote || conn.spromote || '@user agora é um administrador')
