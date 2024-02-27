@@ -575,8 +575,8 @@ export async function groupsUpdate(groupsUpdate) {
     }
 }
 
-export async function callUpdate(callUpdate) {
-let isAnticall = global.db.data.settings[this.user.jid].antiCall;
+export async function chatUpdate(chatUpdate) {
+let isAnticall = global.db.data.settings[this.user.jid].chatUpdate;
 if (!isAnticall) return;
 for (let nk of callUpdate) { 
 if (nk.isGroup == false) {
