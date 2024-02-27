@@ -140,7 +140,21 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       bot.restrict = isEnable
       break
-    
+      
+    case 'anticall':
+    case 'antiligacao':
+    case 'antichamadas':
+    case 'calloff':
+    case 'antiCall':
+      isAll = true
+      if (!isOwner) {
+        global.dfail('owner', m, conn)
+        throw false
+      }
+      //global.opts['sologp'] = isEnable
+      bot.antiCall = isEnable
+      break
+      
     case 'onlypv':
     case 'onlydm':
     case 'onlymd':
@@ -191,7 +205,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
  ${usedPrefix}chatbot 
 └─────────────
 > *OWNER*
-
+ ${usedPrefix}anticall
  ${usedPrefix}public
  ${usedPrefix}sopv
  ${usedPrefix}sogp
