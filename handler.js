@@ -148,7 +148,7 @@ export async function handler(chatUpdate) {
                  if (!('rules' in chat))
                      chat.rules = ''
                  if (!('antifake' in chat))
-                     chat.antifake = true // ou false, dependendo do padrão que você quer definir
+                     chat.antifake = false // ou false, dependendo do padrão que você quer definir
             } else
                 global.db.data.chats[m.chat] = {
                     isBanned: false,
@@ -167,7 +167,7 @@ export async function handler(chatUpdate) {
                     nsfw: false, 
                     expired: 0,
                     rules: '',
-                    antifake: true,
+                    antifake: false,
                     
                 }
             var settings = global.db.data.settings[this.user.jid]
