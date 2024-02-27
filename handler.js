@@ -322,7 +322,7 @@ export async function handler(chatUpdate) {
                             plugin.command === command :
                             false
 
-                /*if (!isAccept)
+                if (!isAccept)
                     continue
                 m.plugin = name
                 if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
@@ -334,7 +334,7 @@ export async function handler(chatUpdate) {
                         return
                     }
 
-                if (!isAccept)
+                /*if (!isAccept)
                 continue
                 m.plugin = name
                if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
