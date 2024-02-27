@@ -96,7 +96,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
           throw false
         }
       }
-      chat.autosticker = isEnable
+      chat.antifake = isEnable
       break
       
       case 'captcha':
