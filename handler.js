@@ -576,15 +576,13 @@ export async function groupsUpdate(groupsUpdate) {
 }
 
 export async function callUpdate(callUpdate) {
-let isAnticall = global.db.data.settings[this.user.jid].antiCall  
-if (!isAnticall) return
+let isAnticall = global.db.data.settings[this.user.jid].antiCall;
+if (!isAnticall) return;
 for (let nk of callUpdate) { 
 if (nk.isGroup == false) {
 if (nk.status == "offer") {
-let callmsg = await this.reply(nk.from, `${lenguajeGB['smsCont15']()} *@${nk.from.split('@')[0]}*, ${nk.isVideo ? lenguajeGB.smsCont16() : lenguajeGB.smsCont17()} ${lenguajeGB['smsCont18']()}`, false, { mentions: [nk.from] })
-//let data = global.owner.filter(([id, isCreator]) => id && isCreator)
-//await this.sendContact(nk.from, data.map(([id, name]) => [id, name]), false, { quoted: callmsg })
-await this.updateBlockStatus(nk.from, 'block')
+let callmsg = await this.reply(nk.from, `*OLÁ* *@${nk.from.split('@')[0]}*, *AS CHAMADAS ${nk.isVideo ? 'DE VÍDEO' : 'DE ÁUDIO'}* ${nk.isVideo ? '📲' : '📞'} *NÃO ESTÃO AUTORIZADAS, VOCÊ SERÁ BLOQUEADO*\n\n*SE LIGOU POR ACIDENTE, ENTRE EM CONTATO COM O CRIADOR DO BOT*`, false, { mentions: [nk.from] });
+await this.updateBlockStatus(nk.from, 'block');
 }}}}
 
 
