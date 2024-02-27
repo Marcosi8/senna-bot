@@ -6,7 +6,7 @@ const fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "stat
 if (!m.isGroup) return !1
 let chat = global.db.data.chats[m.chat]
 if (isBotAdmin && chat.antifake) {
-let texto = `*@${m.sender.split`@`[0]}*`
+let texto = `*[❗️] O NÚMERO: @${m.sender.split`@`[0]} NÃO ESTÁ PERMITIDO NO GRUPO, POIS O ANTI-FAKE FOI LIGADO!\n\n_Use /off antifake para desabilitar esta função._`
 
 if (m.sender.startsWith('55' || '55')) {
 global.db.data.users[m.sender].block = true
