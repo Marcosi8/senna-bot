@@ -78,7 +78,7 @@ ${String.fromCharCode(8206).repeat(850)}
 }
 
 handler.help = ['horario']
-handler.tags = ['info']
+handler.tags = ['main']
 handler.command = ['hora', 'horario', 'time']
 
 export default handler
