@@ -163,13 +163,13 @@ function _0x1718(_0x234859, _0x3c61f3) {
         return _0x101a6a;
     }, _0x1718(_0x234859, _0x3c61f3);
 }
-handler[_0x31d8d6(0x148)] = ['chatgpt\x20<text>'], handler[_0x31d8d6(0x159)] = [
+handler[_0x31d8d6(0x148)] = ['chatgpt2\x20<text>'], handler[_0x31d8d6(0x159)] = [
     'ia',
     _0x31d8d6(0x156)
 ], handler['command'] = [
     'ai',
     _0x31d8d6(0x14f),
     _0x31d8d6(0x155),
-    'chatgpt'
+    'chatgpt2'
 ];
 export default handler;
