@@ -75,9 +75,9 @@ const handler = async (m, {
     });
 };
 
-handler.help = ["play"];
+handler.help = ["song"];
 handler.tags = ["prime"];
-handler.command = ['musica', 'song2', 'música', 'play', 'som'];
+handler.command = ['song', 'song2', 'som'];
 handler.limit = false;
 export default handler;
 
