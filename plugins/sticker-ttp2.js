@@ -11,7 +11,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let stiker = await sticker(null, stick, global.packname, global.author)
     if (stiker) return await conn.sendFile(m.chat, stiker, '', '', m, null, rpl)
   } catch (e) {
-    m.reply('Conversión archivada')
+    m.reply('Conversião arquivada')
     throw false
   }
 }
