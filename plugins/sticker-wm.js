@@ -20,8 +20,8 @@ let handler = async (m, { conn, text, args }) => {
      else throw 'Falha na conversão'
   }
 }
-handler.help = ['pegar <nome>|<autor>']
+handler.help = ['roubar <nome>|<autor>']
 handler.tags = ['sticker']
-handler.command = ['take', 'pegar'] 
+handler.command = ['take', 'pegar', 'roubar'] 
 
 export default handler
